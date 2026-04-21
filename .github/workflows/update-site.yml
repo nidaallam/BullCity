@@ -1,0 +1,40 @@
+name: Update Site Data
+
+on:
+  schedule:
+    # Runs at 7:00 AM Eastern (12:00 UTC) every day
+    - cron: '0 12 * * *'
+  workflow_dispatch: # also allows manual trigger from the Actions tab
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install feedparser requests beautifulsoup4
+
+      - name: Fetch and update news.json
+        run: python scripts/fetch_news.py
+
+      - name: Fetch and update meetings.json
+        run: python scripts/fetch_meetings.py
+
+      - name: Commit and push updated data files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add news.json meetings.json
+          git diff --cached --quiet || git commit -m "chore: auto-update site data $(date -u +'%Y-%m-%d')"
+          git push
