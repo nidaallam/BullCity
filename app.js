@@ -366,41 +366,227 @@ function renderMeetingRow(m) {
 }
 
 // ── Calendar ──────────────────────────────────────────────────
+let calendarData   = null;
+let calView        = 'grid';  // 'grid' | 'list'
+let calGridYear    = null;
+let calGridMonth   = null;    // 0-indexed
+let calActiveFilter = null;
+
+const CAL_COLOR_MAP = {
+  government:  '#207C91',
+  budget:      '#E97221',
+  hearing:     '#DA421E',
+  schools:     '#3B82F6',
+  community:   '#6E9D97',
+  health:      '#D97706',
+  announcement:'#EBA85C',
+};
+
+function calColor(category) {
+  return CAL_COLOR_MAP[(category || '').toLowerCase()] || '#207C91';
+}
+
 async function loadCalendar() {
   const container = document.getElementById('calendarContainer');
   if (!container) return;
   try {
     const res  = await fetch('calendar.json');
-    const data = await res.json();
-    renderCalendar(data, container);
+    calendarData = await res.json();
+    // Default to current month
+    const now = new Date();
+    calGridYear  = now.getFullYear();
+    calGridMonth = now.getMonth();
+    setCalView('grid');
   } catch {
-    // fallback HTML
+    container.innerHTML = '<p style="color:var(--muted)">Could not load calendar data.</p>';
   }
 }
 
+function setCalView(mode) {
+  calView = mode;
+  document.getElementById('calViewGrid')?.classList.toggle('active', mode === 'grid');
+  document.getElementById('calViewList')?.classList.toggle('active', mode === 'list');
+  document.getElementById('calMonthNav').style.display = mode === 'grid' ? 'flex' : 'none';
+  document.getElementById('calDayDetail').style.display = 'none';
+  renderCalendar(calendarData, document.getElementById('calendarContainer'));
+}
+
+function calFilterCat(cat, btn) {
+  calActiveFilter = cat;
+  document.querySelectorAll('#calCatFilters .tag-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  closeDayDetail();
+  renderCalendar(calendarData, document.getElementById('calendarContainer'));
+}
+
+function closeDayDetail() {
+  document.getElementById('calDayDetail').style.display = 'none';
+  document.querySelectorAll('.cal-grid-cell--selected').forEach(c => c.classList.remove('cal-grid-cell--selected'));
+}
+
 function renderCalendar(data, container) {
-  if (!data.events || !data.events.length) {
+  if (!data || !data.events || !data.events.length) {
     container.innerHTML = '<p style="color:var(--muted)">No upcoming events.</p>';
+    return;
+  }
+  if (calView === 'grid') {
+    renderCalendarGrid(data, container);
+  } else {
+    renderCalendarList(data, container);
+  }
+}
+
+// ── Grid view ─────────────────────────────────────────────────
+function renderCalendarGrid(data, container) {
+  const events = data.events;
+  const year   = calGridYear;
+  const month  = calGridMonth;
+
+  // Update month label + wire nav buttons
+  const label = new Date(year, month, 1).toLocaleDateString('en-US', {month:'long', year:'numeric'});
+  const el = document.getElementById('calMonthLabel');
+  if (el) el.textContent = label;
+
+  document.getElementById('calPrevBtn').onclick = () => {
+    calGridMonth--;
+    if (calGridMonth < 0) { calGridMonth = 11; calGridYear--; }
+    renderCalendarGrid(data, container);
+    closeDayDetail();
+  };
+  document.getElementById('calNextBtn').onclick = () => {
+    calGridMonth++;
+    if (calGridMonth > 11) { calGridMonth = 0; calGridYear++; }
+    renderCalendarGrid(data, container);
+    closeDayDetail();
+  };
+  document.getElementById('calTodayBtn').onclick = () => {
+    const now = new Date();
+    calGridYear  = now.getFullYear();
+    calGridMonth = now.getMonth();
+    renderCalendarGrid(data, container);
+    closeDayDetail();
+  };
+
+  // Index events by YYYY-MM-DD
+  const byDate = {};
+  events.forEach(ev => {
+    (byDate[ev.date] = byDate[ev.date] || []).push(ev);
+  });
+
+  // First day of month (0=Sun) and number of days
+  const firstDay  = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const today     = new Date();
+  const todayStr  = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+
+  // Build grid cells: pad before and after
+  const DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  let cells = '';
+
+  // Header row
+  cells += DAY_NAMES.map(d => `<div class="cal-grid-header">${d}</div>`).join('');
+
+  // Pre-month days from previous month
+  const prevMonthDays = new Date(year, month, 0).getDate();
+  for (let i = firstDay - 1; i >= 0; i--) {
+    cells += `<div class="cal-grid-cell cal-grid-cell--other-month" data-count="0">
+      <span class="cal-grid-day-num">${prevMonthDays - i}</span>
+    </div>`;
+  }
+
+  // Days in current month
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dayEvents = byDate[dateStr] || [];
+    const isToday = dateStr === todayStr;
+    const chips   = dayEvents.slice(0, 3).map(ev =>
+      `<span class="cal-chip" style="background:${calColor(ev.category)}" title="${esc(ev.title)}">${esc(ev.title)}</span>`
+    ).join('');
+    const more = dayEvents.length > 3
+      ? `<span class="cal-chip cal-chip--more">+${dayEvents.length - 3} more</span>`
+      : '';
+    cells += `
+      <div class="cal-grid-cell${isToday ? ' cal-grid-cell--today' : ''}"
+           data-date="${dateStr}" data-count="${dayEvents.length}"
+           onclick="showDayDetail('${dateStr}', this)">
+        <span class="cal-grid-day-num">${d}</span>
+        ${chips}${more}
+      </div>`;
+  }
+
+  // Post-month filler
+  const cellsUsed = firstDay + daysInMonth;
+  const remainder = 7 - (cellsUsed % 7);
+  if (remainder < 7) {
+    for (let d = 1; d <= remainder; d++) {
+      cells += `<div class="cal-grid-cell cal-grid-cell--other-month" data-count="0">
+        <span class="cal-grid-day-num">${d}</span>
+      </div>`;
+    }
+  }
+
+  container.innerHTML = `<div class="cal-grid-wrap"><div class="cal-grid">${cells}</div></div>`;
+}
+
+function showDayDetail(dateStr, cell) {
+  const events = (calendarData?.events || []).filter(ev => ev.date === dateStr);
+  const detail = document.getElementById('calDayDetail');
+  const body   = document.getElementById('calDayDetailBody');
+  const title  = document.getElementById('calDayDetailTitle');
+
+  // Deselect previous
+  document.querySelectorAll('.cal-grid-cell--selected').forEach(c => c.classList.remove('cal-grid-cell--selected'));
+  cell.classList.add('cal-grid-cell--selected');
+
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const label = new Date(y, m-1, d).toLocaleDateString('en-US', {weekday:'long', month:'long', day:'numeric', year:'numeric'});
+  title.textContent = label;
+
+  if (!events.length) {
+    body.innerHTML = '<p style="font-size:.875rem;color:#6b7280;padding:.25rem 0">No events this day.</p>';
+  } else {
+    body.innerHTML = events.map(ev => {
+      const color = calColor(ev.category);
+      const links = (ev.links || []).map(l =>
+        `<a class="cal-detail-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
+      ).join('');
+      return `
+        <div class="cal-detail-event">
+          <div class="cal-detail-dot" style="background:${color}"></div>
+          <div class="cal-detail-info">
+            <div class="cal-detail-name">${esc(ev.title)}</div>
+            <div class="cal-detail-meta">
+              ${ev.time ? `🕐 ${esc(ev.time)}` : ''}
+              ${ev.location ? ` · 📍 ${esc(ev.location)}` : ''}
+            </div>
+            ${links ? `<div class="cal-detail-links">${links}</div>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+  }
+
+  detail.style.display = 'block';
+  detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// ── List view ─────────────────────────────────────────────────
+function renderCalendarList(data, container) {
+  const events = calActiveFilter
+    ? data.events.filter(ev => (ev.category || '').toLowerCase() === calActiveFilter)
+    : data.events;
+
+  if (!events.length) {
+    container.innerHTML = '<p style="color:var(--muted)">No events match this filter.</p>';
     return;
   }
 
   // Group by month
   const byMonth = {};
-  data.events.forEach(ev => {
+  events.forEach(ev => {
     const [y, m] = ev.date.split('-');
     const key    = `${y}-${m}`;
     (byMonth[key] = byMonth[key] || []).push(ev);
   });
-
-  const COLOR_MAP = {
-    government:  'var(--teal)',
-    budget:      'var(--orange)',
-    hearing:     'var(--rust)',
-    schools:     'var(--blue)',
-    community:   'var(--sage)',
-    health:      'var(--gold)',
-    announcement:'var(--peach)',
-  };
 
   container.innerHTML = Object.entries(byMonth).sort().map(([key, evs]) => {
     const [y, m] = key.split('-').map(Number);
@@ -410,7 +596,7 @@ function renderCalendar(data, container) {
         <div class="cal-month-label">${esc(monthLabel)}</div>
         ${evs.map(ev => {
           const d     = new Date(ev.date + 'T00:00:00');
-          const color = COLOR_MAP[ev.category?.toLowerCase()] || 'var(--teal)';
+          const color = calColor(ev.category);
           const rel   = relDay(ev.date);
           const links = (ev.links || []).map(l =>
             `<a class="cal-event-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`
@@ -424,9 +610,9 @@ function renderCalendar(data, container) {
               <div class="cal-event-body">
                 ${ev.category ? `<div class="cal-event-cat">${esc(ev.category)}</div>` : ''}
                 <div class="cal-event-title">${esc(ev.title)}</div>
-                ${ev.time   ? `<div class="cal-event-time">🕐 ${esc(ev.time)}</div>` : ''}
+                ${ev.time     ? `<div class="cal-event-time">🕐 ${esc(ev.time)}</div>` : ''}
                 ${ev.location ? `<div class="cal-event-loc">📍 ${esc(ev.location)}</div>` : ''}
-                ${rel ? `<div class="cal-event-rel">${esc(rel)}</div>` : ''}
+                ${rel         ? `<div class="cal-event-rel">${esc(rel)}</div>` : ''}
                 ${links}
               </div>
             </div>
