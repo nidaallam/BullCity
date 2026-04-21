@@ -457,6 +457,170 @@
       .exp-funding-amt { display: none; }
       .exp-funding-label { width: 7rem; }
     }
+
+    /* ─── Property Tax Receipt ──────────────────────────────────────── */
+    .exp-receipt-card {
+      background: #fff;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 12px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 2rem;
+    }
+    .exp-receipt-intro {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .83rem;
+      color: #555;
+      line-height: 1.55;
+      margin-bottom: 1.1rem;
+    }
+    .exp-receipt-input-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .exp-receipt-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--exp-navy);
+      flex-shrink: 0;
+    }
+    .exp-receipt-input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 7px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .exp-receipt-dollar {
+      padding: .5rem .6rem;
+      background: #f3f4f6;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .9rem;
+      font-weight: 700;
+      color: #666;
+      border-right: 1px solid #e5e0d8;
+    }
+    .exp-receipt-input {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--exp-navy);
+      border: none;
+      background: transparent;
+      padding: .5rem .75rem;
+      width: 180px;
+      outline: none;
+    }
+    .exp-receipt-input:focus { background: #fff; }
+    .exp-receipt-hint {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .75rem;
+      color: #999;
+      font-style: italic;
+    }
+    .exp-receipt-result {
+      margin-top: 1.25rem;
+      border-top: 1px solid var(--border, #e5e0d8);
+      padding-top: 1rem;
+    }
+    .exp-receipt-summary {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.1rem;
+      padding-bottom: .85rem;
+      border-bottom: 1px solid var(--border, #e5e0d8);
+    }
+    .exp-receipt-summary-item {}
+    .exp-receipt-summary-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: #888;
+      margin-bottom: .2rem;
+    }
+    .exp-receipt-summary-value {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--exp-navy);
+      line-height: 1;
+    }
+    .exp-receipt-row {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: .6rem;
+    }
+    .exp-receipt-row:last-of-type { margin-bottom: 0; }
+    .exp-receipt-row-icon { font-size: .95rem; width: 1.3rem; text-align: center; flex-shrink: 0; }
+    .exp-receipt-row-name {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--exp-navy);
+      width: 10rem;
+      flex-shrink: 0;
+    }
+    .exp-receipt-row-bar-wrap {
+      flex: 1;
+      height: 8px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .exp-receipt-row-bar {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .4s ease;
+    }
+    .exp-receipt-row-pct {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--exp-navy);
+      width: 3.2rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .exp-receipt-row-amt {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--exp-teal, #207C91);
+      width: 5.5rem;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .exp-receipt-combined-note {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      color: #555;
+      background: #f8f6f1;
+      border: 1px solid var(--border, #e5e0d8);
+      border-radius: 6px;
+      padding: .6rem .85rem;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    .exp-receipt-note {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .72rem;
+      color: #aaa;
+      margin-top: .9rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+    @media (max-width: 560px) {
+      .exp-receipt-row-amt { width: 4.5rem; font-size: .72rem; }
+      .exp-receipt-row-name { width: 7.5rem; }
+      .exp-receipt-input { width: 130px; }
+    }
   </style>
 </head>
 <body data-page="budget-explorer">
@@ -473,7 +637,6 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="news.html" class="nav-link">News</a>
         <a href="meetings.html" class="nav-link">Meetings</a>
-        
         <a href="budget.html" class="nav-link active">Budget</a>
         <a href="voting.html" class="nav-link">Voting</a>
         <a href="connect.html" class="nav-link">Connect</a>
@@ -511,7 +674,6 @@
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
         <a href="meetings.html">Meetings</a>
-        
         <a href="budget.html">Budget</a>
         <a href="voting.html">Voting</a>
         <a href="connect.html">Connect</a>
@@ -721,6 +883,8 @@
           </div>`).join('')}
       </div>
 
+      ${buildTaxReceipt(e, yr)}
+
       ${fundingHtml}
 
       <div class="exp-section-title">${spendingLabel}</div>
@@ -812,6 +976,108 @@
       </thead>`;
 
     return `<table class="exp-dept-table">${thead}<tbody>${rows}</tbody></table>`;
+  }
+
+  // ── Property Tax Receipt ────────────────────────────────────────────────
+  function buildTaxReceipt(e, yr) {
+    if (!e.taxRatePer100 || e.id === 'dps') return '';
+
+    const rateDisplay = (e.taxRatePer100 * 100).toFixed(2) + '¢ / $100 assessed value';
+    const counterNote = e.id === 'county'
+      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100.'
+      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100.';
+
+    return `
+      <div class="exp-section-title">Your Property Tax Receipt</div>
+      <div class="exp-receipt-card">
+        <p class="exp-receipt-intro">Enter your home's assessed value to see how your annual property tax breaks down by spending area. In North Carolina, property is assessed at 100% of appraised (market) value. The current ${e.name} tax rate is <strong>${rateDisplay}</strong>.</p>
+        <div class="exp-receipt-input-row">
+          <label class="exp-receipt-label" for="receiptInput_${e.id}">Home Assessed Value</label>
+          <div class="exp-receipt-input-wrap">
+            <span class="exp-receipt-dollar">$</span>
+            <input type="number" id="receiptInput_${e.id}" class="exp-receipt-input"
+                   placeholder="e.g. 350,000" min="0" step="1000"
+                   oninput="updateReceipt('${e.id}', ${e.taxRatePer100})" />
+          </div>
+          <span class="exp-receipt-hint">Try your Zillow estimate</span>
+        </div>
+        <div id="receiptResult_${e.id}" class="exp-receipt-result" style="display:none"></div>
+      </div>`;
+  }
+
+  function updateReceipt(entityId, taxRatePer100) {
+    const input  = document.getElementById('receiptInput_' + entityId);
+    const result = document.getElementById('receiptResult_' + entityId);
+    if (!input || !result) return;
+
+    const homeValue = parseFloat(input.value.replace(/,/g, ''));
+    if (!homeValue || homeValue <= 0) { result.style.display = 'none'; return; }
+
+    const annualTax  = homeValue * taxRatePer100 / 100;
+    const monthlyTax = annualTax / 12;
+
+    const e   = budgetData.entities.find(x => x.id === entityId);
+    const yr  = activeYear;
+    if (!e) return;
+
+    // For county: break down across all areas.
+    // For city: only City Operations is property-tax-funded (CIP is bond-funded).
+    const receiptAreas = entityId === 'city'
+      ? (e.areas || []).filter(a => a.id === 'city-operations')
+      : (e.areas || []);
+
+    const areaTotal = receiptAreas.reduce((sum, a) => sum + (a.amounts?.[yr] ?? 0), 0);
+
+    let breakdownHtml = '';
+    if (areaTotal > 0) {
+      const rows = receiptAreas
+        .filter(a => a.amounts?.[yr])
+        .sort((a, b) => b.amounts[yr] - a.amounts[yr])
+        .map(a => {
+          const areaPct   = a.amounts[yr] / areaTotal;
+          const dollarAmt = annualTax * areaPct;
+          return `
+            <div class="exp-receipt-row">
+              <span class="exp-receipt-row-icon">${a.icon || '📊'}</span>
+              <span class="exp-receipt-row-name">${a.name}</span>
+              <div class="exp-receipt-row-bar-wrap">
+                <div class="exp-receipt-row-bar" style="width:${(areaPct * 100).toFixed(1)}%;background:${e.accent || '#E97221'}"></div>
+              </div>
+              <span class="exp-receipt-row-pct">${(areaPct * 100).toFixed(1)}%</span>
+              <span class="exp-receipt-row-amt">$${dollarAmt.toFixed(2)}/yr</span>
+            </div>`;
+        }).join('');
+      breakdownHtml = `<div style="margin-bottom:.75rem;">${rows}</div>`;
+    }
+
+    const cityNote = entityId === 'city'
+      ? '<strong>Note:</strong> Your city property taxes fund day-to-day operations (police, fire, parks, etc.). The Capital Improvement Plan ($537.6M) is funded by bonds and grants, not annual property taxes.'
+      : '';
+    const combinedNote = entityId === 'county'
+      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100 — an additional $' + (homeValue * 0.4371 / 100).toFixed(2) + '/yr for a $' + Math.round(homeValue).toLocaleString() + ' home.'
+      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100 — an additional $' + (homeValue * 0.5542 / 100).toFixed(2) + '/yr for a $' + Math.round(homeValue).toLocaleString() + ' home.';
+
+    result.innerHTML = `
+      <div class="exp-receipt-summary">
+        <div class="exp-receipt-summary-item">
+          <div class="exp-receipt-summary-label">Annual Tax</div>
+          <div class="exp-receipt-summary-value">$${annualTax.toFixed(2)}</div>
+        </div>
+        <div class="exp-receipt-summary-item">
+          <div class="exp-receipt-summary-label">Monthly</div>
+          <div class="exp-receipt-summary-value">$${(annualTax / 12).toFixed(2)}</div>
+        </div>
+        <div class="exp-receipt-summary-item">
+          <div class="exp-receipt-summary-label">Daily</div>
+          <div class="exp-receipt-summary-value">$${(annualTax / 365).toFixed(2)}</div>
+        </div>
+      </div>
+      ${breakdownHtml}
+      ${cityNote ? `<div class="exp-receipt-combined-note">${cityNote}</div>` : ''}
+      <div class="exp-receipt-combined-note">${combinedNote}</div>
+      <p class="exp-receipt-note">ⓘ Breakdown is proportional to adopted budget spending by area. Percentages are approximate. Source: ${e.name} FY${yr.replace('FY','')} Adopted Budget.</p>
+    `;
+    result.style.display = 'block';
   }
 
   // ── Toggle area open/close (accordion: one open at a time) ─────────────
