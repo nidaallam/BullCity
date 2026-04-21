@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civic Calendar – Durham Civic Hub</title>
+  <meta name="description" content="Upcoming civic events, public hearings, board meetings, and community events for Durham County, NC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-page="calendar">
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-bull">🐂</span>
+        <span class="logo-text">Durham<strong>Civic</strong>Hub</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">News</a>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="calendar.html" class="nav-link active">Calendar</a>
+        <a href="budget.html" class="nav-link">Budget</a>
+        <a href="voting.html" class="nav-link">Voting</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Durham County</p>
+      <h1 class="page-hero-title">Civic Calendar</h1>
+      <p class="page-hero-sub">Public hearings, board meetings, community events, and budget milestones — all in one place.</p>
+    </div>
+  </div>
+
+  <!-- ── Main ── -->
+  <main class="site-main site-main--full">
+    <div class="inner-content">
+
+      <!-- Category Filters -->
+      <div class="cal-filters">
+        <div class="tag-filter-bar" id="calCatFilters">
+          <button class="tag-btn active">All</button>
+          <button class="tag-btn" style="--cat-color:#E97221">Announcement</button>
+          <button class="tag-btn" style="--cat-color:#262E4F">Government</button>
+          <button class="tag-btn" style="--cat-color:#B8393A">Budget</button>
+          <button class="tag-btn" style="--cat-color:#207C91">Schools</button>
+          <button class="tag-btn" style="--cat-color:#9B4DCA">Hearing</button>
+          <button class="tag-btn" style="--cat-color:#2E7D32">Community</button>
+          <button class="tag-btn" style="--cat-color:#C62828">Health</button>
+        </div>
+      </div>
+
+      <div id="calendarContainer">
+        <!-- Populated by app.js / calendar.json. Fallback below. -->
+
+        <div class="cal-month">
+          <h3 class="cal-month-label">April 2026</h3>
+
+          <div class="cal-event" style="--event-color:#E97221">
+            <div class="cal-event-date"><span class="cal-day-name">Fri</span><span class="cal-day-num">10</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">announcement</div>
+              <div class="cal-event-title">📢 FY2027 Budget Public Input Period Now Open</div>
+              <div class="cal-event-time">Now through April 24</div>
+              <div class="cal-event-loc">📍 Online at dconc.gov or in writing to the Board of Commissioners</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Submit Comment</a>
+              <a class="cal-event-link" href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener">Budget Docs</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#E97221">
+            <div class="cal-event-date"><span class="cal-day-name">Sun</span><span class="cal-day-num">12</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">announcement</div>
+              <div class="cal-event-title">📢 Durham County Seeks Applicants for Housing Advisory Board</div>
+              <div class="cal-event-time">Applications due May 1, 2026</div>
+              <div class="cal-event-loc">📍 Apply online at dconc.gov</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Boards-and-Commissions" target="_blank" rel="noopener">Apply Now</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#262E4F">
+            <div class="cal-event-date"><span class="cal-day-name">Mon</span><span class="cal-day-num">14</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">government</div>
+              <div class="cal-event-title">Board of Commissioners – Regular Meeting</div>
+              <div class="cal-event-time">Monday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham – Room 2A</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Public Comment</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#207C91">
+            <div class="cal-event-date"><span class="cal-day-name">Thu</span><span class="cal-day-num">17</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">schools</div>
+              <div class="cal-event-title">Durham Public Schools Board of Education</div>
+              <div class="cal-event-time">Thursday · 5:30 PM</div>
+              <div class="cal-event-loc">📍 511 Cleveland St., Durham</div>
+              <a class="cal-event-link" href="https://www.dpsnc.net/domain/133" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.dpsnc.net" target="_blank" rel="noopener">Watch Online</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#262E4F">
+            <div class="cal-event-date"><span class="cal-day-name">Mon</span><span class="cal-day-num">21</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">government</div>
+              <div class="cal-event-title">Board of Commissioners – Work Session</div>
+              <div class="cal-event-time">Monday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham – Room 2A</div>
+              <div class="cal-event-rel">Tomorrow</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#262E4F">
+            <div class="cal-event-date"><span class="cal-day-name">Wed</span><span class="cal-day-num">23</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">government</div>
+              <div class="cal-event-title">City-County Planning Commission</div>
+              <div class="cal-event-time">Wednesday · 5:00 PM</div>
+              <div class="cal-event-loc">📍 Durham City Hall, 101 City Hall Plaza</div>
+              <a class="cal-event-link" href="https://www.durhamnc.gov/579/Planning-Commission" target="_blank" rel="noopener">Agenda</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#9B4DCA">
+            <div class="cal-event-date"><span class="cal-day-name">Thu</span><span class="cal-day-num">24</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">hearing</div>
+              <div class="cal-event-title">Public Hearing: FY2027 Budget Proposal</div>
+              <div class="cal-event-time">Thursday · 7:00 PM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham – Commissioners Chambers</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Sign Up to Speak</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#2E7D32">
+            <div class="cal-event-date"><span class="cal-day-name">Sat</span><span class="cal-day-num">25</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">community</div>
+              <div class="cal-event-title">Durham Farmers Market – Season Opener</div>
+              <div class="cal-event-time">Saturday · 8:00 AM – 12:00 PM</div>
+              <div class="cal-event-loc">📍 501 Foster St., Durham (American Tobacco Campus)</div>
+              <a class="cal-event-link" href="https://www.durhamfarmersmarket.com" target="_blank" rel="noopener">Details</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#B8393A">
+            <div class="cal-event-date"><span class="cal-day-name">Mon</span><span class="cal-day-num">28</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">budget</div>
+              <div class="cal-event-title">Board of Commissioners – Budget Work Session</div>
+              <div class="cal-event-time">Monday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Public Comment</a>
+            </div>
+          </div>
+        </div><!-- /April -->
+
+        <div class="cal-month">
+          <h3 class="cal-month-label">May 2026</h3>
+
+          <div class="cal-event" style="--event-color:#E97221">
+            <div class="cal-event-date"><span class="cal-day-name">Fri</span><span class="cal-day-num">1</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">announcement</div>
+              <div class="cal-event-title">📢 Durham County Housing Advisory Board Applications Due</div>
+              <div class="cal-event-time">Deadline: May 1, 2026</div>
+              <div class="cal-event-loc">📍 Apply online at dconc.gov</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Boards-and-Commissions" target="_blank" rel="noopener">Apply</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#C62828">
+            <div class="cal-event-date"><span class="cal-day-name">Tue</span><span class="cal-day-num">5</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">health</div>
+              <div class="cal-event-title">Durham County Mental Health Advisory Board</div>
+              <div class="cal-event-time">Tuesday · 4:00 PM</div>
+              <div class="cal-event-loc">📍 414 E. Main St., Durham</div>
+              <a class="cal-event-link" href="https://www.dconc.gov" target="_blank" rel="noopener">Details</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#262E4F">
+            <div class="cal-event-date"><span class="cal-day-name">Mon</span><span class="cal-day-num">12</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">government</div>
+              <div class="cal-event-title">Board of Commissioners – Regular Meeting</div>
+              <div class="cal-event-time">Monday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham – Room 2A</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#9B4DCA">
+            <div class="cal-event-date"><span class="cal-day-name">Thu</span><span class="cal-day-num">14</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">hearing</div>
+              <div class="cal-event-title">Public Hearing: Affordable Housing Bond Update</div>
+              <div class="cal-event-time">Thursday · 6:30 PM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham – Commissioners Chambers</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Sign Up to Speak</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#207C91">
+            <div class="cal-event-date"><span class="cal-day-name">Fri</span><span class="cal-day-num">15</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">schools</div>
+              <div class="cal-event-title">Durham Public Schools Board of Education</div>
+              <div class="cal-event-time">Friday · 5:30 PM</div>
+              <div class="cal-event-loc">📍 511 Cleveland St., Durham</div>
+              <a class="cal-event-link" href="https://www.dpsnc.net/domain/133" target="_blank" rel="noopener">Agenda</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#B8393A">
+            <div class="cal-event-date"><span class="cal-day-name">Tue</span><span class="cal-day-num">19</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">budget</div>
+              <div class="cal-event-title">County Manager Budget Presentation (FY2027)</div>
+              <div class="cal-event-time">Tuesday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham</div>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#2E7D32">
+            <div class="cal-event-date"><span class="cal-day-name">Sat</span><span class="cal-day-num">23</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">community</div>
+              <div class="cal-event-title">Durham Earth Day Community Festival</div>
+              <div class="cal-event-time">Saturday · 10:00 AM – 4:00 PM</div>
+              <div class="cal-event-loc">📍 Durham Central Park, 501 Foster St.</div>
+              <a class="cal-event-link" href="https://www.durhamcentralpark.org" target="_blank" rel="noopener">Details</a>
+            </div>
+          </div>
+        </div><!-- /May -->
+
+        <div class="cal-month">
+          <h3 class="cal-month-label">June 2026</h3>
+
+          <div class="cal-event" style="--event-color:#B8393A">
+            <div class="cal-event-date"><span class="cal-day-name">Tue</span><span class="cal-day-num">2</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">budget</div>
+              <div class="cal-event-title">Board of Commissioners – FY2027 Budget Adoption</div>
+              <div class="cal-event-time">Tuesday · 9:00 AM</div>
+              <div class="cal-event-loc">📍 200 E. Main St., Durham</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Agenda</a>
+              <a class="cal-event-link" href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener">Live Stream</a>
+              <a class="cal-event-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Public Comment</a>
+            </div>
+          </div>
+
+          <div class="cal-event" style="--event-color:#C62828">
+            <div class="cal-event-date"><span class="cal-day-name">Tue</span><span class="cal-day-num">9</span></div>
+            <div class="cal-event-body">
+              <div class="cal-event-cat">health</div>
+              <div class="cal-event-title">Durham County Health Dept. — Free Vaccination Clinic</div>
+              <div class="cal-event-time">Tuesday · 10:00 AM – 2:00 PM</div>
+              <div class="cal-event-loc">📍 Durham County Human Services, 414 E. Main St.</div>
+              <a class="cal-event-link" href="https://www.dconc.gov/Public-Health/Clinical-Services" target="_blank" rel="noopener">Register</a>
+            </div>
+          </div>
+        </div><!-- /June -->
+
+      </div><!-- /#calendarContainer -->
+
+    </div><!-- /.inner-content -->
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bull">🐂</span>
+        <span>Durham Civic Hub</span>
+      </div>
+      <p class="footer-note">Independent civic resource for Durham County, NC. Not an official government website. Links go to official sources.</p>
+      <nav class="footer-nav">
+        <a href="index.html">News</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="budget.html">Budget</a>
+        <a href="voting.html">Voting</a>
+        <a href="https://www.dconc.gov" target="_blank" rel="noopener">Durham County</a>
+        <a href="https://www.durhamnc.gov" target="_blank" rel="noopener">City of Durham</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

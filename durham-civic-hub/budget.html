@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budgets – Durham Civic Hub</title>
+  <meta name="description" content="Durham County, City of Durham, and Durham Public Schools budget information — official documents, budget process, and public participation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .budget-hub-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+    .budget-hub-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1.5px solid #e5e7eb;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      transition: box-shadow .18s, border-color .18s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .budget-hub-card:hover {
+      box-shadow: 0 6px 24px rgba(38,46,79,.11);
+      border-color: var(--teal, #207C91);
+    }
+    .budget-hub-card-icon { font-size: 2.25rem; line-height: 1; margin-bottom: .25rem; }
+    .budget-hub-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      margin: 0;
+    }
+    .budget-hub-card-fy {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--teal, #207C91);
+    }
+    .budget-hub-card-desc {
+      font-size: .925rem;
+      color: #4b5563;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .budget-hub-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: .5rem;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--teal, #207C91);
+      text-decoration: none;
+    }
+    .budget-hub-card-link:hover { text-decoration: underline; }
+    .budget-hub-intro {
+      max-width: 720px;
+      font-size: 1rem;
+      color: #374151;
+      line-height: 1.65;
+      margin-bottom: .25rem;
+    }
+    .budget-hub-note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.25rem;
+      background: #f8f9fb;
+      border-left: 3px solid var(--teal, #207C91);
+      border-radius: 4px;
+      font-size: .875rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body data-page="budget">
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-bull">🐂</span>
+        <span class="logo-text">Durham<strong>Civic</strong>Hub</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">News</a>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="calendar.html" class="nav-link">Calendar</a>
+        <a href="budget.html" class="nav-link active">Budget</a>
+        <a href="voting.html" class="nav-link">Voting</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero budget-page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Durham County · FY2026–27 Budget Season</p>
+      <h1 class="page-hero-title">Durham Budgets</h1>
+      <p class="page-hero-sub">Official budget documents, the budget process, and how to participate — for the county, city, and schools.</p>
+    </div>
+  </div>
+
+  <!-- ── Main ── -->
+  <main class="site-main site-main--full">
+    <div class="inner-content">
+
+      <p class="budget-hub-intro">Durham County, the City of Durham, and Durham Public Schools each adopt separate annual budgets. Together they determine local tax rates, school funding, public safety staffing, housing programs, parks, and most services residents rely on every day. All figures on this site are sourced directly from official government documents.</p>
+
+      <div class="budget-hub-grid">
+
+        <!-- Durham County -->
+        <a class="budget-hub-card" href="budget-county.html">
+          <div class="budget-hub-card-icon">🏛️</div>
+          <div class="budget-hub-card-fy">FY2026–27 Process Underway — Manager Rec. Due May 19</div>
+          <h2 class="budget-hub-card-title">Durham County</h2>
+          <p class="budget-hub-card-desc">The county budget covers Durham Public Schools (largest share), Health and Human Services, the Sheriff, courts, parks, and libraries. Property tax provides the majority of revenue. The Board of Commissioners votes on adoption June 2.</p>
+          <span class="budget-hub-card-link">Explore county budget →</span>
+        </a>
+
+        <!-- City of Durham -->
+        <a class="budget-hub-card" href="budget-city.html">
+          <div class="budget-hub-card-icon">🏙️</div>
+          <div class="budget-hub-card-fy">Separate from Durham County</div>
+          <h2 class="budget-hub-card-title">City of Durham</h2>
+          <p class="budget-hub-card-desc">The city budget funds police, fire, public works, water and sewer, planning, parks, and transit. The city sets its own tax rate. Residents inside city limits pay both city and county taxes. City Council adopts the budget each June. The FY2025–26 adopted budget document is available from the Finance Department.</p>
+          <span class="budget-hub-card-link">Explore city budget →</span>
+        </a>
+
+        <!-- DPS -->
+        <a class="budget-hub-card" href="budget-schools.html">
+          <div class="budget-hub-card-icon">🏫</div>
+          <div class="budget-hub-card-fy">FY2026–27 Recommended Budget Released</div>
+          <h2 class="budget-hub-card-title">Durham Public Schools</h2>
+          <p class="budget-hub-card-desc">DPS funding comes from three sources: the state (largest share), Durham County, and federal grants. Per the FY2026–27 recommended budget document, DPS requested $412.2M from the county and identified a $7M+ state funding gap putting roughly 61 positions at risk.</p>
+          <span class="budget-hub-card-link">Explore schools budget →</span>
+        </a>
+
+      </div>
+
+      <div class="budget-hub-note">
+        All budget figures on this site are drawn from official government documents — adopted budgets, manager's recommended budgets, and Board-approved documents. Where a budget has not yet been proposed or adopted, that is stated explicitly. No figures are estimated by this site. See <a href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener">dconc.gov</a>, <a href="https://www.durhamnc.gov/182/Finance" target="_blank" rel="noopener">durhamnc.gov</a>, and <a href="https://www.dpsnc.net" target="_blank" rel="noopener">dpsnc.net</a> for official source documents.
+      </div>
+
+      <!-- FY2026-27 Key Dates -->
+      <section class="budget-section" style="margin-top:3rem;">
+        <h2 class="budget-section-title">FY2026–27 Key Dates — Durham County</h2>
+        <div class="timeline">
+          <div class="timeline-step timeline-step--done">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Apr 10</span>
+              <span class="timeline-label">Public Input Period Opens</span>
+            </div>
+          </div>
+          <div class="timeline-step timeline-step--active">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Apr 24</span>
+              <span class="timeline-label">Public Hearing — FY2026–27 Budget · 7:00 PM · Commissioners Chambers</span>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Apr 28</span>
+              <span class="timeline-label">BOCC Budget Work Session · 9:00 AM</span>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">May 19</span>
+              <span class="timeline-label">County Manager Budget Recommendation Released · 9:00 AM</span>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jun 2</span>
+              <span class="timeline-label">Budget Adoption Vote · 9:00 AM</span>
+            </div>
+          </div>
+          <div class="timeline-step">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="timeline-date">Jul 1</span>
+              <span class="timeline-label">New Fiscal Year Begins</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Weigh In -->
+      <section class="budget-section budget-section--cta" style="margin-top:2.5rem;">
+        <h2 class="budget-section-title">How to Weigh In</h2>
+        <div class="participate-grid">
+          <div class="participate-card">
+            <div class="participate-icon">✍️</div>
+            <h3>Submit Written Comment</h3>
+            <p>Submit comments to the Board of Commissioners online or in writing before the April 24 public hearing.</p>
+            <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener" class="participate-link">Submit a Comment →</a>
+          </div>
+          <div class="participate-card">
+            <div class="participate-icon">🎤</div>
+            <h3>Speak at the Public Hearing</h3>
+            <p>Sign up to testify on <strong>April 24 at 7:00 PM</strong> — 200 E. Main St., Commissioners Chambers, Room 2A.</p>
+            <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener" class="participate-link">Sign Up to Speak →</a>
+          </div>
+          <div class="participate-card">
+            <div class="participate-icon">📺</div>
+            <h3>Watch the Meetings</h3>
+            <p>All BOCC meetings are livestreamed on YouTube. The April 28 work session and May 19 Manager presentation lead up to the June 2 vote.</p>
+            <a href="https://www.youtube.com/user/DCoWebmaster/videos" target="_blank" rel="noopener" class="participate-link">Watch Live Stream →</a>
+          </div>
+          <div class="participate-card">
+            <div class="participate-icon">📄</div>
+            <h3>Review the Documents</h3>
+            <p>Download the budget, revenue projections, and department requests from the county website.</p>
+            <a href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener" class="participate-link">Budget Documents →</a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.inner-content -->
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bull">🐂</span>
+        <span>Durham Civic Hub</span>
+      </div>
+      <p class="footer-note">Independent civic resource for Durham County, NC. Not an official government website. All budget figures sourced from official government documents.</p>
+      <nav class="footer-nav">
+        <a href="index.html">News</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="calendar.html">Calendar</a>
+        <a href="budget.html">Budget</a>
+        <a href="voting.html">Voting</a>
+        <a href="https://www.dconc.gov" target="_blank" rel="noopener">Durham County</a>
+        <a href="https://www.durhamnc.gov" target="_blank" rel="noopener">City of Durham</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
