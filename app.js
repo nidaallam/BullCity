@@ -69,16 +69,16 @@ function runSiteSearch(q) {
 
   // Search pages (static)
   const pages = [
-    { title: 'News & Updates',       url: 'index.html',           desc: 'Latest local government news from Durham County, the City, and DPS.' },
-    { title: 'Meeting Schedules',    url: 'meetings.html',        desc: 'BOCC, City Council, DPS Board, Planning Commission, and more.' },
-    { title: 'Civic Calendar',       url: 'calendar.html',        desc: 'Public hearings, board meetings, and community events.' },
+    { title: 'Home',                 url: 'index.html',           desc: 'Durham Civic Hub home page — navigator and what\'s happening now.' },
+    { title: 'News & Updates',       url: 'news.html',            desc: 'Curated local government news from Durham County, the City, and DPS.' },
+    { title: 'Meetings & Calendar',  url: 'meetings.html',        desc: 'BOCC, City Council, DPS Board, Planning Commission, agendas, and civic calendar.' },
     { title: 'Budgets',              url: 'budget.html',          desc: 'Durham County, City of Durham, and Durham Public Schools budgets.' },
-    { title: 'Budget Explorer',      url: 'budget-explorer.html', desc: 'Interactive budget explorer — spending by area, YoY changes, line items for all three Durham entities.' },
+    { title: 'Budget Explorer',      url: 'budget-explorer.html', desc: 'Interactive budget explorer — spending by area, funding sources, department breakdowns.' },
     { title: 'Durham County Budget', url: 'budget-county.html',   desc: 'County budget documents, dashboard, and FY2026-27 process.' },
     { title: 'City of Durham Budget','url': 'budget-city.html',   desc: 'City budget documents, Finance Department, and City Council.' },
     { title: 'DPS Budget',           url: 'budget-schools.html',  desc: 'Durham Public Schools budget, funding sources, and documents.' },
     { title: 'Voting & Elected Officials', url: 'voting.html',    desc: 'Register to vote, find your polling place, and learn about your representatives.' },
-    { title: 'Connect & Social Media',    url: 'connect.html',    desc: 'Follow Commissioner Nida Allam on Twitter/X, Instagram, Facebook, Reddit, and Bluesky.' },
+    { title: 'Connect',              url: 'connect.html',         desc: 'Contact and follow Commissioner Nida Allam — social media, events, town halls.' },
   ];
   pages.forEach(p => {
     if (p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)) {

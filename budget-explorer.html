@@ -433,6 +433,19 @@
     }
     @media (max-width: 640px) { .exp-split { grid-template-columns: 1fr; } }
 
+    /* Open area spans full grid width so detail panel is readable */
+    .exp-area.open {
+      grid-column: 1 / -1;
+    }
+    /* Make the open area's detail panel more spacious */
+    .exp-area.open .exp-area-detail {
+      padding: 1rem 1.5rem 1.5rem;
+    }
+    .exp-area.open .exp-area-header {
+      background: var(--cream, #FAF6EE);
+      border-radius: 0;
+    }
+
     @media (min-width: 640px) {
       .exp-areas { grid-template-columns: 1fr 1fr; }
     }
@@ -458,6 +471,7 @@
       <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="index.html" class="nav-link">Home</a>
+        <a href="news.html" class="nav-link">News</a>
         <a href="meetings.html" class="nav-link">Meetings</a>
         
         <a href="budget.html" class="nav-link active">Budget</a>
@@ -495,6 +509,7 @@
       <p class="footer-note" style="margin-top:.5rem;">Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener" style="color:var(--peach);">Peak News Network</a>.</p>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
+        <a href="news.html">News</a>
         <a href="meetings.html">Meetings</a>
         
         <a href="budget.html">Budget</a>
@@ -558,7 +573,8 @@
     activeEntity = idx;
     const e = budgetData.entities[idx];
     activeYear = e.years[0];
-    viewMode = 'sources'; // DPS defaults to 'By Funding Source'
+    viewMode = 'sources';
+    openAreaIdx = null;
     buildTabs();
     renderEntity();
   }
@@ -634,7 +650,9 @@
       const barPct  = totalForPct ? (amt / totalForPct * 100) : 0;
       const hasDepts = (a.departments || []).length > 0;
 
-      const deptsHtml = hasDepts ? buildDeptTable(a.departments, yr, prevYr, amt, e) : '';
+      const entityTotal = totals.allFunds || totalForPct;
+      const pctOfTotal  = pct(amt, entityTotal);
+      const deptsHtml = hasDepts ? buildDeptTable(a.departments, yr, prevYr, amt, e, entityTotal) : '';
       const noticeHtml = !hasDepts ? `
         <div class="exp-notice">
           Detailed breakdown available in the official budget document.
@@ -651,7 +669,7 @@
             </div>
             <div class="exp-area-right">
               <div class="exp-area-amount">${fmtDollars(amt)}</div>
-              <div class="exp-area-pct">${pct(amt, totalForPct)} of total</div>
+              <div class="exp-area-pct">${pctOfTotal} of total budget</div>
               ${yoyBadge(amt, prevAmt)}
             </div>
             <span class="exp-area-chevron">›</span>
@@ -660,6 +678,20 @@
             <div class="exp-bar-fill" style="width:${barPct.toFixed(1)}%;background:${e.accent || '#E97221'}"></div>
           </div>
           <div class="exp-area-detail">
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;margin-bottom:.85rem;padding-bottom:.75rem;border-bottom:1px solid var(--border,#e5e0d8);">
+              <div>
+                <span style="font-family:'Libre Franklin',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;">Area Total</span>
+                <div style="font-family:'Libre Franklin',sans-serif;font-size:1.4rem;font-weight:800;color:var(--navy);">${fmtDollars(amt)}</div>
+              </div>
+              <div style="text-align:right;">
+                <span style="font-family:'Libre Franklin',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;">% of Total Budget</span>
+                <div style="font-family:'Libre Franklin',sans-serif;font-size:1.4rem;font-weight:800;color:var(--exp-orange,#E97221);">${pctOfTotal}</div>
+              </div>
+              ${prevAmt ? `<div style="text-align:right;">
+                <span style="font-family:'Libre Franklin',sans-serif;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;">Year-over-Year</span>
+                <div style="margin-top:.15rem;">${yoyBadge(amt, prevAmt)}</div>
+              </div>` : ''}
+            </div>
             ${deptsHtml}
             ${!hasDepts ? noticeHtml : ''}
             ${a.sourceNote ? `<div class="exp-source-note">${a.sourceNote}</div>` : ''}
@@ -732,7 +764,7 @@
       </div>`;
   }
 
-  function buildDeptTable(depts, yr, prevYr, areaTotal, entity) {
+  function buildDeptTable(depts, yr, prevYr, areaTotal, entity, entityTotal) {
     const hasAnyAmt = depts.some(d => d.amounts?.[yr] != null);
 
     const rows = depts.map(d => {
@@ -741,10 +773,10 @@
       const barW = (areaTotal && amt) ? (amt / areaTotal * 100) : 0;
 
       if (!hasAnyAmt) {
-        // Qualitative-only row: show description but no dollar columns
+        // Qualitative-only: show name + description, no dollar columns
         return `
           <tr>
-            <td style="padding:.6rem .5rem;">
+            <td style="padding:.65rem .5rem;">
               <div style="font-weight:600;color:var(--exp-navy);">${d.name}</div>
               ${d.description ? `<div class="exp-dept-about">${d.description}</div>` : ''}
             </td>
@@ -761,6 +793,7 @@
           <td>${fmtDollars(amt)}</td>
           ${prevYr ? `<td>${amt != null && prev != null ? yoyBadge(amt, prev) : (fmtDollars(prev) || '—')}</td>` : ''}
           <td>${amt ? pct(amt, areaTotal) : '—'}</td>
+          <td style="color:#888;">${amt && entityTotal ? pct(amt, entityTotal) : '—'}</td>
         </tr>`;
     }).join('');
 
@@ -771,28 +804,47 @@
           <th>${yr}</th>
           ${prevYr ? `<th>vs ${prevYr}</th>` : ''}
           <th>% of Area</th>
+          <th>% of Total</th>
         </tr>
       </thead>` : `
       <thead>
-        <tr><th>Department / Division</th></tr>
+        <tr><th>Departments &amp; What They Do</th></tr>
       </thead>`;
 
     return `<table class="exp-dept-table">${thead}<tbody>${rows}</tbody></table>`;
   }
 
-  // ── Toggle area open/close ──────────────────────────────────────────────
+  // ── Toggle area open/close (accordion: one open at a time) ─────────────
+  let openAreaIdx = null;
   function toggleArea(idx) {
-    const el = document.getElementById('area-' + idx);
-    if (el) el.classList.toggle('open');
+    const allAreas = document.querySelectorAll('.exp-area');
+    if (openAreaIdx === idx) {
+      // Clicking the open one closes it
+      allAreas[idx] && allAreas[idx].classList.remove('open');
+      openAreaIdx = null;
+    } else {
+      // Close previously open, open this one
+      if (openAreaIdx !== null && allAreas[openAreaIdx]) {
+        allAreas[openAreaIdx].classList.remove('open');
+      }
+      allAreas[idx] && allAreas[idx].classList.add('open');
+      openAreaIdx = idx;
+      // Smooth scroll so detail panel is visible
+      setTimeout(() => {
+        allAreas[idx] && allAreas[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 50);
+    }
   }
 
   function switchYear(yr) {
     activeYear = yr;
+    openAreaIdx = null;
     renderEntity();
   }
 
   function setView(mode) {
     viewMode = mode;
+    openAreaIdx = null;
     renderEntity();
   }
 

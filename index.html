@@ -4,14 +4,178 @@
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Durham Civic Hub – Local Government News &amp; Meetings</title>
-  <meta name="description" content="Your guide to Durham County government: news, meeting schedules, budget updates, and civic events — curated for engaged residents." />
+  <title>Durham Civic Hub – Your Local Government Resource</title>
+  <meta name="description" content="Durham Civic Hub makes local government easy to navigate. Find meeting schedules, budget data, voting info, and curated news for Durham County, NC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=margin@700,800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Home Page Specific ── */
+    .home-hero {
+      background: linear-gradient(145deg, var(--navy, #262E4F) 0%, #1a3a4a 100%);
+      color: #fff;
+      padding: 4rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .home-hero-eyebrow {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--orange, #E97221);
+      margin-bottom: .75rem;
+    }
+    .home-hero h1 {
+      font-family: 'Margin', serif;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin: 0 0 1rem;
+      line-height: 1.1;
+    }
+    .home-hero-desc {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,.85);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+    }
+    .home-credit {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .8rem;
+      color: rgba(255,255,255,.55);
+      margin-top: 2.5rem;
+      line-height: 1.6;
+    }
+    .home-credit a { color: rgba(255,255,255,.75); text-decoration: underline; }
+    .home-credit a:hover { color: #fff; }
+
+    /* ── Nav Grid ── */
+    .home-nav-section {
+      background: var(--cream, #FAF6EE);
+      border-top: 1px solid var(--border, #e5e0d8);
+      border-bottom: 1px solid var(--border, #e5e0d8);
+      padding: 2.5rem 1.5rem;
+    }
+    .home-nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .home-nav-heading {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #888;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+    .home-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+    .home-nav-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      background: #fff;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      text-decoration: none;
+      color: var(--navy, #262E4F);
+      transition: border-color .15s, box-shadow .15s, transform .15s;
+      text-align: center;
+    }
+    .home-nav-card:hover {
+      border-color: var(--teal, #207C91);
+      box-shadow: 0 4px 16px rgba(32,124,145,.15);
+      transform: translateY(-2px);
+      text-decoration: none;
+      color: var(--teal, #207C91);
+    }
+    .home-nav-icon { font-size: 2rem; line-height: 1; }
+    .home-nav-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .home-nav-sub {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .72rem;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    /* ── Highlights ── */
+    .home-highlights {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .home-highlight-card {
+      background: #fff;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 12px;
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+    .home-highlight-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--orange, #E97221);
+    }
+    .home-highlight-title {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      line-height: 1.35;
+    }
+    .home-highlight-desc {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .8rem;
+      color: #555;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .home-highlight-link {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--teal, #207C91);
+      text-decoration: none;
+      margin-top: .25rem;
+    }
+    .home-highlight-link:hover { text-decoration: underline; }
+
+    @media (max-width: 760px) {
+      .home-highlights { grid-template-columns: 1fr; }
+      .home-nav-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .home-nav-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
 </head>
 <body data-page="home">
 
@@ -25,8 +189,8 @@
       <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
       <nav class="main-nav" id="mainNav">
         <a href="index.html" class="nav-link active">Home</a>
+        <a href="news.html" class="nav-link">News</a>
         <a href="meetings.html" class="nav-link">Meetings</a>
-        
         <a href="budget.html" class="nav-link">Budget</a>
         <a href="voting.html" class="nav-link">Voting</a>
         <a href="connect.html" class="nav-link">Connect</a>
@@ -35,267 +199,79 @@
   </header>
 
   <!-- ── Hero ── -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Durham County, NC</p>
-      <h1 class="hero-headline">Your civic resource<br>for local government</h1>
-      <p class="hero-sub">Durham Civic Hub brings together meeting schedules, budget data, voting info, and curated local news — all in one place, for free.</p>
-      <div class="hero-cta-row">
-        <a href="meetings.html" class="hero-btn hero-btn--primary">Meeting Schedules</a>
-        <a href="budget.html" class="hero-btn hero-btn--outline">Durham Budget</a>
+  <section class="home-hero">
+    <p class="home-hero-eyebrow">Durham County, NC</p>
+    <h1>Durham<br>Civic Hub</h1>
+    <p class="home-hero-desc">Local government can be hard to navigate. This site puts everything in one place — meeting schedules, budget data, voting information, and curated local news — so every Durham resident can stay informed in minutes, for free.</p>
+
+    <p class="home-credit">
+      Created by Durham County Commissioner <strong>Nida Allam</strong> · Not an official government website<br>
+      Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener">Peak News Network</a>
+    </p>
+  </section>
+
+  <!-- ── Section Navigator ── -->
+  <section class="home-nav-section">
+    <div class="home-nav-inner">
+      <p class="home-nav-heading">What would you like to find?</p>
+      <div class="home-nav-grid">
+        <a href="news.html" class="home-nav-card">
+          <span class="home-nav-icon">📰</span>
+          <span class="home-nav-label">News</span>
+          <span class="home-nav-sub">Curated local government coverage</span>
+        </a>
+        <a href="meetings.html" class="home-nav-card">
+          <span class="home-nav-icon">🗓️</span>
+          <span class="home-nav-label">Meetings</span>
+          <span class="home-nav-sub">Schedules, agendas &amp; calendar</span>
+        </a>
+        <a href="budget.html" class="home-nav-card">
+          <span class="home-nav-icon">💰</span>
+          <span class="home-nav-label">Budget</span>
+          <span class="home-nav-sub">County, city &amp; schools budgets</span>
+        </a>
+        <a href="voting.html" class="home-nav-card">
+          <span class="home-nav-icon">🗳️</span>
+          <span class="home-nav-label">Voting</span>
+          <span class="home-nav-sub">Register, find your officials</span>
+        </a>
+        <a href="connect.html" class="home-nav-card">
+          <span class="home-nav-icon">📲</span>
+          <span class="home-nav-label">Connect</span>
+          <span class="home-nav-sub">Contact Commissioner Allam</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ── About + Navigator ── -->
-  <div class="hub-about-strip">
-    <div class="hub-about-inner">
-      <p class="hub-about-credit">Created by Durham County Commissioner <strong>Nida Allam</strong> · Not an official government website · Inspired by <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener">Peak News Network</a></p>
-      <p class="hub-about-desc">Local government can be hard to navigate. This site exists so every Durham resident can find — in minutes — what their government is doing, when it meets, and how to get involved. All links go to official sources.</p>
-      <nav class="hub-nav-grid">
-        <a href="index.html" class="hub-nav-card hub-nav-card--active">
-          <span class="hub-nav-icon">📰</span>
-          <span class="hub-nav-label">News</span>
-        </a>
-        <a href="meetings.html" class="hub-nav-card">
-          <span class="hub-nav-icon">🗓️</span>
-          <span class="hub-nav-label">Meetings</span>
-        </a>
-        <a href="calendar.html" class="hub-nav-card">
-          <span class="hub-nav-icon">📅</span>
-          <span class="hub-nav-label">Calendar</span>
-        </a>
-        <a href="budget.html" class="hub-nav-card">
-          <span class="hub-nav-icon">💰</span>
-          <span class="hub-nav-label">Budget</span>
-        </a>
-        <a href="voting.html" class="hub-nav-card">
-          <span class="hub-nav-icon">🗳️</span>
-          <span class="hub-nav-label">Voting</span>
-        </a>
-        <a href="connect.html" class="hub-nav-card">
-          <span class="hub-nav-icon">📲</span>
-          <span class="hub-nav-label">Connect</span>
-        </a>
-      </nav>
-    </div>
+  <!-- ── What's Happening Now ── -->
+  <div style="max-width:1100px;margin:0 auto;padding:1.75rem 1.5rem .5rem;">
+    <h2 style="font-family:'Margin',serif;font-size:1.15rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);border-bottom:3px solid var(--orange,#E97221);padding-bottom:.5rem;margin-bottom:1.25rem;">What's Happening Now</h2>
   </div>
+  <div class="home-highlights">
 
-  <!-- ── Alert Banner ── -->
-  <div class="alert-bar">
-    <div class="alert-inner">
-      📢 <strong>FY2027 Budget Public Input Period Open Through April 24</strong> —
-      <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Submit a comment</a>
-      or attend the <a href="calendar.html">public hearing April 24 at 7 PM</a>.
+    <div class="home-highlight-card">
+      <div class="home-highlight-label">⚡ Budget</div>
+      <div class="home-highlight-title">FY2026-27 Budget Public Hearing — April 24</div>
+      <p class="home-highlight-desc">Durham County is accepting public comment on the upcoming FY2026-27 budget. Attend the public hearing on April 24 at 7 PM in Commissioners Chambers (200 E. Main St.) or submit written comments online.</p>
+      <a class="home-highlight-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Submit a comment →</a>
     </div>
+
+    <div class="home-highlight-card">
+      <div class="home-highlight-label">📋 Meetings</div>
+      <div class="home-highlight-title">BOCC Work Session — April 21 at 9 AM</div>
+      <p class="home-highlight-desc">The Durham County Board of Commissioners meets today at 9 AM at 200 E. Main St. The Planning Commission follows on April 23 and the Budget Public Hearing is April 24. See the full schedule on the Meetings page.</p>
+      <a class="home-highlight-link" href="meetings.html">Full meeting schedule →</a>
+    </div>
+
+    <div class="home-highlight-card">
+      <div class="home-highlight-label">💰 Budget Explorer</div>
+      <div class="home-highlight-title">Explore Durham's $1.038B County Budget</div>
+      <p class="home-highlight-desc">The adopted FY2025-26 Durham County budget totals $1.038 billion. The Budget Explorer lets you click through spending by area, see how the budget is funded, and drill down to individual departments.</p>
+      <a class="home-highlight-link" href="budget-explorer.html">Open Budget Explorer →</a>
+    </div>
+
   </div>
-
-  <!-- ── Main Content ── -->
-  <main class="site-main">
-    <div class="main-inner">
-
-      <!-- News Column -->
-      <section class="news-section">
-        <div class="section-header">
-          <h2 class="section-title">Latest News</h2>
-          <span class="news-updated" id="newsUpdated">Updated April 21, 2026 · Curated local news from Durham County sources</span>
-        </div>
-
-        <div class="news-controls">
-          <div class="tag-filter-bar" id="tagFilters">
-            <button class="tag-btn active" onclick="filterByTag(null, this)">All</button>
-            <button class="tag-btn" onclick="filterByTag('Budget', this)">Budget</button>
-            <button class="tag-btn" onclick="filterByTag('Schools', this)">Schools</button>
-            <button class="tag-btn" onclick="filterByTag('Housing', this)">Housing</button>
-            <button class="tag-btn" onclick="filterByTag('Transit', this)">Transit</button>
-            <button class="tag-btn" onclick="filterByTag('Health', this)">Health</button>
-          </div>
-          <input class="news-search" id="newsSearch" type="search" placeholder="Search stories…" />
-        </div>
-
-        <div class="stories-grid" id="storiesGrid">
-
-          <!-- Fallback stories (replaced by JS when news.json loads) -->
-          <article class="story-card story-card--lead">
-            <div class="story-meta">
-              <span class="story-tag">Budget</span>
-              <span class="story-source">Durham County</span>
-              <span class="story-date">April 20, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">FY2027 Budget Public Input Period Open Through April 24</a>
-            </h3>
-            <p class="story-excerpt">Durham County is accepting public comment on the proposed FY2027 budget through April 24. Residents can submit written comments online or attend the public hearing on April 24 at 7 PM.</p>
-            <a class="story-read-more" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Schools</span>
-              <span class="story-source">DPS</span>
-              <span class="story-date">April 19, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.dpsnc.net/page/board-of-education" target="_blank" rel="noopener">Durham Public Schools Requests $412M in County Funding for FY2027</a>
-            </h3>
-            <p class="story-excerpt">The DPS Board of Education has formally submitted its FY2027 budget request to the county, seeking $412 million — a 6.2% increase — to cover staffing, facilities, and mental health services across 53 schools.</p>
-            <a class="story-read-more" href="https://www.dpsnc.net/page/board-of-education" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Budget</span>
-              <span class="story-source">Durham County</span>
-              <span class="story-date">April 18, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener">County Manager to Present FY2027 Budget Recommendation on May 19</a>
-            </h3>
-            <p class="story-excerpt">County Manager Kimberly M. Sowell will present the recommended FY2027 operating and capital budget to the Board of Commissioners on May 19 at 9 AM.</p>
-            <a class="story-read-more" href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Development</span>
-              <span class="story-source">Durham City-County Planning</span>
-              <span class="story-date">April 17, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.durhamnc.gov/1367/Planning-Commission" target="_blank" rel="noopener">Planning Commission Reviews Major Southside Rezoning Proposal</a>
-            </h3>
-            <p class="story-excerpt">The City-County Planning Commission will consider a rezoning application in the Southside neighborhood at its April 23 meeting. See the Planning Commission agenda for the full application details.</p>
-            <a class="story-read-more" href="https://www.durhamnc.gov/1367/Planning-Commission" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Housing</span>
-              <span class="story-source">Durham County BOCC</span>
-              <span class="story-date">April 14, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">BOCC Considers Affordable Housing Initiatives at April Meeting</a>
-            </h3>
-            <p class="story-excerpt">The Board of Commissioners discussed affordable housing funding options at its April 14 regular meeting. See the official meeting minutes and video for details on actions taken.</p>
-            <a class="story-read-more" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Transit</span>
-              <span class="story-source">GoTriangle</span>
-              <span class="story-date">April 15, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://gotriangle.org" target="_blank" rel="noopener">GoTriangle Pursuing Federal Funding for Durham–Chapel Hill BRT</a>
-            </h3>
-            <p class="story-excerpt">GoTriangle continues work on the Durham–Chapel Hill Bus Rapid Transit corridor along NC-54. The agency is seeking federal Small Starts funding to advance the project. See gotriangle.org for current project status.</p>
-            <a class="story-read-more" href="https://gotriangle.org" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Health</span>
-              <span class="story-source">Durham County DHHS</span>
-              <span class="story-date">April 13, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.dconc.gov/Public-Health" target="_blank" rel="noopener">Durham County Expands Co-Responder Crisis Intervention Program</a>
-            </h3>
-            <p class="story-excerpt">Durham County is expanding its co-responder crisis intervention program, which pairs mental health clinicians with law enforcement for behavioral health calls. See the DHHS website for current program details and coverage areas.</p>
-            <a class="story-read-more" href="https://www.dconc.gov/Public-Health" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-          <article class="story-card">
-            <div class="story-meta">
-              <span class="story-tag">Parks</span>
-              <span class="story-source">Durham Parks &amp; Recreation</span>
-              <span class="story-date">April 12, 2026</span>
-            </div>
-            <h3 class="story-title">
-              <a href="https://www.durhamnc.gov/Facilities/Facility/Details/96" target="_blank" rel="noopener">Ellerbe Creek Greenway Extension Breaks Ground This Weekend</a>
-            </h3>
-            <p class="story-excerpt">Durham Parks &amp; Recreation broke ground Sunday on an Ellerbe Creek Greenway extension. See the Parks &amp; Recreation website for the latest project details and timeline.</p>
-            <a class="story-read-more" href="https://www.durhamnc.gov/Facilities/Facility/Details/96" target="_blank" rel="noopener">Read more →</a>
-          </article>
-
-        </div><!-- /#storiesGrid -->
-      </section>
-
-      <!-- Sidebar -->
-      <aside class="sidebar">
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-card-title"><a href="meetings.html" style="color:inherit;text-decoration:none;">Upcoming Meetings</a></h3>
-          <ul class="sidebar-meeting-list">
-            <li>
-              <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.1rem;">
-                <span class="sm-date">Apr 21 · Durham County</span>
-                <span class="sm-name">BOCC Work Session</span>
-                <span class="sm-time">9:00 AM · 200 E. Main St.</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.durhamnc.gov/1367/Planning-Commission" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.1rem;">
-                <span class="sm-date">Apr 23 · City &amp; County</span>
-                <span class="sm-name">Planning Commission</span>
-                <span class="sm-time">5:00 PM · Durham City Hall</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.1rem;">
-                <span class="sm-date">Apr 24 · Durham County</span>
-                <span class="sm-name">Budget Public Hearing</span>
-                <span class="sm-time">7:00 PM · Commissioners Chambers</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.1rem;">
-                <span class="sm-date">Apr 28 · Durham County</span>
-                <span class="sm-name">BOCC Budget Work Session</span>
-                <span class="sm-time">9:00 AM · 200 E. Main St.</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.dpsnc.net/page/board-of-education" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.1rem;">
-                <span class="sm-date">May 15 · Durham Public Schools</span>
-                <span class="sm-name">DPS Board of Education</span>
-                <span class="sm-time">5:30 PM · 511 Cleveland St.</span>
-              </a>
-            </li>
-          </ul>
-          <a href="meetings.html" class="sidebar-more-link">All meeting schedules →</a>
-        </div>
-
-        <div class="sidebar-card sidebar-card--budget">
-          <h3 class="sidebar-card-title">FY2025-26 Budget</h3>
-          <p class="sidebar-budget-total">$1.038B adopted</p>
-          <ul class="sidebar-budget-list">
-            <li><span>Education (DPS + DTCC)</span><strong>$248.1M</strong></li>
-            <li><span>Capital Projects</span><strong>$126.1M</strong></li>
-            <li><span>Debt Service</span><strong>$116.6M</strong></li>
-            <li><span>Human Services</span><strong>$114.8M</strong></li>
-          </ul>
-          <p style="font-size:.72rem;color:#888;margin:.25rem 0 0;line-height:1.4;">Source: Durham County adopted budget. FY2026-27 Manager recommendation due May 19.</p>
-          <a href="budget.html" class="sidebar-more-link">Full budget breakdown →</a>
-        </div>
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-card-title">Quick Links</h3>
-          <ul class="sidebar-link-list">
-            <li><a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Submit Public Comment</a></li>
-            <li><a href="https://www.dconc.gov/county-departments/departments-a-e/board-of-commissioners/boards-and-commissions" target="_blank" rel="noopener">Boards &amp; Commissions</a></li>
-            <li><a href="https://www.durhamnc.gov" target="_blank" rel="noopener">City of Durham</a></li>
-            <li><a href="https://www.dconc.gov" target="_blank" rel="noopener">Durham County</a></li>
-            <li><a href="https://www.dpsnc.net" target="_blank" rel="noopener">Durham Public Schools</a></li>
-          </ul>
-        </div>
-
-      </aside>
-
-    </div><!-- /.main-inner -->
-  </main>
 
   <!-- ── Footer ── -->
   <footer class="site-footer">
@@ -304,12 +280,12 @@
         <span class="logo-bull">🐂</span>
         <span>Durham Civic Hub</span>
       </div>
-      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource hub to help residents find information about local government in one centralized space. Not an official government website. All links go to official sources.</p>
+      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource hub to help residents find local government information in one place. Not an official government website. All links go to official sources.</p>
       <p class="footer-note" style="margin-top:.5rem;">Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener" style="color:var(--peach);">Peak News Network</a>.</p>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
+        <a href="news.html">News</a>
         <a href="meetings.html">Meetings</a>
-        
         <a href="budget.html">Budget</a>
         <a href="voting.html">Voting</a>
         <a href="connect.html">Connect</a>
