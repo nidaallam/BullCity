@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 fetch_meetings.py — Durham Civic Hub
 Auto-updates meetings.json with fresh meeting data from government sources.
@@ -241,7 +242,7 @@ def scrape_civicplus(page_url: str, archive_url: str,
 def fetch_dps_boarddocs() -> list[dict] | None:
     api_url   = "https://go.boarddocs.com/nc/dpsnc/Board.nsf/BD-getMeetings"
     base_url  = "https://go.boarddocs.com/nc/dpsnc/Board.nsf"
-    board_url = "https://www.dpsnc.net/domain/133"
+    board_url = "https://www.dpsnc.net/page/board-of-education"
 
     r = safe_post(
         api_url,
@@ -295,7 +296,7 @@ def fetch_commissioners() -> list[dict] | None:
 
 
 def fetch_city_council() -> list[dict] | None:
-    archive  = "https://www.durhamnc.gov/1338/City-Council"
+    archive  = "https://www.durhamnc.gov/1323/City-Council"
     legistar = "https://durham.legistar.com/Calendar.aspx"
     result = scrape_civicplus(legistar, archive, extra_links=[
         {"label": "Live Stream",    "url": "https://www.youtube.com/user/CityofDurhamNC", "primary": False},
@@ -313,17 +314,17 @@ def fetch_dps() -> list[dict] | None:
 
 
 def fetch_planning() -> list[dict] | None:
-    archive = "https://www.durhamnc.gov/579/Planning-Commission"
+    archive = "https://www.durhamnc.gov/1367/Planning-Commission"
     return scrape_civicplus(archive, archive)
 
 
 def fetch_board_of_adjustment() -> list[dict] | None:
-    archive = "https://www.durhamnc.gov/580/Board-of-Adjustment"
+    archive = "https://www.durhamnc.gov/1372/Board-of-Adjustment-BOA"
     return scrape_civicplus(archive, archive)
 
 
 def fetch_mental_health() -> list[dict] | None:
-    archive = "https://www.dconc.gov/Government/Boards-Commissions-Committees"
+    archive = "https://www.dconc.gov/county-departments/departments-a-e/board-of-commissioners/boards-and-commissions"
     return scrape_civicplus(archive, archive)
 
 

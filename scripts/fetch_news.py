@@ -4,6 +4,8 @@ Pulls stories from Durham County RSS feeds and writes news.json.
 Runs daily via GitHub Actions.
 """
 
+from __future__ import annotations
+
 import json
 import feedparser
 import re
@@ -11,6 +13,7 @@ import time
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timezone, date
+from typing import Optional
 
 # ── RSS feeds to pull from ────────────────────────────────────────────────────
 FEEDS = [
@@ -153,16 +156,55 @@ def fetch_all() -> list[dict]:
     return unique
 
 
+def load_existing_news() -> dict:
+    import os
+    path = "news.json"
+    if os.path.exists(path):
+        try:
+            return json.loads(open(path).read())
+        except Exception:
+            pass
+    return {"updated": "", "count": 0, "stories": []}
+
+
 def main():
     print("Fetching news feeds…")
-    stories = fetch_all()
-    print(f"  Found {len(stories)} stories")
+    existing = load_existing_news()
+    fresh = fetch_all()
+    print(f"  Found {len(fresh)} fresh stories")
 
-    payload = {
-        "updated": date.today().strftime("%Y-%m-%d"),
-        "count":   len(stories),
-        "stories": stories,
-    }
+    if not fresh:
+        # Keep existing stories — just refresh og:images on any that are missing them
+        print("  No fresh stories from feeds — keeping existing news.json unchanged")
+        stories = existing.get("stories", [])
+        enriched = False
+        for s in stories:
+            if not s.get("image"):
+                img = fetch_og_image(s["link"])
+                if img:
+                    s["image"] = img
+                    print(f"    ✓ image: {s['title'][:60]}")
+                    enriched = True
+                time.sleep(0.5)
+        if not enriched:
+            print("  Nothing to update.")
+            return
+        payload = {
+            "updated": existing.get("updated", date.today().strftime("%Y-%m-%d")),
+            "count":   len(stories),
+            "stories": stories,
+        }
+    else:
+        # Merge: fresh stories win; keep any existing stories not replaced
+        by_link = {s["link"]: s for s in existing.get("stories", [])}
+        for s in fresh:
+            by_link[s["link"]] = s
+        stories = sorted(by_link.values(), key=lambda x: x["date"], reverse=True)[:MAX_STORIES]
+        payload = {
+            "updated": date.today().strftime("%Y-%m-%d"),
+            "count":   len(stories),
+            "stories": stories,
+        }
 
     with open("news.json", "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)

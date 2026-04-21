@@ -165,6 +165,8 @@ a { color: var(--teal); }
   font-size: clamp(2.2rem, 5.5vw, 3.4rem);
   font-weight: 800;
   line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: 1rem;
   color: #fff;
 }
@@ -227,6 +229,8 @@ a { color: var(--teal); }
   font-size: clamp(1.9rem, 4.5vw, 2.8rem);
   font-weight: 800;
   line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: .75rem;
   color: #fff;
 }
@@ -297,6 +301,8 @@ a { color: var(--teal); }
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
 .news-updated { font-size: .78rem; color: var(--muted); }
 
@@ -404,6 +410,8 @@ a { color: var(--teal); }
   font-size: 1.05rem;
   font-weight: 800;
   color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: .85rem;
 }
 .sidebar-meeting-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
@@ -449,6 +457,8 @@ a { color: var(--teal); }
   font-size: 1.4rem;
   font-weight: 800;
   color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: .15rem;
 }
 .meeting-body-desc  { font-size: .9rem; color: #374151; line-height: 1.58; margin-bottom: .55rem; }
@@ -527,6 +537,8 @@ a { color: var(--teal); }
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: .85rem;
   padding-bottom: .45rem;
   border-bottom: 2px solid var(--border);
@@ -614,6 +626,8 @@ a { color: var(--teal); }
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .04em;
   margin-bottom: .45rem;
 }
 .budget-section-sub { font-size: .875rem; color: var(--muted); margin-bottom: 1.35rem; }
