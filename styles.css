@@ -200,6 +200,63 @@ a { color: var(--teal); }
 .hero-btn--primary  { background: var(--orange); color: #fff; }
 .hero-btn--outline  { border: 2px solid rgba(255,255,255,.55); color: #fff; }
 
+/* ── Hub About Strip ── */
+.hub-about-strip {
+  background: var(--cream, #FAF6EE);
+  border-bottom: 1px solid var(--border, #e5e7eb);
+  padding: 1.75rem 1.5rem;
+}
+.hub-about-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hub-about-credit {
+  font-size: .78rem;
+  color: var(--muted, #888);
+  margin-bottom: .6rem;
+  line-height: 1.5;
+}
+.hub-about-credit a { color: var(--teal); text-decoration: none; }
+.hub-about-credit a:hover { text-decoration: underline; }
+.hub-about-desc {
+  font-size: .9rem;
+  color: #374151;
+  max-width: 680px;
+  margin: 0 auto .9rem;
+  line-height: 1.65;
+}
+.hub-nav-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1rem;
+}
+.hub-nav-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .3rem;
+  background: #fff;
+  border: 1.5px solid var(--border, #e5e7eb);
+  border-radius: 10px;
+  padding: .85rem 1.25rem;
+  text-decoration: none;
+  color: var(--navy);
+  min-width: 78px;
+  transition: border-color .15s, box-shadow .15s;
+}
+.hub-nav-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 3px 12px rgba(32,124,145,.12);
+  text-decoration: none;
+  color: var(--teal);
+}
+.hub-nav-card--active { border-color: var(--orange); }
+.hub-nav-icon { font-size: 1.4rem; line-height: 1; }
+.hub-nav-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+
 /* ── Page Hero (inner pages) ── */
 .page-hero {
   background: var(--navy);
@@ -647,7 +704,7 @@ a { color: var(--teal); }
 }
 .budget-stat-num {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body, 'Libre Franklin', sans-serif);
   font-size: 1.85rem;
   font-weight: 800;
   color: var(--navy);

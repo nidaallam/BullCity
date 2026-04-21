@@ -467,9 +467,12 @@ function renderCalendarGrid(data, container) {
     closeDayDetail();
   };
 
-  // Index events by YYYY-MM-DD
+  // Filter events by active category, then index by date
+  const filteredEvents = calActiveFilter
+    ? events.filter(ev => (ev.category || '').toLowerCase() === calActiveFilter)
+    : events;
   const byDate = {};
-  events.forEach(ev => {
+  filteredEvents.forEach(ev => {
     (byDate[ev.date] = byDate[ev.date] || []).push(ev);
   });
 
@@ -529,7 +532,10 @@ function renderCalendarGrid(data, container) {
 }
 
 function showDayDetail(dateStr, cell) {
-  const events = (calendarData?.events || []).filter(ev => ev.date === dateStr);
+  const allDay  = (calendarData?.events || []).filter(ev => ev.date === dateStr);
+  const events  = calActiveFilter
+    ? allDay.filter(ev => (ev.category || '').toLowerCase() === calActiveFilter)
+    : allDay;
   const detail = document.getElementById('calDayDetail');
   const body   = document.getElementById('calDayDetailBody');
   const title  = document.getElementById('calDayDetailTitle');
