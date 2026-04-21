@@ -78,6 +78,7 @@ function runSiteSearch(q) {
     { title: 'City of Durham Budget','url': 'budget-city.html',   desc: 'City budget documents, Finance Department, and City Council.' },
     { title: 'DPS Budget',           url: 'budget-schools.html',  desc: 'Durham Public Schools budget, funding sources, and documents.' },
     { title: 'Voting & Elected Officials', url: 'voting.html',    desc: 'Register to vote, find your polling place, and learn about your representatives.' },
+    { title: 'Connect & Social Media',    url: 'connect.html',    desc: 'Follow Commissioner Nida Allam on Twitter/X, Instagram, Facebook, Reddit, and Bluesky.' },
   ];
   pages.forEach(p => {
     if (p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)) {
