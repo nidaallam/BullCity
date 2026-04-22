@@ -2,22 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Durham Civic Hub – Your Local Government Resource</title>
-  <meta name="description" content="Durham Civic Hub makes local government easy to navigate. Find meeting schedules, budget data, voting info, and curated news for Durham County, NC." />
+  <meta name="description" content="Durham Civic Hub makes local government easy to find. Meeting schedules, budget data, voting info, and local news for Durham County, NC — built by Commissioner Nida Allam." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   <link href="https://api.fontshare.com/v2/css?f[]=margin@700,800&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" />
   <style>
-    /* ── Home Page Specific ── */
+    /* ── Hero ── */
     .home-hero {
       background: linear-gradient(145deg, var(--navy, #262E4F) 0%, #1a3a4a 100%);
       color: #fff;
-      padding: 4rem 1.5rem 3rem;
+      padding: 3.5rem 1.5rem 2.75rem;
       text-align: center;
     }
     .home-hero-eyebrow {
@@ -31,42 +32,115 @@
     }
     .home-hero h1 {
       font-family: 'Margin', serif;
-      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .04em;
       margin: 0 0 1rem;
-      line-height: 1.1;
+      line-height: 1.08;
     }
     .home-hero-desc {
       font-family: 'Libre Franklin', sans-serif;
       font-size: 1.05rem;
       line-height: 1.65;
       color: rgba(255,255,255,.85);
-      max-width: 640px;
+      max-width: 580px;
       margin: 0 auto 2rem;
+    }
+    .home-hero-btns {
+      display: flex;
+      gap: .75rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .home-credit {
       font-family: 'Libre Franklin', sans-serif;
-      font-size: .8rem;
-      color: rgba(255,255,255,.55);
-      margin-top: 2.5rem;
+      font-size: .78rem;
+      color: rgba(255,255,255,.5);
+      margin-top: 2.25rem;
       line-height: 1.6;
     }
-    .home-credit a { color: rgba(255,255,255,.75); text-decoration: underline; }
+    .home-credit a { color: rgba(255,255,255,.72); text-decoration: underline; }
     .home-credit a:hover { color: #fff; }
 
-    /* ── Nav Grid ── */
-    .home-nav-section {
+    /* ── Commissioner Message ── */
+    .nida-message {
       background: var(--cream, #FAF6EE);
+      border-top: 3px solid var(--orange, #E97221);
+      padding: 2.25rem 1.5rem;
+    }
+    .nida-message-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.75rem;
+    }
+    .nida-message-photo {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      object-position: top center;
+      border-radius: 50%;
+      border: 3px solid var(--teal, #207C91);
+      flex-shrink: 0;
+    }
+    .nida-message-photo-placeholder {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--navy, #262E4F);
+      color: #fff;
+      font-size: 1.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 3px solid var(--teal, #207C91);
+    }
+    .nida-message-text { flex: 1; }
+    .nida-message-eyebrow {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--teal, #207C91);
+      margin-bottom: .3rem;
+    }
+    .nida-message-heading {
+      font-family: 'Margin', serif;
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--navy, #262E4F);
+      margin: 0 0 .65rem;
+    }
+    .nida-message-body {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .92rem;
+      color: #374151;
+      line-height: 1.7;
+      margin: 0;
+    }
+    .nida-message-sig {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      margin-top: .65rem;
+    }
+
+    /* ── Quick Nav ── */
+    .home-nav-section {
+      background: #fff;
       border-top: 1px solid var(--border, #e5e0d8);
       border-bottom: 1px solid var(--border, #e5e0d8);
-      padding: 2.5rem 1.5rem;
+      padding: 1.75rem 1.5rem;
     }
-    .home-nav-inner {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+    .home-nav-inner { max-width: 900px; margin: 0 auto; }
     .home-nav-heading {
       font-family: 'Libre Franklin', sans-serif;
       font-size: .72rem;
@@ -75,22 +149,22 @@
       letter-spacing: .1em;
       color: #888;
       text-align: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
     .home-nav-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: .85rem;
     }
     .home-nav-card {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: .5rem;
-      background: #fff;
+      gap: .4rem;
+      background: var(--cream, #FAF6EE);
       border: 1.5px solid var(--border, #e5e0d8);
-      border-radius: 12px;
-      padding: 1.5rem 1rem;
+      border-radius: 10px;
+      padding: 1.25rem .75rem;
       text-decoration: none;
       color: var(--navy, #262E4F);
       transition: border-color .15s, box-shadow .15s, transform .15s;
@@ -98,43 +172,61 @@
     }
     .home-nav-card:hover {
       border-color: var(--teal, #207C91);
-      box-shadow: 0 4px 16px rgba(32,124,145,.15);
+      box-shadow: 0 4px 14px rgba(32,124,145,.14);
       transform: translateY(-2px);
       text-decoration: none;
       color: var(--teal, #207C91);
     }
-    .home-nav-icon { font-size: 2rem; line-height: 1; }
+    .home-nav-icon { font-size: 1.75rem; line-height: 1; }
     .home-nav-label {
       font-family: 'Libre Franklin', sans-serif;
-      font-size: .82rem;
+      font-size: .78rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .06em;
+      letter-spacing: .05em;
     }
     .home-nav-sub {
       font-family: 'Libre Franklin', sans-serif;
-      font-size: .72rem;
+      font-size: .68rem;
       color: #888;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
-    /* ── Highlights ── */
+    /* ── Section wrapper ── */
+    .home-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 0;
+    }
+    .home-section-title {
+      font-family: 'Margin', serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--navy, #262E4F);
+      border-bottom: 3px solid var(--orange, #E97221);
+      padding-bottom: .5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Highlight cards ── */
     .home-highlights {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2.5rem 1.5rem;
+      padding: 1rem 1.5rem 0;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
     }
     .home-highlight-card {
       background: #fff;
       border: 1.5px solid var(--border, #e5e0d8);
-      border-radius: 12px;
-      padding: 1.4rem;
+      border-radius: 10px;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: .4rem;
+      gap: .35rem;
     }
     .home-highlight-label {
       font-family: 'Libre Franklin', sans-serif;
@@ -164,91 +256,176 @@
       font-weight: 700;
       color: var(--teal, #207C91);
       text-decoration: none;
-      margin-top: .25rem;
+      margin-top: .2rem;
     }
     .home-highlight-link:hover { text-decoration: underline; }
 
-    /* ── Commissioner Message ── */
-    .nida-message {
-      background: var(--cream, #FAF6EE);
-      border-top: 3px solid var(--orange, #E97221);
-      padding: 2.5rem 1.5rem;
-    }
-    .nida-message-inner {
-      max-width: 900px;
+    /* ── Budget snapshot ── */
+    .budget-snapshot {
+      max-width: 1100px;
       margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 2rem;
+      padding: 2.25rem 1.5rem 0;
     }
-    .nida-message-photo {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      object-position: top center;
-      border-radius: 50%;
-      border: 3px solid var(--teal, #207C91);
-      flex-shrink: 0;
+    .budget-snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
-    .nida-message-photo-placeholder {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: var(--navy, #262E4F);
-      color: #fff;
-      font-size: 2rem;
+    .budget-snap-card {
+      background: #fff;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 10px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .18s, border-color .18s;
+      display: block;
+    }
+    .budget-snap-card:hover {
+      box-shadow: 0 4px 16px rgba(38,46,79,.1);
+      border-color: var(--teal, #207C91);
+    }
+    .budget-snap-label {
+      font-size: .68rem;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: #888;
+      margin-bottom: .3rem;
+    }
+    .budget-snap-amount {
+      font-family: 'Margin', serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--navy, #262E4F);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .budget-snap-desc {
+      font-size: .78rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+    .budget-snap-card--county { border-top: 3px solid var(--navy, #262E4F); }
+    .budget-snap-card--city   { border-top: 3px solid var(--teal, #207C91); }
+    .budget-snap-card--dps    { border-top: 3px solid #5b21b6; }
+    .budget-explorer-cta {
+      background: var(--navy, #262E4F);
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      border: 3px solid var(--teal, #207C91);
+      justify-content: space-between;
+      gap: 1rem;
+      text-decoration: none;
+      flex-wrap: wrap;
     }
-    .nida-message-text {
-      flex: 1;
-    }
-    .nida-message-eyebrow {
+    .budget-explorer-cta:hover { opacity: .92; }
+    .budget-explorer-cta-text {
       font-family: 'Libre Franklin', sans-serif;
-      font-size: .72rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--teal, #207C91);
-      margin-bottom: .35rem;
+      color: #fff;
     }
-    .nida-message-heading {
+    .budget-explorer-cta-label {
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--peach, #EBA85C);
+      margin-bottom: .2rem;
+    }
+    .budget-explorer-cta-title {
       font-family: 'Margin', serif;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .04em;
-      color: var(--navy, #262E4F);
-      margin: 0 0 .75rem;
+      letter-spacing: .03em;
     }
-    .nida-message-body {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: .92rem;
-      color: #374151;
-      line-height: 1.7;
-      margin: 0;
-    }
-    .nida-message-sig {
-      font-family: 'Libre Franklin', sans-serif;
+    .budget-explorer-cta-sub {
       font-size: .82rem;
-      font-weight: 700;
-      color: var(--navy, #262E4F);
-      margin-top: .75rem;
+      color: rgba(255,255,255,.72);
+      margin-top: .2rem;
     }
-    @media (max-width: 640px) {
-      .nida-message-inner { flex-direction: column; align-items: center; text-align: center; }
+    .budget-explorer-cta-btn {
+      background: var(--orange, #E97221);
+      color: #fff;
+      padding: .65rem 1.4rem;
+      border-radius: 6px;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .88rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
-    @media (max-width: 760px) {
-      .home-highlights { grid-template-columns: 1fr; }
-      .home-nav-grid { grid-template-columns: repeat(3, 1fr); }
+    /* ── CIP Map Preview ── */
+    .cip-preview {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 0;
     }
-    @media (max-width: 480px) {
-      .home-nav-grid { grid-template-columns: repeat(2, 1fr); }
+    .cip-preview-inner {
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    #homeMap {
+      width: 100%;
+      height: 320px;
+    }
+    .cip-preview-footer {
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--border, #e5e0d8);
+    }
+    .cip-preview-stats {
+      display: flex;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .cip-preview-stat { font-family: 'Libre Franklin', sans-serif; font-size: .82rem; color: #555; }
+    .cip-preview-stat strong { color: var(--navy, #262E4F); font-weight: 700; }
+    .cip-map-legend {
+      display: flex;
+      gap: .85rem;
+      align-items: center;
+      flex-wrap: wrap;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .75rem;
+      color: #555;
+    }
+    .cip-map-dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: .3rem;
+      vertical-align: middle;
+    }
+
+    /* ── Latest News ── */
+    .home-news {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.25rem 1.5rem 0;
+    }
+    .home-news-grid { display: flex; flex-direction: column; gap: .85rem; }
+
+    /* ── Spacing ── */
+    .home-bottom-pad { padding-bottom: 3rem; }
+
+    @media (max-width: 640px) {
+      .nida-message-inner { flex-direction: column; align-items: center; text-align: center; }
+      .budget-snapshot-grid { grid-template-columns: 1fr 1fr; }
+      #homeMap { height: 240px; }
+    }
+    @media (max-width: 400px) {
+      .budget-snapshot-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -277,8 +454,11 @@
   <section class="home-hero">
     <p class="home-hero-eyebrow">Durham County, NC</p>
     <h1>Durham<br>Civic Hub</h1>
-    <p class="home-hero-desc">Local government can be hard to navigate. This site puts everything in one place — meeting schedules, budget data, voting information, and curated local news — so every Durham resident can stay informed in minutes, for free.</p>
-
+    <p class="home-hero-desc">Finding your way through local government takes time most of us don't have. This site puts meeting agendas, budget data, voting info, and local news in one place. Fast, free, and built for every Durham resident.</p>
+    <div class="home-hero-btns">
+      <a href="budget.html" class="hero-btn hero-btn--primary">Explore Budgets</a>
+      <a href="meetings.html" class="hero-btn hero-btn--outline">Meeting Schedules</a>
+    </div>
     <p class="home-credit">
       Created by Durham County Commissioner <strong>Nida Allam</strong> · Not an official government website<br>
       Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener">Peak News Network</a>
@@ -289,38 +469,38 @@
   <section class="nida-message">
     <div class="nida-message-inner">
       <img class="nida-message-photo"
-           src="https://www.dconc.gov/home/showpublishedimage/16012/638069226904630000"
+           src="https://www.dconc.gov/Images/DCo-Nida-Allam-LR-6487.jpg"
            alt="Commissioner Nida Allam"
            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
       <div class="nida-message-photo-placeholder" style="display:none;">NA</div>
       <div class="nida-message-text">
-        <p class="nida-message-eyebrow">Message from Commissioner Allam</p>
-        <h2 class="nida-message-heading">Durham, Explained</h2>
-        <p class="nida-message-body">Durham is a complex place to navigate — dozens of boards, multiple budgets, overlapping jurisdictions. I built this site so every resident can find what they need in minutes, for free. Local government works best when residents show up, ask questions, and hold us accountable. This is my contribution to making that easier.</p>
-        <p class="nida-message-sig">— Commissioner Nida Allam, Durham County Board of Commissioners</p>
+        <p class="nida-message-eyebrow">From Commissioner Allam</p>
+        <h2 class="nida-message-heading">Why This Exists</h2>
+        <p class="nida-message-body">Durham has a lot of moving parts. Between the county, the city, the school board, and all the advisory boards, it is genuinely hard to know what is happening and where to show up. I built this site because I believe residents should never have to dig for basic civic information. When you know what is going on, you show up. When you show up, things change.</p>
+        <p class="nida-message-sig">Commissioner Nida Allam, Durham County Board of Commissioners</p>
       </div>
     </div>
   </section>
 
-  <!-- ── Section Navigator ── -->
+  <!-- ── Quick Nav ── -->
   <section class="home-nav-section">
     <div class="home-nav-inner">
-      <p class="home-nav-heading">What would you like to find?</p>
+      <p class="home-nav-heading">What are you looking for?</p>
       <div class="home-nav-grid">
         <a href="news.html" class="home-nav-card">
           <span class="home-nav-icon">📰</span>
           <span class="home-nav-label">News</span>
-          <span class="home-nav-sub">Curated local government coverage</span>
+          <span class="home-nav-sub">Local government coverage</span>
         </a>
         <a href="meetings.html" class="home-nav-card">
           <span class="home-nav-icon">🗓️</span>
           <span class="home-nav-label">Meetings</span>
-          <span class="home-nav-sub">Schedules, agendas &amp; calendar</span>
+          <span class="home-nav-sub">Schedules, agendas, calendar</span>
         </a>
         <a href="budget.html" class="home-nav-card">
           <span class="home-nav-icon">💰</span>
           <span class="home-nav-label">Budget</span>
-          <span class="home-nav-sub">County, city &amp; schools budgets</span>
+          <span class="home-nav-sub">County, city, schools</span>
         </a>
         <a href="voting.html" class="home-nav-card">
           <span class="home-nav-icon">🗳️</span>
@@ -332,38 +512,103 @@
           <span class="home-nav-label">Connect</span>
           <span class="home-nav-sub">Contact Commissioner Allam</span>
         </a>
+        <a href="cip.html" class="home-nav-card">
+          <span class="home-nav-icon">🏗️</span>
+          <span class="home-nav-label">Projects</span>
+          <span class="home-nav-sub">Capital improvements map</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- ── What's Happening Now ── -->
-  <div style="max-width:1100px;margin:0 auto;padding:1.75rem 1.5rem .5rem;">
-    <h2 style="font-family:'Margin',serif;font-size:1.15rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:var(--navy);border-bottom:3px solid var(--orange,#E97221);padding-bottom:.5rem;margin-bottom:1.25rem;">What's Happening Now</h2>
+  <div class="home-section">
+    <h2 class="home-section-title">What's Happening Now</h2>
   </div>
   <div class="home-highlights">
-
-    <div class="home-highlight-card">
-      <div class="home-highlight-label">⚡ Budget</div>
-      <div class="home-highlight-title">FY2026-27 Budget Public Hearing — April 24</div>
-      <p class="home-highlight-desc">Durham County is accepting public comment on the upcoming FY2026-27 budget. Attend the public hearing on April 24 at 7 PM in Commissioners Chambers (200 E. Main St.) or submit written comments online.</p>
+    <div class="home-highlight-card" style="border-top:3px solid var(--rust,#DA421D);">
+      <div class="home-highlight-label">Budget Season</div>
+      <div class="home-highlight-title">FY2026-27 Budget Public Hearing — May 26 at 7 PM</div>
+      <p class="home-highlight-desc">Durham County is accepting public input on the FY2026-27 budget. County Manager Claudia Hager presents her recommendation on May 11. The public hearing is May 26 at 7 PM in Commissioners Chambers, 200 E. Main St. The Board votes on adoption June 8.</p>
       <a class="home-highlight-link" href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment" target="_blank" rel="noopener">Submit a comment →</a>
     </div>
-
-    <div class="home-highlight-card">
-      <div class="home-highlight-label">📋 Meetings</div>
-      <div class="home-highlight-title">BOCC Work Session — April 21 at 9 AM</div>
-      <p class="home-highlight-desc">The Durham County Board of Commissioners meets today at 9 AM at 200 E. Main St. The Planning Commission follows on April 23 and the Budget Public Hearing is April 24. See the full schedule on the Meetings page.</p>
+    <div class="home-highlight-card" style="border-top:3px solid var(--teal,#207C91);">
+      <div class="home-highlight-label">Upcoming Meetings</div>
+      <div class="home-highlight-title">BOCC Regular Meeting — April 27 at 9 AM</div>
+      <p class="home-highlight-desc">The Durham County Board of Commissioners meets April 27 at 9 AM at 200 E. Main St. The City-County Planning Commission meets April 23 at 5 PM at Durham City Hall. See the full schedule for agendas and livestream links.</p>
       <a class="home-highlight-link" href="meetings.html">Full meeting schedule →</a>
     </div>
-
-    <div class="home-highlight-card">
-      <div class="home-highlight-label">💰 Budget Explorer</div>
-      <div class="home-highlight-title">Explore Durham's $1.038B County Budget</div>
-      <p class="home-highlight-desc">The adopted FY2025-26 Durham County budget totals $1.038 billion. The Budget Explorer lets you click through spending by area, see how the budget is funded, and drill down to individual departments.</p>
-      <a class="home-highlight-link" href="budget-explorer.html">Open Budget Explorer →</a>
+    <div class="home-highlight-card" style="border-top:3px solid var(--orange,#E97221);">
+      <div class="home-highlight-label">Get Involved</div>
+      <div class="home-highlight-title">Housing Advisory Board Applications Due May 1</div>
+      <p class="home-highlight-desc">Durham County is seeking applicants for the Housing Advisory Board. Applications are due May 1, 2026. Apply online at dconc.gov. This is a great opportunity to directly shape housing policy in Durham.</p>
+      <a class="home-highlight-link" href="https://www.dconc.gov/Board-of-Commissioners/Boards-and-Commissions" target="_blank" rel="noopener">Apply now →</a>
     </div>
-
   </div>
+
+  <!-- ── Budget Snapshot ── -->
+  <div class="budget-snapshot">
+    <h2 class="home-section-title">Durham Budgets at a Glance</h2>
+    <div class="budget-snapshot-grid">
+      <a class="budget-snap-card budget-snap-card--county" href="budget-county.html">
+        <div class="budget-snap-label">Durham County</div>
+        <div class="budget-snap-amount">$1.038B</div>
+        <div class="budget-snap-desc">FY2025-26 Adopted · Tax rate 55.42¢ per $100</div>
+      </a>
+      <a class="budget-snap-card budget-snap-card--city" href="budget-city.html">
+        <div class="budget-snap-label">City of Durham</div>
+        <div class="budget-snap-amount">$772M</div>
+        <div class="budget-snap-desc">FY2025-26 Adopted · Tax rate 43.71¢ per $100</div>
+      </a>
+      <a class="budget-snap-card budget-snap-card--dps" href="budget-schools.html">
+        <div class="budget-snap-label">Durham Public Schools</div>
+        <div class="budget-snap-amount">$708M</div>
+        <div class="budget-snap-desc">FY2025-26 Total · 53 schools, ~32,000 students</div>
+      </a>
+    </div>
+    <a class="budget-explorer-cta" href="budget-explorer.html">
+      <div class="budget-explorer-cta-text">
+        <div class="budget-explorer-cta-label">Interactive Tool</div>
+        <div class="budget-explorer-cta-title">Budget Explorer</div>
+        <div class="budget-explorer-cta-sub">Click through spending by area, see funding sources, and calculate your personal property tax breakdown.</div>
+      </div>
+      <span class="budget-explorer-cta-btn">Open Explorer →</span>
+    </a>
+  </div>
+
+  <!-- ── CIP Map Preview ── -->
+  <div class="cip-preview">
+    <h2 class="home-section-title">Capital Improvement Projects</h2>
+    <div class="cip-preview-inner">
+      <div id="homeMap"></div>
+      <div class="cip-preview-footer">
+        <div class="cip-preview-stats">
+          <span class="cip-preview-stat"><strong>$537.6M</strong> City of Durham</span>
+          <span class="cip-preview-stat"><strong>$160M</strong> Durham County Housing Bond</span>
+          <span class="cip-preview-stat"><strong>$61.8M</strong> DPS Capital</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;">
+          <div class="cip-map-legend">
+            <span><span class="cip-map-dot" style="background:#207C91;"></span>City</span>
+            <span><span class="cip-map-dot" style="background:#262E4F;"></span>County</span>
+            <span><span class="cip-map-dot" style="background:#5b21b6;"></span>DPS</span>
+          </div>
+          <a href="cip.html" style="font-family:'Libre Franklin',sans-serif;font-size:.85rem;font-weight:700;color:var(--teal,#207C91);text-decoration:none;">View all projects →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Latest News ── -->
+  <div class="home-news">
+    <h2 class="home-section-title">Latest News</h2>
+    <div id="storiesGrid" class="home-news-grid">
+      <!-- Populated by app.js -->
+    </div>
+    <a href="news.html" style="display:inline-block;margin-top:1rem;font-family:'Libre Franklin',sans-serif;font-size:.875rem;font-weight:700;color:var(--teal,#207C91);text-decoration:none;">All news →</a>
+  </div>
+
+  <div class="home-bottom-pad"></div>
 
   <!-- ── Footer ── -->
   <footer class="site-footer">
@@ -372,7 +617,7 @@
         <span class="logo-bull">🐂</span>
         <span>Durham Civic Hub</span>
       </div>
-      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource hub to help residents find local government information in one place. Not an official government website. All links go to official sources.</p>
+      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource. Not an official government website. All links go to official sources.</p>
       <p class="footer-note" style="margin-top:.5rem;">Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener" style="color:var(--peach);">Peak News Network</a>.</p>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -387,6 +632,32 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
   <script src="app.js"></script>
+  <script>
+    // Mini CIP map on home page
+    document.addEventListener('DOMContentLoaded', function () {
+      const map = L.map('homeMap', { zoomControl: false, attributionControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, touchZoom: false }).setView([35.9940, -78.8986], 12);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
+      fetch('cip-data.json')
+        .then(r => r.json())
+        .then(data => {
+          (data.projects || []).forEach(p => {
+            if (!p.lat || !p.lng) return;
+            const color = p.entity === 'city' ? '#207C91' : p.entity === 'dps' ? '#5b21b6' : '#262E4F';
+            L.circleMarker([p.lat, p.lng], { radius: 9, fillColor: color, color: '#fff', weight: 2, opacity: 1, fillOpacity: 0.85 })
+              .bindPopup('<strong style="font-family:sans-serif;font-size:.85rem;">' + p.title + '</strong><br><span style="font-family:sans-serif;font-size:.75rem;color:#666;">$' + (p.amount/1e6).toFixed(1) + 'M</span>')
+              .addTo(map);
+          });
+          // Add "view full map" overlay
+          const overlay = document.createElement('a');
+          overlay.href = 'cip.html';
+          overlay.title = 'View full Capital Improvement Projects map';
+          overlay.style.cssText = 'position:absolute;inset:0;z-index:1000;cursor:pointer;';
+          document.getElementById('homeMap').appendChild(overlay);
+        })
+        .catch(() => {});
+    });
+  </script>
 </body>
 </html>
