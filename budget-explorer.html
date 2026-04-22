@@ -885,6 +885,25 @@
           </div>`).join('')}
       </div>
 
+      ${(e.taxRatePer100 && e.id !== 'dps') ? `
+      <div style="
+        background: linear-gradient(135deg, #e0f3f6 0%, #dbeafe 100%);
+        border: 1.5px solid #93c5fd;
+        border-radius: 8px;
+        padding: .75rem 1.25rem;
+        margin-bottom: .25rem;
+        display: flex;
+        align-items: center;
+        gap: .6rem;
+        font-family: 'Libre Franklin', sans-serif;
+        font-size: .88rem;
+        color: #1e40af;
+        font-weight: 600;
+      ">
+        <span style="font-size:1.1rem;">💡</span>
+        Enter your home value below to see your personal tax breakdown →
+      </div>` : ''}
+
       ${buildTaxReceipt(e, yr)}
 
       ${fundingHtml}
@@ -990,7 +1009,21 @@
       : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100.';
 
     return `
-      <div class="exp-section-title">Your Property Tax Receipt</div>
+      <div class="exp-section-title" style="display:flex;align-items:center;gap:.6rem;">
+        Your Property Tax Receipt
+        <span style="
+          font-family:'Libre Franklin',sans-serif;
+          font-size:.7rem;
+          font-weight:700;
+          letter-spacing:.05em;
+          text-transform:uppercase;
+          background:var(--teal,#207C91);
+          color:#fff;
+          padding:.2rem .65rem;
+          border-radius:12px;
+          vertical-align:middle;
+        ">Interactive</span>
+      </div>
       <div class="exp-receipt-card">
         <p class="exp-receipt-intro">Enter your home's assessed value to see how your annual property tax breaks down by spending area. In North Carolina, property is assessed at 100% of appraised (market) value. The current ${e.name} tax rate is <strong>${rateDisplay}</strong>.</p>
         <div class="exp-receipt-input-row">

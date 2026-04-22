@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capital Improvement Projects – Durham Civic Hub</title>
+  <meta name="description" content="Durham City and County Capital Improvement Projects — official adopted budget figures for water, transit, housing, schools, streets, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=margin@700,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── CIP Summary Stats ── */
+    .cip-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0;
+    }
+    .cip-stat {
+      background: #fff;
+      border-radius: 10px;
+      border: 1.5px solid #e5e7eb;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+    .cip-stat-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+    .cip-stat-value {
+      font-family: 'Margin', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy, #262E4F);
+      line-height: 1.1;
+    }
+    .cip-stat-sub {
+      font-size: .8rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+    .cip-stat--city   { border-top: 4px solid var(--teal, #207C91); }
+    .cip-stat--county { border-top: 4px solid var(--navy, #262E4F); }
+    .cip-stat--total  { border-top: 4px solid var(--orange, #E97221); }
+
+    /* ── Filter bar ── */
+    .cip-filters {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: .9rem;
+    }
+    .cip-filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .5rem;
+    }
+    .cip-filter-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: #6b7280;
+      min-width: 80px;
+    }
+    .cip-filter-btn {
+      padding: .4rem .9rem;
+      border-radius: 20px;
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      transition: background .15s, border-color .15s, color .15s;
+      line-height: 1;
+    }
+    .cip-filter-btn:hover {
+      border-color: var(--teal, #207C91);
+      color: var(--teal, #207C91);
+    }
+    .cip-filter-btn.active {
+      background: var(--teal, #207C91);
+      border-color: var(--teal, #207C91);
+      color: #fff;
+    }
+    .cip-filter-btn.active--navy {
+      background: var(--navy, #262E4F);
+      border-color: var(--navy, #262E4F);
+      color: #fff;
+    }
+
+    /* ── Projects count ── */
+    .cip-count {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .85rem;
+      color: #6b7280;
+      margin-bottom: 1rem;
+    }
+
+    /* ── Projects grid ── */
+    .cip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    .cip-card {
+      background: #fff;
+      border-radius: 10px;
+      border: 1.5px solid #e5e7eb;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      transition: box-shadow .18s, border-color .18s;
+    }
+    .cip-card:hover {
+      box-shadow: 0 6px 24px rgba(38,46,79,.1);
+      border-color: #c7d2e0;
+    }
+    .cip-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .cip-entity-badge {
+      display: inline-block;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .25rem .65rem;
+      border-radius: 12px;
+      line-height: 1;
+    }
+    .cip-entity-badge--city   { background: #e0f3f6; color: var(--teal, #207C91); }
+    .cip-entity-badge--county { background: #e8eaf3; color: var(--navy, #262E4F); }
+    .cip-category-tag {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .7rem;
+      font-weight: 600;
+      color: #6b7280;
+      background: #f3f4f6;
+      padding: .2rem .55rem;
+      border-radius: 8px;
+    }
+    .cip-card-title {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      margin: 0;
+      line-height: 1.3;
+    }
+    .cip-amount {
+      font-family: 'Margin', serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy, #262E4F);
+      line-height: 1;
+    }
+    .cip-status-badge {
+      display: inline-block;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      padding: .22rem .6rem;
+      border-radius: 10px;
+      line-height: 1;
+    }
+    .cip-status--active,
+    .cip-status--ongoing   { background: #dcfce7; color: #166534; }
+    .cip-status--planning  { background: #dbeafe; color: #1e40af; }
+    .cip-status--design    { background: #fef9c3; color: #854d0e; }
+    .cip-status--various   { background: #f3f4f6; color: #374151; }
+    .cip-desc {
+      font-size: .88rem;
+      color: #4b5563;
+      line-height: 1.6;
+      flex: 1;
+    }
+    .cip-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem;
+      border-top: 1px solid #f3f4f6;
+      padding-top: .75rem;
+      margin-top: auto;
+    }
+    .cip-year-label {
+      font-size: .75rem;
+      font-weight: 600;
+      color: #9ca3af;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .cip-source-link {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--teal, #207C91);
+      text-decoration: none;
+    }
+    .cip-source-link:hover { text-decoration: underline; }
+
+    /* ── Empty state ── */
+    .cip-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: #9ca3af;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+    }
+
+    /* ── Data note ── */
+    .cip-note {
+      margin-top: 2.5rem;
+      padding: 1rem 1.25rem;
+      background: #f8f9fb;
+      border-left: 3px solid var(--teal, #207C91);
+      border-radius: 4px;
+      font-size: .875rem;
+      color: #4b5563;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .cip-grid { grid-template-columns: 1fr; }
+      .cip-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="cip">
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-bull">🐂</span>
+        <span class="logo-text">Durham<strong>Civic</strong>Hub</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="budget.html" class="nav-link">Budget</a>
+        <a href="voting.html" class="nav-link">Voting</a>
+        <a href="connect.html" class="nav-link">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Durham, NC</p>
+      <h1 class="page-hero-title">Capital Improvement Projects</h1>
+      <p class="page-hero-sub">Long-term investments in Durham's infrastructure — water systems, roads, transit, housing, schools, and parks. All figures from official adopted budgets and bond referendum documents.</p>
+    </div>
+  </div>
+
+  <!-- ── Main ── -->
+  <main class="site-main site-main--full">
+    <div class="inner-content">
+
+      <!-- Summary stat cards -->
+      <div class="cip-stats" id="cipStats">
+        <div class="cip-stat cip-stat--city">
+          <div class="cip-stat-label">City of Durham CIP</div>
+          <div class="cip-stat-value">$537.6M</div>
+          <div class="cip-stat-sub">FY2025-26 Adopted — water, transit, streets, parks &amp; facilities</div>
+        </div>
+        <div class="cip-stat cip-stat--county">
+          <div class="cip-stat-label">Durham County CIP</div>
+          <div class="cip-stat-value">$221.8M</div>
+          <div class="cip-stat-sub">$160M affordable housing bond (2022) + $61.8M school capital improvements</div>
+        </div>
+        <div class="cip-stat cip-stat--total">
+          <div class="cip-stat-label">Combined Total</div>
+          <div class="cip-stat-value">$759.4M</div>
+          <div class="cip-stat-sub">City + County capital investment in Durham's future</div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="cip-filters">
+        <div class="cip-filter-row">
+          <span class="cip-filter-label">Entity</span>
+          <button class="cip-filter-btn active" data-entity="all" onclick="setEntityFilter('all', this)">All</button>
+          <button class="cip-filter-btn" data-entity="city" onclick="setEntityFilter('city', this)">City of Durham</button>
+          <button class="cip-filter-btn" data-entity="county" onclick="setEntityFilter('county', this)">Durham County</button>
+        </div>
+        <div class="cip-filter-row" id="categoryFilters">
+          <span class="cip-filter-label">Category</span>
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div class="cip-count" id="cipCount"></div>
+      <div class="cip-grid" id="cipGrid">
+        <div class="cip-empty">Loading projects…</div>
+      </div>
+
+      <div class="cip-note">
+        All figures on this page are drawn from official government documents — the City of Durham FY2025-26 Adopted Budget and Durham County's voter-approved 2022 bond referendum and FY2025-26 Adopted Budget. No figures are estimated by this site. See <a href="https://www.durhamnc.gov/456/Finance" target="_blank" rel="noopener">durhamnc.gov</a> and <a href="https://www.dconc.gov/Budget-and-Management-Services" target="_blank" rel="noopener">dconc.gov</a> for source documents.
+      </div>
+
+    </div><!-- /.inner-content -->
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bull">🐂</span>
+        <span>Durham Civic Hub</span>
+      </div>
+      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource hub to help residents find local government information in one place. Not an official government website. All budget figures should be verified at official government sources.</p>
+      <p class="footer-note" style="margin-top:.5rem;">Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener" style="color:var(--peach);">Peak News Network</a>.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="budget.html">Budget</a>
+        <a href="voting.html">Voting</a>
+        <a href="connect.html">Connect</a>
+        <a href="https://www.dconc.gov" target="_blank" rel="noopener">Durham County</a>
+        <a href="https://www.durhamnc.gov" target="_blank" rel="noopener">City of Durham</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    (function () {
+      let allProjects = [];
+      let activeEntity = 'all';
+      let activeCategory = 'all';
+
+      function fmtMoney(n) {
+        if (n >= 1e9) return '$' + (n / 1e9).toFixed(1) + 'B';
+        if (n >= 1e6) return '$' + (n / 1e6).toFixed(1) + 'M';
+        if (n >= 1e3) return '$' + (n / 1e3).toFixed(0) + 'K';
+        return '$' + n.toLocaleString();
+      }
+
+      function statusClass(status) {
+        const s = (status || '').toLowerCase();
+        if (s === 'active') return 'cip-status--active';
+        if (s === 'ongoing') return 'cip-status--ongoing';
+        if (s === 'planning') return 'cip-status--planning';
+        if (s === 'design') return 'cip-status--design';
+        return 'cip-status--various';
+      }
+
+      function renderProjects() {
+        const grid = document.getElementById('cipGrid');
+        const countEl = document.getElementById('cipCount');
+        if (!grid) return;
+
+        const filtered = allProjects.filter(p => {
+          if (activeEntity !== 'all' && p.entity !== activeEntity) return false;
+          if (activeCategory !== 'all' && p.category !== activeCategory) return false;
+          return true;
+        });
+
+        countEl.textContent = filtered.length === allProjects.length
+          ? `Showing all ${filtered.length} projects`
+          : `Showing ${filtered.length} of ${allProjects.length} projects`;
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '<div class="cip-empty">No projects match the selected filters.</div>';
+          return;
+        }
+
+        grid.innerHTML = filtered.map(p => `
+          <div class="cip-card">
+            <div class="cip-card-header">
+              <span class="cip-entity-badge cip-entity-badge--${p.entity}">${p.entityLabel}</span>
+              <span class="cip-category-tag">${p.category}</span>
+            </div>
+            <h2 class="cip-card-title">${p.title}</h2>
+            <div style="display:flex;align-items:center;gap:.75rem;flex-wrap:wrap;">
+              <span class="cip-amount">${fmtMoney(p.amount)}</span>
+              <span class="cip-status-badge ${statusClass(p.status)}">${p.status}</span>
+            </div>
+            <p class="cip-desc">${p.description}</p>
+            <div class="cip-card-footer">
+              <span class="cip-year-label">${p.year}</span>
+              <a class="cip-source-link" href="${p.sourceUrl}" target="_blank" rel="noopener">Source →</a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function buildCategoryFilters(projects) {
+        const container = document.getElementById('categoryFilters');
+        if (!container) return;
+
+        const categories = ['all', ...new Set(projects.map(p => p.category))];
+
+        const allBtn = document.createElement('button');
+        allBtn.className = 'cip-filter-btn active';
+        allBtn.dataset.cat = 'all';
+        allBtn.textContent = 'All Categories';
+        allBtn.onclick = function () { setCategoryFilter('all', this); };
+        container.appendChild(allBtn);
+
+        categories.filter(c => c !== 'all').forEach(cat => {
+          const btn = document.createElement('button');
+          btn.className = 'cip-filter-btn';
+          btn.dataset.cat = cat;
+          btn.textContent = cat;
+          btn.onclick = function () { setCategoryFilter(cat, this); };
+          container.appendChild(btn);
+        });
+      }
+
+      window.setEntityFilter = function (entity, btn) {
+        activeEntity = entity;
+        document.querySelectorAll('[data-entity]').forEach(b => {
+          b.classList.remove('active', 'active--navy');
+        });
+        if (entity === 'county') {
+          btn.classList.add('active', 'active--navy');
+        } else {
+          btn.classList.add('active');
+        }
+        renderProjects();
+      };
+
+      window.setCategoryFilter = function (cat, btn) {
+        activeCategory = cat;
+        document.querySelectorAll('[data-cat]').forEach(b => {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        renderProjects();
+      };
+
+      document.addEventListener('DOMContentLoaded', function () {
+        fetch('cip-data.json')
+          .then(r => r.json())
+          .then(data => {
+            allProjects = data.projects || [];
+            buildCategoryFilters(allProjects);
+            renderProjects();
+          })
+          .catch(err => {
+            console.error('Failed to load CIP data:', err);
+            const grid = document.getElementById('cipGrid');
+            if (grid) grid.innerHTML = '<div class="cip-empty">Unable to load project data. Please try refreshing the page.</div>';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
