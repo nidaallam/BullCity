@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://api.weather.gov;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Civic Glossary – Durham Civic Hub</title>
+  <meta name="description" content="Plain-English definitions of Durham government, budget, voting, transit, and civic terms. Know what it means before the next meeting!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+  <link href="https://api.fontshare.com/v2/css?f[]=margin@700,800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Glossary Layout ── */
+    .glossary-main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── Search ── */
+    .glossary-search-wrap {
+      margin-bottom: 1.75rem;
+      position: relative;
+    }
+    .glossary-search-icon {
+      position: absolute;
+      left: .85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      pointer-events: none;
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+    .glossary-search {
+      width: 100%;
+      padding: .7rem 1rem .7rem 2.6rem;
+      font-size: .95rem;
+      font-family: 'Libre Franklin', sans-serif;
+      border: 1.5px solid var(--border, #DDD8CC);
+      border-radius: 8px;
+      background: #fff;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+      color: var(--navy, #262E4F);
+    }
+    .glossary-search:focus {
+      border-color: var(--teal, #207C91);
+      box-shadow: 0 0 0 3px rgba(32,124,145,.12);
+    }
+    .glossary-search-count {
+      font-size: .8rem;
+      color: #888;
+      margin-top: .4rem;
+      font-family: 'Libre Franklin', sans-serif;
+      min-height: 1.2em;
+    }
+
+    /* ── Letter Jump Bar ── */
+    .glossary-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-bottom: 2rem;
+      padding: .85rem 1rem;
+      background: #fff;
+      border: 1.5px solid var(--border, #DDD8CC);
+      border-radius: 8px;
+    }
+    .glossary-jump-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #999;
+      display: flex;
+      align-items: center;
+      margin-right: .25rem;
+      flex-shrink: 0;
+    }
+    .glossary-jump-letter {
+      font-family: 'Margin', serif;
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      text-decoration: none;
+      width: 2rem;
+      height: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      border: 1.5px solid var(--border, #DDD8CC);
+      background: var(--cream, #FAF6EE);
+      transition: background .15s, border-color .15s, color .15s;
+      flex-shrink: 0;
+    }
+    .glossary-jump-letter:hover {
+      background: var(--orange, #E97221);
+      border-color: var(--orange, #E97221);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* ── Letter Section ── */
+    .glossary-section {
+      margin-bottom: 2.75rem;
+      scroll-margin-top: 72px;
+    }
+    .glossary-section-heading {
+      font-family: 'Margin', serif;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      color: var(--navy, #262E4F);
+      line-height: 1;
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 3px solid var(--orange, #E97221);
+      display: inline-block;
+    }
+
+    /* ── Definition List ── */
+    .glossary-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1.5px solid var(--border, #DDD8CC);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .glossary-pair {
+      padding: 1.1rem 1.4rem;
+      border-bottom: 1px solid var(--border-lt, #EDE9E0);
+      transition: background .12s;
+    }
+    .glossary-pair:last-child {
+      border-bottom: none;
+    }
+    .glossary-pair:hover {
+      background: var(--cream, #FAF6EE);
+    }
+    .glossary-term {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+      margin-bottom: .3rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .glossary-term-badge {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      padding: .1rem .45rem;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .badge-budget  { background: #fff7ed; color: #c05621; border: 1px solid #fdba74; }
+    .badge-govt    { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; }
+    .badge-voting  { background: #f0fdf4; color: #166534; border: 1px solid #86efac; }
+    .badge-agency  { background: #faf5ff; color: #6b21a8; border: 1px solid #d8b4fe; }
+    .badge-transit { background: #f0fdfa; color: #0f766e; border: 1px solid #5eead4; }
+
+    .glossary-def {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .88rem;
+      color: #4a5568;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    /* ── No results state ── */
+    .glossary-no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-family: 'Libre Franklin', sans-serif;
+      color: #888;
+      font-size: .95rem;
+    }
+    .glossary-no-results strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: .35rem;
+    }
+
+    /* ── Hidden when filtered ── */
+    .glossary-pair--hidden {
+      display: none !important;
+    }
+    .glossary-section--hidden {
+      display: none !important;
+    }
+
+    /* ── Back to top ── */
+    .glossary-back-top {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: 2.5rem;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--teal, #207C91);
+      text-decoration: none;
+      border: 1.5px solid var(--teal, #207C91);
+      border-radius: 6px;
+      padding: .4rem .9rem;
+      transition: background .15s;
+    }
+    .glossary-back-top:hover {
+      background: var(--teal, #207C91);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .glossary-main { padding: 1.75rem 1rem 3rem; }
+      .glossary-pair { padding: .9rem 1rem; }
+      .glossary-jump { gap: .25rem; padding: .65rem .75rem; }
+      .glossary-jump-letter { width: 1.8rem; height: 1.8rem; font-size: .8rem; }
+    }
+  </style>
+</head>
+<body data-page="glossary">
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html">
+        <span class="logo-bull">🐂</span>
+        <span class="logo-text">Durham<strong>Civic</strong>Hub</span>
+      </a>
+      <button class="nav-toggle" onclick="toggleNav()" aria-label="Toggle navigation"><i data-lucide="menu" aria-hidden="true" class="lucide-wrap"></i></button>
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="news.html" class="nav-link">News</a>
+        <a href="meetings.html" class="nav-link">Meetings</a>
+        <a href="budget.html" class="nav-link">Budget</a>
+        <a href="my-durham.html" class="nav-link">My Durham</a>
+        <a href="connect.html" class="nav-link">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Page Hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <p class="page-hero-eyebrow">Durham County, NC</p>
+      <h1 class="page-hero-title">Civic Glossary</h1>
+      <p class="page-hero-sub">Plain-English definitions for the terms you'll hear at meetings, in budget documents, and across Durham government. No jargon required!</p>
+    </div>
+  </div>
+
+  <!-- ── Main Content ── -->
+  <main>
+    <div class="glossary-main">
+
+      <!-- ── Search ── -->
+      <div class="glossary-search-wrap">
+        <i data-lucide="search" aria-hidden="true" class="lucide-wrap glossary-search-icon"></i>
+        <input
+          id="glossarySearch"
+          class="glossary-search"
+          type="search"
+          placeholder="Search terms: budget, zoning, SNAP, transit..."
+          aria-label="Search glossary terms"
+          autocomplete="off"
+        />
+        <p class="glossary-search-count" id="glossaryCount" aria-live="polite"></p>
+      </div>
+
+      <!-- ── Letter Jump Bar ── -->
+      <nav class="glossary-jump" aria-label="Jump to letter">
+        <span class="glossary-jump-label"><i data-lucide="hash" aria-hidden="true" class="lucide-wrap"></i> Jump:</span>
+        <a href="#letter-A" class="glossary-jump-letter" aria-label="Terms starting with A">A</a>
+        <a href="#letter-B" class="glossary-jump-letter" aria-label="Terms starting with B">B</a>
+        <a href="#letter-C" class="glossary-jump-letter" aria-label="Terms starting with C">C</a>
+        <a href="#letter-D" class="glossary-jump-letter" aria-label="Terms starting with D">D</a>
+        <a href="#letter-E" class="glossary-jump-letter" aria-label="Terms starting with E">E</a>
+        <a href="#letter-F" class="glossary-jump-letter" aria-label="Terms starting with F">F</a>
+        <a href="#letter-G" class="glossary-jump-letter" aria-label="Terms starting with G">G</a>
+        <a href="#letter-H" class="glossary-jump-letter" aria-label="Terms starting with H">H</a>
+        <a href="#letter-M" class="glossary-jump-letter" aria-label="Terms starting with M">M</a>
+        <a href="#letter-O" class="glossary-jump-letter" aria-label="Terms starting with O">O</a>
+        <a href="#letter-P" class="glossary-jump-letter" aria-label="Terms starting with P">P</a>
+        <a href="#letter-Q" class="glossary-jump-letter" aria-label="Terms starting with Q">Q</a>
+        <a href="#letter-R" class="glossary-jump-letter" aria-label="Terms starting with R">R</a>
+        <a href="#letter-S" class="glossary-jump-letter" aria-label="Terms starting with S">S</a>
+        <a href="#letter-U" class="glossary-jump-letter" aria-label="Terms starting with U">U</a>
+        <a href="#letter-W" class="glossary-jump-letter" aria-label="Terms starting with W">W</a>
+      </nav>
+
+      <!-- ── No-results message ── -->
+      <div class="glossary-no-results" id="glossaryNoResults" role="status">
+        <strong>No terms found.</strong>
+        Try a different word, or <button onclick="clearGlossarySearch()" style="background:none;border:none;color:var(--teal);font-weight:700;cursor:pointer;font-size:inherit;padding:0;text-decoration:underline;">clear the search</button>.
+      </div>
+
+      <!-- ════════════════════════════════════
+           LETTER A
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-A">
+        <h2 class="glossary-section-heading">A</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Absentee Ballot
+              <span class="glossary-term-badge badge-voting">Voting</span>
+            </dt>
+            <dd class="glossary-def">A ballot you fill out and submit before Election Day, either by mail or in person. In North Carolina, any registered voter can request one with no reason required.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Alliance Health
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">The managed care organization that coordinates Medicaid-funded mental health, substance use, and developmental disability services for Durham County neighbors.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Appropriation
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">The formal act by the Board of Commissioners or City Council to authorize spending from public funds. Durham's budget process starts with the County Manager's recommended budget each spring.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              ARPA
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">American Rescue Plan Act. Federal COVID-relief funds distributed to local governments starting in 2021. Durham used ARPA funds for housing, childcare, and infrastructure.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              At-large Election
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">An election where candidates run countywide or citywide rather than from a specific district. All five Durham County Commissioners are elected at-large.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER B
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-B">
+        <h2 class="glossary-section-heading">B</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Board of County Commissioners (BOCC)
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">Durham County's five-member governing board. They set policy, adopt the budget, and oversee county services. Meetings are held at 200 E. Main St.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              BRT (Bus Rapid Transit)
+              <span class="glossary-term-badge badge-transit">Transit</span>
+            </dt>
+            <dd class="glossary-def">A high-frequency bus service with dedicated lanes and off-board fare payment, similar to light rail but on rubber tires. GoTriangle proposed a Durham-Chapel Hill BRT line.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER C
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-C">
+        <h2 class="glossary-section-heading">C</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Capital Improvement Plan (CIP)
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">A multi-year plan showing major infrastructure projects like road repairs, park upgrades, and building renovations that the county or city plans to fund. Durham's CIP covers 5 years.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              CDBG
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">Community Development Block Grant. Federal HUD funding that cities use for low-income neighborhood improvements, housing rehab, and public services.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Consent Agenda
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">A bundle of routine items voted on as a single block at the start of a board meeting. Any commissioner can pull an item for separate discussion.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER D
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-D">
+        <h2 class="glossary-section-heading">D</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Debt Service
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">The annual payments Durham makes on bonds and loans it has taken out to fund capital projects. Roughly 11% of the county budget.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Department of Social Services (DSS)
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">Durham County's agency providing food assistance (SNAP/EBT), Medicaid enrollment, Work First, child welfare, and crisis services.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER E
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-E">
+        <h2 class="glossary-section-heading">E</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Ellerbe Creek
+              <span class="glossary-term-badge badge-transit">Transit / Development</span>
+            </dt>
+            <dd class="glossary-def">A Durham watershed and trail corridor running through north Durham. The Ellerbe Creek Trail connects neighborhoods to Eno River parks.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER F
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-F">
+        <h2 class="glossary-section-heading">F</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Fiscal Year (FY)
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">Durham's budget year runs July 1 through June 30. "FY2026" means July 1, 2025 through June 30, 2026.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER G
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-G">
+        <h2 class="glossary-section-heading">G</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              General Fund
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">The main operating account for the county or city, funded primarily by property taxes and sales taxes. Most day-to-day services are funded from the General Fund.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              GoDurham
+              <span class="glossary-term-badge badge-transit">Transit</span>
+            </dt>
+            <dd class="glossary-def">The City of Durham's local bus network, operated by GoTriangle. Serves neighborhoods across the city with fixed routes and on-demand service.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              GoTriangle
+              <span class="glossary-term-badge badge-transit">Transit</span>
+            </dt>
+            <dd class="glossary-def">The regional transit agency serving Durham, Chapel Hill, and the Research Triangle. Operates regional bus routes and paratransit services.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER H
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-H">
+        <h2 class="glossary-section-heading">H</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              HEART Program
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">Holistic Empathetic Assistance and Response Team. Durham City's program that sends mental health clinicians, not police, to non-violent behavioral health calls.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER M
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-M">
+        <h2 class="glossary-section-heading">M</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Millage Rate / Tax Rate
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">The property tax rate, expressed as dollars per $100 of assessed value. Durham County's current rate is $0.5542 per $100.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER O
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-O">
+        <h2 class="glossary-section-heading">O</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Operating Budget
+              <span class="glossary-term-badge badge-budget">Budget</span>
+            </dt>
+            <dd class="glossary-def">The annual budget covering day-to-day expenses like salaries, utilities, and services. Different from the Capital budget, which funds physical infrastructure.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER P
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-P">
+        <h2 class="glossary-section-heading">P</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Precinct
+              <span class="glossary-term-badge badge-voting">Voting</span>
+            </dt>
+            <dd class="glossary-def">A geographic unit used to organize elections. Durham County has dozens of precincts, each assigned to a specific polling place.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Public Comment
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">The time during a meeting when community members can address the board. Most BOCC meetings allow 3 minutes per speaker, with sign-up required in advance.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Public Hearing
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">A formal meeting or meeting segment where the board is required by law to hear public input, often on zoning changes, the annual budget, or major projects.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER Q
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-Q">
+        <h2 class="glossary-section-heading">Q</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Quorum
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">The minimum number of members required to conduct official business. For Durham's 5-member BOCC, that's 3 members.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER R
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-R">
+        <h2 class="glossary-section-heading">R</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Rezoning
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">A formal request to change the allowed uses on a parcel of land. Rezonings require public notice, planning commission review, and a vote by city or county board.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER S
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-S">
+        <h2 class="glossary-section-heading">S</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Same-Day Registration
+              <span class="glossary-term-badge badge-voting">Voting</span>
+            </dt>
+            <dd class="glossary-def">In North Carolina, you can register to vote and cast a ballot on the same day during early voting, but not on Election Day itself.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              SNAP/EBT
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">Supplemental Nutrition Assistance Program. Food benefits issued on an Electronic Benefit Transfer card. Administered by Durham County DSS.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER U
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-U">
+        <h2 class="glossary-section-heading">U</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Unified Development Ordinance (UDO)
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">Durham's combined zoning, subdivision, and development regulations. It determines what can be built where in the city and county.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ════════════════════════════════════
+           LETTER W
+      ════════════════════════════════════ -->
+      <section class="glossary-section" id="letter-W">
+        <h2 class="glossary-section-heading">W</h2>
+        <dl class="glossary-list">
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              Ward
+              <span class="glossary-term-badge badge-govt">Government</span>
+            </dt>
+            <dd class="glossary-def">One of Durham's three city council districts (Wards 1, 2, and 3). City Council members represent these geographic areas plus mayor and at-large seats.</dd>
+          </div>
+
+          <div class="glossary-pair">
+            <dt class="glossary-term">
+              WIC
+              <span class="glossary-term-badge badge-agency">Agency</span>
+            </dt>
+            <dd class="glossary-def">Women, Infants, and Children. A federal nutrition program providing food vouchers and health support for pregnant women, new moms, and children under 5.</dd>
+          </div>
+
+        </dl>
+      </section>
+
+      <!-- ── Back to top ── -->
+      <a href="#" class="glossary-back-top" aria-label="Back to top of page">
+        <i data-lucide="arrow-up" aria-hidden="true" class="lucide-wrap"></i> Back to top
+      </a>
+
+    </div><!-- /.glossary-main -->
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-bull">🐂</span>
+        <span>Durham Civic Hub</span>
+      </div>
+      <p class="footer-note">Created by Durham County Commissioner <strong style="color:#fff;">Nida Allam</strong> as a community resource. Not an official government website. All links go to official sources.</p>
+      <p class="footer-note" style="margin-top:.5rem;">Inspired by Apex Town Councilmember Terry Mahaffey's <a href="https://peaknewsnetwork.org/" target="_blank" rel="noopener" style="color:var(--peach);">Peak News Network</a>.</p>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="meetings.html">Meetings</a>
+        <a href="budget.html">Budget</a>
+        <a href="my-durham.html">My Durham</a>
+        <a href="resources.html">Resources</a>
+        <a href="transit.html">Transit</a>
+        <a href="connect.html">Connect</a>
+        <a href="voting.html">Voting</a>
+        <a href="glossary.html" aria-current="page">Glossary</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- ── Glossary Search Filter ── -->
+  <script>
+    (function () {
+      var searchInput  = document.getElementById('glossarySearch');
+      var countEl      = document.getElementById('glossaryCount');
+      var noResults    = document.getElementById('glossaryNoResults');
+      var allPairs     = Array.from(document.querySelectorAll('.glossary-pair'));
+      var allSections  = Array.from(document.querySelectorAll('.glossary-section'));
+      var totalTerms   = allPairs.length;
+
+      function filterGlossary() {
+        var query = searchInput.value.trim().toLowerCase();
+
+        if (!query) {
+          allPairs.forEach(function (p) { p.classList.remove('glossary-pair--hidden'); });
+          allSections.forEach(function (s) { s.classList.remove('glossary-section--hidden'); });
+          noResults.style.display = 'none';
+          countEl.textContent = totalTerms + ' terms';
+          return;
+        }
+
+        var visibleCount = 0;
+
+        allPairs.forEach(function (pair) {
+          var text = pair.textContent.toLowerCase();
+          if (text.indexOf(query) !== -1) {
+            pair.classList.remove('glossary-pair--hidden');
+            visibleCount++;
+          } else {
+            pair.classList.add('glossary-pair--hidden');
+          }
+        });
+
+        // Hide letter sections that have no visible pairs
+        allSections.forEach(function (section) {
+          var hasVisible = Array.from(section.querySelectorAll('.glossary-pair')).some(function (p) {
+            return !p.classList.contains('glossary-pair--hidden');
+          });
+          if (hasVisible) {
+            section.classList.remove('glossary-section--hidden');
+          } else {
+            section.classList.add('glossary-section--hidden');
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+          countEl.textContent = '';
+        } else {
+          noResults.style.display = 'none';
+          countEl.textContent = visibleCount + ' of ' + totalTerms + ' terms match';
+        }
+      }
+
+      searchInput.addEventListener('input', filterGlossary);
+
+      // Initialize count
+      countEl.textContent = totalTerms + ' terms';
+
+      // Expose clear function for the no-results button
+      window.clearGlossarySearch = function () {
+        searchInput.value = '';
+        filterGlossary();
+        searchInput.focus();
+      };
+    })();
+  </script>
+
+  <script src="app.js"></script>
+</body>
+</html>
