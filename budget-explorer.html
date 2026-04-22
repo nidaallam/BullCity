@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; img-src 'self' data: https:; connect-src 'self';" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Budget Explorer – Durham Civic Hub</title>
-  <meta name="description" content="Explore Durham County, City of Durham, and Durham Public Schools budgets — spending by area, year-over-year changes, and funding sources." />
+  <meta name="description" content="Explore Durham County, City of Durham, and Durham Public Schools budgets: spending by area, year-over-year changes, and funding sources." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -648,7 +648,7 @@
   <section class="exp-hero">
     <p class="exp-hero-eyebrow">Durham County, NC</p>
     <h1>Budget Explorer</h1>
-    <p>See where tax dollars go — spending by area, year-over-year changes, and funding sources for Durham County, the City of Durham, and Durham Public Schools.</p>
+    <p>See where your tax dollars go. Spending by area, year-over-year changes, and funding sources across Durham County, the City of Durham, and Durham Public Schools.</p>
   </section>
 
   <!-- ── Entity Tabs ── -->
@@ -915,7 +915,7 @@
       <p style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;color:#aaa;margin-top:2rem;line-height:1.6;">
         All figures sourced from official government budget documents. YoY comparisons reflect prior adopted budget.
         ${prevYr ? '' : 'Prior-year comparison not yet available.'}
-        Department-level dollar amounts marked — are available in the full budget document.
+        Department-level dollar amounts are available in the full budget document.
         Funding source percentages for county and city are approximate estimates from the adopted budget summary.
       </p>
     `;
@@ -943,7 +943,7 @@
     return `
       <div class="exp-section-title">Where the Money Comes From</div>
       <div class="exp-funding">
-        <div class="exp-funding-title">Revenue Sources (${e.totals[activeYear]?.generalFund ? 'General Fund' : 'All Funds'} — Approximate)</div>
+        <div class="exp-funding-title">Revenue Sources (${e.totals[activeYear]?.generalFund ? 'General Fund' : 'All Funds'}, Approximate)</div>
         ${rows}
         ${e.fundingSourcesNote ? `<div class="exp-funding-note">ⓘ ${e.fundingSourcesNote}</div>` : ''}
       </div>`;
@@ -1104,7 +1104,7 @@
     }
 
     const cityNote = entityId === 'city'
-      ? '<strong>Note:</strong> Department figures are approximate estimates — verify exact amounts at <a href="https://www.durhamnc.gov/456/Finance" target="_blank" rel="noopener">durhamnc.gov</a>. The Capital Improvement Plan ($537.6M) is funded by bonds and grants, not annual property taxes.'
+      ? '<strong>Note:</strong> Department figures are approximate estimates. Verify exact amounts at <a href="https://www.durhamnc.gov/456/Finance" target="_blank" rel="noopener">durhamnc.gov</a>. The Capital Improvement Plan ($537.6M) is funded by bonds and grants, not annual property taxes.'
       : '';
 
     const otherRate  = entityId === 'county' ? 0.4371 : 0.5542;
@@ -1113,8 +1113,8 @@
     const combined   = annualTax + otherTax;
 
     const combinedNote = entityId === 'county'
-      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100 — an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.'
-      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100 — an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.';
+      ? 'Durham neighbors within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100, an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.'
+      : 'Durham County neighbors also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100, an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.';
 
     // Update the static cross-note at the top to show the real amount
     const crossNoteEl = document.getElementById('crossNote_' + entityId);
