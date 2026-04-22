@@ -16,9 +16,54 @@
     /* ── My Durham page styles ── */
 
     .my-durham-main {
-      max-width: 860px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 2.5rem 1.25rem 4rem;
+    }
+
+    /* ── Sub-page hub cards ── */
+    .my-durham-subpages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    .my-durham-subcard {
+      background: #fff;
+      border: 1.5px solid var(--border, #e5e0d8);
+      border-radius: 10px;
+      padding: 1.5rem 1.5rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow .18s, border-color .18s;
+    }
+    .my-durham-subcard:hover {
+      border-color: var(--teal, #207C91);
+      box-shadow: 0 6px 20px rgba(38,46,79,.1);
+      text-decoration: none;
+    }
+    .my-durham-subcard-icon { font-size: 1.75rem; line-height: 1; margin-bottom: .25rem; }
+    .my-durham-subcard-title {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy, #262E4F);
+    }
+    .my-durham-subcard-desc {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .88rem;
+      color: #555;
+      line-height: 1.55;
+      flex: 1;
+    }
+    .my-durham-subcard-cta {
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--teal, #207C91);
+      margin-top: .25rem;
     }
 
     /* ── Search card ── */
@@ -358,6 +403,28 @@
   <!-- ── Main Content ── -->
   <main>
     <div class="my-durham-main">
+
+      <!-- ── Sub-page hub ── -->
+      <div class="my-durham-subpages">
+        <a href="resources.html" class="my-durham-subcard" style="border-top:4px solid #7C3D9E;">
+          <div class="my-durham-subcard-icon">🤝</div>
+          <div class="my-durham-subcard-title">Resources &amp; Services</div>
+          <p class="my-durham-subcard-desc">Housing help, food assistance, health care, legal aid, immigration support, mental health resources, and more for Durham neighbors.</p>
+          <span class="my-durham-subcard-cta">Browse resources →</span>
+        </a>
+        <a href="voting.html" class="my-durham-subcard" style="border-top:4px solid var(--navy,#262E4F);">
+          <div class="my-durham-subcard-icon">🗳️</div>
+          <div class="my-durham-subcard-title">Voting &amp; Elected Officials</div>
+          <p class="my-durham-subcard-desc">Register to vote, find your polling place, request an absentee ballot, and see all your elected officials from City Council to Congress.</p>
+          <span class="my-durham-subcard-cta">Voter resources →</span>
+        </a>
+        <a href="transit.html" class="my-durham-subcard" style="border-top:4px solid var(--teal,#207C91);">
+          <div class="my-durham-subcard-icon">🚌</div>
+          <div class="my-durham-subcard-title">Transit</div>
+          <p class="my-durham-subcard-desc">GoDurham routes and schedules, real-time bus tracking, GoPass, paratransit, senior transportation, and the Durham Transit Plan.</p>
+          <span class="my-durham-subcard-cta">Transit resources →</span>
+        </a>
+      </div>
 
       <!-- ── Lookup Card ── -->
       <div class="lookup-card">
