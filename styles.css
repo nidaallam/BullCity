@@ -864,7 +864,7 @@ a { color: var(--teal); }
   color: #fff;
   font-size: .95rem;
 }
-.footer-note { font-size: .8rem; max-width: 760px; line-height: 1.55; }
+.footer-note { font-size: .8rem; max-width: 920px; line-height: 1.55; }
 .footer-nav  { display: flex; gap: 1.1rem; flex-wrap: wrap; justify-content: center; }
 .footer-nav a { color: rgba(255,255,255,.62); text-decoration: none; font-size: .82rem; font-weight: 500; }
 .footer-nav a:hover { color: var(--peach); }
