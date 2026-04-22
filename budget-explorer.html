@@ -1097,11 +1097,7 @@
             <div class="exp-receipt-row">
               <span class="exp-receipt-row-icon">${a.icon}</span>
               <span class="exp-receipt-row-name">${a.name}</span>
-              <div class="exp-receipt-row-bar-wrap">
-                <div class="exp-receipt-row-bar" style="width:${(areaPct * 100).toFixed(1)}%;background:${e.accent || '#E97221'}"></div>
-              </div>
-              <span class="exp-receipt-row-pct">${(areaPct * 100).toFixed(1)}%</span>
-              <span class="exp-receipt-row-amt">$${dollarAmt.toFixed(2)}/yr</span>
+              <span class="exp-receipt-row-amt">$${dollarAmt.toFixed(2)}<span style="font-size:.7rem;font-weight:500;color:#999;">/yr</span></span>
             </div>`;
         }).join('');
       breakdownHtml = `<div style="margin-bottom:.75rem;">${rows}</div>`;

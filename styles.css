@@ -166,7 +166,7 @@ a { color: var(--teal); }
   font-weight: 800;
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: 1rem;
   color: #fff;
 }
@@ -287,7 +287,7 @@ a { color: var(--teal); }
   font-weight: 800;
   line-height: 1.1;
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: .75rem;
   color: #fff;
 }
@@ -376,7 +376,7 @@ a { color: var(--teal); }
   font-weight: 800;
   color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
 }
 .news-updated { font-size: .78rem; color: var(--muted); }
 
@@ -504,7 +504,7 @@ a { color: var(--teal); }
   font-weight: 800;
   color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: .85rem;
 }
 .sidebar-meeting-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
@@ -551,7 +551,7 @@ a { color: var(--teal); }
   font-weight: 800;
   color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: .15rem;
 }
 .meeting-body-desc  { font-size: .9rem; color: #374151; line-height: 1.58; margin-bottom: .55rem; }
@@ -631,7 +631,7 @@ a { color: var(--teal); }
   font-weight: 800;
   color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: .85rem;
   padding-bottom: .45rem;
   border-bottom: 2px solid var(--border);
@@ -720,7 +720,7 @@ a { color: var(--teal); }
   font-weight: 800;
   color: var(--navy);
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
   margin-bottom: .45rem;
 }
 .budget-section-sub { font-size: .875rem; color: var(--muted); margin-bottom: 1.35rem; }
@@ -895,7 +895,7 @@ a { color: var(--teal); }
 .hero-headline,
 .page-hero-title {
   text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: .06em;
 }
 .section-title,
 .budget-section-title,
