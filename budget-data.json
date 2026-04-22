@@ -234,7 +234,7 @@
         {
           "id": "public-safety",
           "name": "Public Safety",
-          "icon": "🚔",
+          "icon": "🛡️",
           "description": "Sheriff's Office, Emergency Medical Services, Emergency Management, and Animal Control.",
           "amounts": {
             "FY2025-26": 95100000,
