@@ -878,25 +878,25 @@
           })
           .catch(() => {});
 
-        // Color markers by entity
+        // Emoji icon markers by category
         projects.forEach(p => {
           if (!p.lat || !p.lng) return;
-          const color = p.entity === 'city' ? '#207C91' : p.entity === 'dps' ? '#5b21b6' : '#262E4F';
-          const marker = L.circleMarker([p.lat, p.lng], {
-            radius: 10,
-            fillColor: color,
-            color: '#fff',
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.85
-          }).addTo(map);
+          const color   = p.entity === 'city' ? '#207C91' : p.entity === 'dps' ? '#5b21b6' : '#262E4F';
+          const icon    = categoryIcon(p.category);
+          const divIcon = L.divIcon({
+            html: `<div style="width:34px;height:34px;border-radius:50%;background:${color};border:2.5px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;font-size:1rem;line-height:1;">${icon}</div>`,
+            className: '',
+            iconSize: [34, 34],
+            iconAnchor: [17, 17],
+            popupAnchor: [0, -20]
+          });
+          const marker = L.marker([p.lat, p.lng], { icon: divIcon }).addTo(map);
           marker.bindPopup(`
             <strong style="font-family:sans-serif;font-size:.9rem;">${p.title}</strong><br>
             <span style="font-family:sans-serif;font-size:.8rem;color:#666;">${p.entityLabel} · ${p.category}</span><br>
             <strong style="font-family:sans-serif;color:#207C91;">$${(p.amount/1e6).toFixed(1)}M</strong>
             ${p.locationNote ? `<br><em style="font-size:.82rem;color:#999;">${p.locationNote}</em>` : ''}
           `);
-          // Clicking marker highlights the project card
           marker.on('click', () => {
             const card = document.getElementById('project-' + p.id);
             if (card) {
@@ -906,6 +906,45 @@
             }
           });
         });
+
+        // ── Map Legend Control ──────────────────────────────────────
+        const categories = [...new Set(projects.map(p => p.category))].sort();
+        const legend = L.control({ position: 'topright' });
+        legend.onAdd = function() {
+          const div = L.DomUtil.create('div', 'cip-map-legend');
+          L.DomEvent.disableClickPropagation(div);
+          div.innerHTML = `
+            <div class="cip-map-legend-title">
+              <span>Map Legend</span>
+              <button class="cip-legend-toggle" title="Collapse legend">−</button>
+            </div>
+            <div class="cip-map-legend-body" id="cipLegendBody">
+              <div class="cip-legend-section">
+                <div class="cip-legend-section-title">By Entity</div>
+                <div class="cip-legend-item"><span class="cip-legend-dot" style="background:#207C91;"></span>City of Durham</div>
+                <div class="cip-legend-item"><span class="cip-legend-dot" style="background:#262E4F;"></span>Durham County</div>
+                <div class="cip-legend-item"><span class="cip-legend-dot" style="background:#5b21b6;"></span>Durham Public Schools</div>
+              </div>
+              <div class="cip-legend-section" style="margin-top:.55rem;">
+                <div class="cip-legend-section-title">By Category</div>
+                ${categories.map(cat => `
+                  <div class="cip-legend-item">
+                    <span style="font-size:.95rem;line-height:1;">${categoryIcon(cat)}</span>
+                    ${cat}
+                  </div>`).join('')}
+              </div>
+              <div style="font-family:'Libre Franklin',sans-serif;font-size:.72rem;color:#9ca3af;font-style:italic;margin-top:.5rem;">Click a marker to jump to its card</div>
+            </div>`;
+          // Toggle collapse
+          div.querySelector('.cip-legend-toggle').addEventListener('click', function() {
+            const body = div.querySelector('#cipLegendBody');
+            const collapsed = body.style.display === 'none';
+            body.style.display = collapsed ? '' : 'none';
+            this.textContent = collapsed ? '−' : '+';
+          });
+          return div;
+        };
+        legend.addTo(map);
       }
 
       document.addEventListener('DOMContentLoaded', function () {
@@ -913,6 +952,7 @@
           .then(r => r.json())
           .then(data => {
             allProjects = data.projects || [];
+            window._cipProjects = allProjects;
             buildCategoryFilters(allProjects);
             renderProjects();
             initMap(allProjects);
