@@ -775,28 +775,20 @@ function injectLanguageSelector() {
       wrapper.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
 
+      const exp = 'Thu, 01 Jan 1970 00:00:00 UTC';
       if (!lang) {
         // Reset to English — clear cookie and reload
-        const exp = 'Thu, 01 Jan 1970 00:00:00 UTC';
         document.cookie = `googtrans=; expires=${exp}; path=/`;
+        document.cookie = `googtrans=; expires=${exp}; path=/; domain=.${window.location.hostname}`;
         document.cookie = `googtrans=; expires=${exp}; path=/; domain=${window.location.hostname}`;
         window.location.reload();
         return;
       }
 
-      // Try widget select first (instant, no reload)
-      const select = document.querySelector('.goog-te-combo');
-      if (select) {
-        select.value = lang;
-        select.dispatchEvent(new Event('change'));
-      } else {
-        // Fallback: set cookie and reload
-        document.cookie = `googtrans=/en/${lang}; path=/`;
-        if (window.location.hostname) {
-          document.cookie = `googtrans=/en/${lang}; path=/; domain=${window.location.hostname}`;
-        }
-        window.location.reload();
-      }
+      // Set googtrans cookie and reload — widget reads it on init and auto-translates
+      document.cookie = `googtrans=/en/${lang}; path=/`;
+      document.cookie = `googtrans=/en/${lang}; path=/; domain=.${window.location.hostname}`;
+      window.location.reload();
     });
   });
 
@@ -808,7 +800,7 @@ function injectLanguageSelector() {
   // ── Google Translate widget (hidden, client-side) ─────────────
   const gtDiv = document.createElement('div');
   gtDiv.id = 'google_translate_element';
-  gtDiv.style.cssText = 'position:absolute;left:-9999px;top:0;visibility:hidden;overflow:hidden;height:0;';
+  gtDiv.style.cssText = 'position:absolute;left:-9999px;top:0;overflow:hidden;width:1px;height:1px;';
   document.body.appendChild(gtDiv);
 
   window.googleTranslateElementInit = function () {
