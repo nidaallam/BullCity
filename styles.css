@@ -554,8 +554,8 @@ a { color: var(--teal); }
   letter-spacing: .06em;
   margin-bottom: .15rem;
 }
-.meeting-body-desc  { font-size: .9rem; color: #374151; line-height: 1.58; margin-bottom: .55rem; }
-.meeting-body-meta  { font-size: .82rem; color: var(--muted); display: flex; flex-direction: column; gap: .2rem; margin-bottom: 1rem; }
+.meeting-body-desc  { font-size: 1rem; color: #374151; line-height: 1.58; margin-bottom: .55rem; }
+.meeting-body-meta  { font-size: .875rem; color: var(--muted); display: flex; flex-direction: column; gap: .2rem; margin-bottom: 1rem; }
 .archive-link {
   display: inline-flex;
   align-items: center;
@@ -579,7 +579,7 @@ a { color: var(--teal); }
 .meeting-date-display { display: flex; flex-direction: column; }
 .meeting-rel-day { font-size: .68rem; font-weight: 800; text-transform: uppercase; color: var(--teal); letter-spacing: .05em; }
 .meeting-row-date { font-size: .82rem; font-weight: 700; color: var(--navy); }
-.meeting-type { font-size: .92rem; font-weight: 700; color: var(--navy); }
+.meeting-type { font-size: 1rem; font-weight: 700; color: var(--navy); }
 .meeting-status {
   font-size: .7rem;
   font-weight: 800;
