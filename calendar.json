@@ -243,6 +243,193 @@
       "links": [
         { "label": "Details", "url": "https://www.dconc.gov/Public-Health/Clinical-Services" }
       ]
+    },
+    {
+      "id": 22,
+      "date": "2026-04-27",
+      "title": "Durham Peoples Alliance – General Chapter Meeting",
+      "time": "Sunday · 3:00 PM",
+      "location": "Community location — see DPA website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhampa.org" }
+      ]
+    },
+    {
+      "id": 23,
+      "date": "2026-04-23",
+      "title": "Durham Committee on the Affairs of Black People – Monthly Meeting",
+      "time": "Thursday · 7:00 PM",
+      "location": "Golden Belt Campus, 807 E. Main St., Durham",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamcommittee.org" }
+      ]
+    },
+    {
+      "id": 24,
+      "date": "2026-04-22",
+      "title": "Durham for All – Chapter Meeting",
+      "time": "Wednesday · 6:30 PM",
+      "location": "Virtual and in-person — see Durham for All website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamforall.org" }
+      ]
+    },
+    {
+      "id": 25,
+      "date": "2026-04-24",
+      "title": "Durham Association of Educators – Representative Assembly",
+      "time": "Thursday · 4:30 PM",
+      "location": "Durham — location TBA, see DAE website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamae.org" }
+      ]
+    },
+    {
+      "id": 26,
+      "date": "2026-04-28",
+      "title": "Durham Public Library – Author Talk & Community Conversation",
+      "time": "Tuesday · 6:30 PM",
+      "location": "Durham County Main Library, 300 N. Roxboro St.",
+      "category": "community",
+      "links": [
+        { "label": "Events Calendar", "url": "https://durhamcountylibrary.org/events/" }
+      ]
+    },
+    {
+      "id": 27,
+      "date": "2026-05-02",
+      "title": "Hayti Heritage Center – Monthly Community Event",
+      "time": "Saturday · 2:00 PM",
+      "location": "804 Old Fayetteville St., Durham",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.hayti.org" }
+      ]
+    },
+    {
+      "id": 28,
+      "date": "2026-05-07",
+      "title": "NC Cooperative Extension Durham County – Gardening Workshop",
+      "time": "Thursday · 6:00 PM",
+      "location": "Durham County Cooperative Extension, 721 Foster St.",
+      "category": "community",
+      "links": [
+        { "label": "Programs", "url": "https://durham.ces.ncsu.edu/events/" }
+      ]
+    },
+    {
+      "id": 29,
+      "date": "2026-05-18",
+      "title": "Durham Peoples Alliance – General Chapter Meeting",
+      "time": "Sunday · 3:00 PM",
+      "location": "Community location — see DPA website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhampa.org" }
+      ]
+    },
+    {
+      "id": 30,
+      "date": "2026-05-28",
+      "title": "Durham Committee on the Affairs of Black People – Monthly Meeting",
+      "time": "Thursday · 7:00 PM",
+      "location": "Golden Belt Campus, 807 E. Main St., Durham",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamcommittee.org" }
+      ]
+    },
+    {
+      "id": 31,
+      "date": "2026-05-20",
+      "title": "Durham for All – Chapter Meeting",
+      "time": "Wednesday · 6:30 PM",
+      "location": "Virtual and in-person — see Durham for All website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamforall.org" }
+      ]
+    },
+    {
+      "id": 32,
+      "date": "2026-05-16",
+      "title": "Durham Public Library – Community Forum",
+      "time": "Saturday · 10:00 AM",
+      "location": "Durham County Main Library, 300 N. Roxboro St.",
+      "category": "community",
+      "links": [
+        { "label": "Events Calendar", "url": "https://durhamcountylibrary.org/events/" }
+      ]
+    },
+    {
+      "id": 33,
+      "date": "2026-06-06",
+      "title": "Durham Peoples Alliance – General Chapter Meeting",
+      "time": "Sunday · 3:00 PM",
+      "location": "Community location — see DPA website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhampa.org" }
+      ]
+    },
+    {
+      "id": 34,
+      "date": "2026-06-04",
+      "title": "Hayti Heritage Center – Juneteenth Community Celebration Preview",
+      "time": "Thursday · 6:00 PM",
+      "location": "804 Old Fayetteville St., Durham",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.hayti.org" }
+      ]
+    },
+    {
+      "id": 35,
+      "date": "2026-06-19",
+      "title": "Juneteenth Celebration – Durham",
+      "time": "Friday · All Day",
+      "location": "Durham — multiple locations",
+      "category": "community",
+      "links": [
+        { "label": "City Events", "url": "https://www.durhamnc.gov" }
+      ]
+    },
+    {
+      "id": 36,
+      "date": "2026-05-01",
+      "title": "May Day – Durham Workers' Rights Rally",
+      "time": "Friday · 5:00 PM",
+      "location": "Durham — location TBA",
+      "category": "community",
+      "links": [
+        { "label": "Workers' Rights Commission", "url": "https://www.durhamnc.gov" }
+      ]
+    },
+    {
+      "id": 37,
+      "date": "2026-05-22",
+      "title": "Durham Association of Educators – General Membership Meeting",
+      "time": "Friday · 4:00 PM",
+      "location": "Durham — location TBA, see DAE website",
+      "category": "community",
+      "links": [
+        { "label": "Details", "url": "https://www.durhamae.org" }
+      ]
+    },
+    {
+      "id": 38,
+      "date": "2026-06-11",
+      "title": "NC Cooperative Extension Durham County – Summer Food Safety Workshop",
+      "time": "Thursday · 5:30 PM",
+      "location": "Durham County Cooperative Extension, 721 Foster St.",
+      "category": "community",
+      "links": [
+        { "label": "Programs", "url": "https://durham.ces.ncsu.edu/events/" }
+      ]
     }
   ]
 }

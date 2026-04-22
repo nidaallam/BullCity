@@ -12,23 +12,23 @@
 /* ── Custom Properties ── */
 :root {
   /* Brand palette — Nida Allam brand guide */
-  --navy:      #646E78;
-  --blue:      #8D98A7;
-  --teal:      #EA8823;
-  --sage:      #F0A61F;
-  --cream:     #FFF7ED;
-  --peach:     #F7CA97;
-  --gold:      #F0A61F;
-  --orange:    #EA8823;
-  --rust:      #F7B219;
+  --navy:      #262E4F;
+  --blue:      #35567E;
+  --teal:      #207C91;
+  --sage:      #6E9D97;
+  --cream:     #FAF6EE;
+  --peach:     #EBA85C;
+  --gold:      #E18F1A;
+  --orange:    #E97221;
+  --rust:      #DA421D;
 
   /* Semantic aliases */
   --bg:        var(--cream);
   --surface:   #FFFFFF;
   --text:      var(--navy);
   --muted:     var(--blue);
-  --border:    #E8D5B5;
-  --border-lt: #F3E8D4;
+  --border:    #DDD8CC;
+  --border-lt: #EDE9E0;
 
   /* Typography */
   --font-display: 'Margin', Georgia, serif;
@@ -37,8 +37,8 @@
   /* Spacing / radius */
   --radius:    10px;
   --radius-sm: 6px;
-  --shadow:    0 2px 12px rgba(100,110,120,.09);
-  --shadow-lg: 0 6px 28px rgba(100,110,120,.16);
+  --shadow:    0 2px 12px rgba(38,46,79,.07);
+  --shadow-lg: 0 6px 28px rgba(38,46,79,.13);
 }
 
 /* ── Reset ── */
