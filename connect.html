@@ -255,16 +255,25 @@
           style="display:inline-block;background:var(--peach);color:var(--navy);font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1.5rem;border-radius:6px;border:none;cursor:pointer;transition:background .18s;">
           Send a Message →
         </button>
-        <div id="emailOptions" style="display:none;position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:.4rem;min-width:210px;box-shadow:0 4px 18px rgba(0,0,0,.18);z-index:100;">
+        <div id="emailOptions" style="display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:.4rem;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.18);z-index:100;">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nallam@dconc.gov" target="_blank" rel="noopener"
-            style="display:block;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
-            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">📧 Open in Gmail</a>
+            style="display:flex;align-items:center;gap:.6rem;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
+            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.909 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" fill="#EA4335"/><path d="M0 5.457v13.909c0 .904.732 1.636 1.636 1.636h3.819V11.73L12 16.64V9.548L5.455 4.64 3.927 3.493C2.309 2.28 0 3.434 0 5.457z" fill="#34A853"/><path d="M18.545 11.73v9.273h3.819A1.636 1.636 0 0 0 24 19.366V5.457c0-2.023-2.309-3.178-3.927-1.964L18.545 4.64v7.09z" fill="#4A90D9"/><path d="M12 9.548l6.545-4.909v7.09L12 16.64l-6.545-4.91V4.64L12 9.548z" fill="#FBBC05"/></svg>
+            Open in Gmail
+          </a>
           <a href="https://outlook.live.com/mail/0/deeplink/compose?to=nallam@dconc.gov" target="_blank" rel="noopener"
-            style="display:block;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
-            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">📧 Open in Outlook</a>
+            style="display:flex;align-items:center;gap:.6rem;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
+            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#0078D4"/><path d="M13 6h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-7V6z" fill="#28A8E0"/><path d="M3 7a1 1 0 0 1 1-1h9v12H4a1 1 0 0 1-1-1V7z" fill="#fff" opacity=".9"/><path d="M13 12l8-5v10l-8-5z" fill="#0078D4" opacity=".4"/><text x="4.5" y="15.5" font-family="Arial" font-size="7" font-weight="bold" fill="#0078D4">OL</text></svg>
+            Open in Outlook
+          </a>
           <a href="mailto:nallam@dconc.gov"
-            style="display:block;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
-            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">✉️ Open in Mail App</a>
+            style="display:flex;align-items:center;gap:.6rem;padding:.5rem .8rem;font-family:'Libre Franklin',sans-serif;font-size:.88rem;font-weight:600;color:#374151;text-decoration:none;border-radius:5px;"
+            onmouseover="this.style.background='#f3f4f6'" onmouseout="this.style.background='transparent'">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="3" fill="#6B7280"/><path d="M4 8a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8z" fill="#fff" opacity=".9"/><path d="M4 8l8 6 8-6" stroke="#6B7280" stroke-width="1.5" fill="none"/></svg>
+            Open in Mail App
+          </a>
         </div>
       </div>
     </div>
