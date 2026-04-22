@@ -488,6 +488,70 @@ def update_calendar():
         json.dump(cal, f, indent=2)
     print(f"  Saved calendar.json ({len(all_events)} events)")
 
+# ── Budget ────────────────────────────────────────────────────────────────────
+
+BUDGET_FILE = ROOT / "budget-data.json"
+
+def _current_fiscal_year():
+    """Return the fiscal year label for the current budget cycle.
+    Durham's fiscal year runs July 1 – June 30.
+    Budget is adopted in mid-June; we consider the new FY 'current' after June 14.
+    FY2026-27 = adopted June 2026, runs July 2026 – June 2027.
+    """
+    today = date.today()
+    if today.month > 6 or (today.month == 6 and today.day >= 15):
+        start = today.year
+    else:
+        start = today.year - 1
+    return f"FY{start}-{str(start + 1)[2:]}"
+
+def update_budget():
+    """After budget adoption (mid-June), prepopulate the new fiscal year entry
+    so the site always shows the current cycle label. Dollar amounts are copied
+    from the prior year and flagged for manual update — they need to be filled
+    in once the adopted budget document is published."""
+    print("Checking budget fiscal year...")
+    with open(BUDGET_FILE) as f:
+        data = json.load(f)
+
+    expected_fy = _current_fiscal_year()
+    changed = False
+
+    for entity in data["entities"]:
+        years = entity.get("years", [])
+        if expected_fy in years:
+            continue
+
+        print(f"  {entity['name']}: adding {expected_fy} placeholder")
+
+        # Copy prior year figures as a starting point; flag for manual update
+        prior_fy = years[0] if years else None
+        totals = entity.get("totals", {})
+
+        if prior_fy and prior_fy in totals:
+            prior = totals[prior_fy]
+            totals[expected_fy] = {
+                **prior,
+                "note": f"PENDING: Update with adopted {expected_fy} figures from official budget document.",
+                "needs_update": True,
+            }
+        else:
+            totals[expected_fy] = {
+                "note": f"PENDING: Update with adopted {expected_fy} figures from official budget document.",
+                "needs_update": True,
+            }
+
+        entity["totals"] = totals
+        entity["years"] = [expected_fy] + years
+        changed = True
+
+    if changed:
+        with open(BUDGET_FILE, 'w') as f:
+            json.dump(data, f, indent=2)
+        print(f"  Saved budget-data.json — ACTION NEEDED: fill in {expected_fy} dollar amounts")
+    else:
+        print(f"  budget-data.json already shows {expected_fy}")
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     update_polling_places()
@@ -495,4 +559,5 @@ if __name__ == "__main__":
     update_legislators()
     update_meetings()
     update_calendar()
+    update_budget()
     print("\nAll data files updated successfully.")
