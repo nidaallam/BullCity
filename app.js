@@ -647,6 +647,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const page = document.body.dataset.page;
   switch (page) {
     case 'home':
+    case 'news':
       loadNews();
       break;
     case 'meetings':

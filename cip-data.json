@@ -1,0 +1,128 @@
+{
+  "updated": "2026-04-21",
+  "note": "All figures from official adopted budgets and bond referendum documents.",
+  "summary": {
+    "cityTotal": 537600000,
+    "countyTotal": 221800000,
+    "totalCIP": 759400000
+  },
+  "projects": [
+    {
+      "id": "water-sewer",
+      "title": "Water & Sewer Infrastructure",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Water & Sewer",
+      "amount": 315700000,
+      "description": "Upgrades to water treatment plants, sewer lines, pump stations, and aging pipe replacements to support population growth and maintain system reliability.",
+      "status": "Ongoing",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "godurham-transit",
+      "title": "GoDurham Transit Expansion",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Transportation",
+      "amount": 17000000,
+      "description": "New buses, transit facility improvements, and expanded service routes for the GoDurham city bus system.",
+      "status": "Planning",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "stormwater",
+      "title": "Stormwater Improvements",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Stormwater",
+      "amount": 25700000,
+      "description": "Stormwater drainage upgrades, stream restoration, and flood-prevention infrastructure to protect Durham neighborhoods.",
+      "status": "Ongoing",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "street-repaving",
+      "title": "Street Repaving Program",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Streets & Sidewalks",
+      "amount": 25000000,
+      "description": "Resurfacing and reconstruction of city streets, prioritizing the most deteriorated roads to reduce long-term maintenance costs.",
+      "status": "Ongoing",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "parks-lead-soil",
+      "title": "Parks – Lead Soil Remediation",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Parks",
+      "amount": 12000000,
+      "description": "Removal of lead-contaminated soil at city parks identified in a 2024 survey. Priority project to protect children's health at public playgrounds.",
+      "status": "Active",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "sidewalk-access",
+      "title": "Sidewalk Repairs & Access",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Streets & Sidewalks",
+      "amount": 10000000,
+      "description": "Repairs and new sidewalk construction to improve pedestrian safety and ADA accessibility throughout Durham.",
+      "status": "Ongoing",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "other-capital",
+      "title": "Other Capital Projects",
+      "entity": "city",
+      "entityLabel": "City of Durham",
+      "category": "Facilities & Government",
+      "amount": 132200000,
+      "description": "Facilities improvements, fire station renovations, technology infrastructure, and other capital investments across city departments.",
+      "status": "Various",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.durhamnc.gov/456/Finance",
+      "sourceLabel": "City of Durham FY2025-26 Adopted Budget"
+    },
+    {
+      "id": "affordable-housing-bond",
+      "title": "Affordable Housing Bond Program",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Housing",
+      "amount": 160000000,
+      "description": "Durham County's landmark $160 million affordable housing bond, approved by voters in November 2022. Funds affordable housing development, down-payment assistance, and preservation of existing affordable units across the county.",
+      "status": "Active",
+      "year": "2022 Bond",
+      "sourceUrl": "https://www.dconc.gov/Departments/County-Manager/Housing-Affordability-Initiative",
+      "sourceLabel": "Durham County Housing Affordability Initiative"
+    },
+    {
+      "id": "dps-capital",
+      "title": "Durham Public Schools Capital Improvements",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Education",
+      "amount": 61800000,
+      "description": "Annual county appropriation for DPS capital improvements — school building repairs, HVAC replacements, roofing, and facility upgrades not covered by the 2022 school construction bond. Separate from the current expense allocation.",
+      "status": "Ongoing",
+      "year": "FY2025-26",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2025-26 Adopted Budget"
+    }
+  ]
+}
