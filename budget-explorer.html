@@ -737,6 +737,8 @@
     activeYear = e.years[0];
     viewMode = 'sources';
     openAreaIdx = null;
+    // Update URL hash without triggering a navigation
+    if (history.replaceState) history.replaceState(null, '', '#' + e.id);
     buildTabs();
     renderEntity();
   }
@@ -1119,7 +1121,11 @@
     try {
       const res  = await fetch('budget-data.json');
       budgetData = await res.json();
-      activeYear = budgetData.entities[0].years[0];
+      // Honor URL hash (e.g. budget-explorer.html#city)
+      const hashId = window.location.hash.replace('#', '').toLowerCase();
+      const hashIdx = hashId ? budgetData.entities.findIndex(e => e.id === hashId) : -1;
+      activeEntity = hashIdx >= 0 ? hashIdx : 0;
+      activeYear = budgetData.entities[activeEntity].years[0];
       buildTabs();
       renderEntity();
     } catch (err) {
