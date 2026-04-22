@@ -1009,8 +1009,8 @@
       : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100.';
 
     const staticCrossNote = e.id === 'county'
-      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100 — an additional <strong>$1,529.85/yr</strong> for a $350,000 home.'
-      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100 — an additional <strong>$1,939.70/yr</strong> for a $350,000 home.';
+      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100. Enter your home value below to see the exact additional amount.'
+      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100. Enter your home value below to see the exact additional amount.';
 
     return `
       <div class="exp-section-title" style="display:flex;align-items:center;gap:.6rem;">
@@ -1032,7 +1032,7 @@
         <div style="background:#fef9ec;border:1.5px solid #fcd34d;border-radius:7px;padding:.75rem 1rem;margin-bottom:.75rem;font-family:'Libre Franklin',sans-serif;font-size:.83rem;color:#78350f;line-height:1.55;">
           ⚠ <strong>Estimate only.</strong> This calculator uses the adopted tax rate and budget proportions to approximate your bill. Actual tax amounts depend on your property's assessed value and any exemptions. Verify your property value at <a href="https://taxcama.dconc.gov/camapwa/" target="_blank" rel="noopener" style="color:#92400e;font-weight:700;">Durham County Tax Administration</a>.
         </div>
-        <div style="background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:7px;padding:.75rem 1rem;margin-bottom:1rem;font-family:'Libre Franklin',sans-serif;font-size:.83rem;color:#0c4a6e;line-height:1.55;">
+        <div id="crossNote_${e.id}" style="background:#f0f9ff;border:1.5px solid #bae6fd;border-radius:7px;padding:.75rem 1rem;margin-bottom:1rem;font-family:'Libre Franklin',sans-serif;font-size:.83rem;color:#0c4a6e;line-height:1.55;">
           ⓘ ${staticCrossNote}
         </div>
         <p class="exp-receipt-intro">Enter your home's assessed value to see how your annual property tax breaks down by spending area. In North Carolina, property is assessed at 100% of appraised (market) value. The current ${e.name} tax rate is <strong>${rateDisplay}</strong>.</p>
@@ -1117,8 +1117,12 @@
     const combined   = annualTax + otherTax;
 
     const combinedNote = entityId === 'county'
-      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100 — an additional $' + otherTax.toFixed(2) + '/yr for a $' + Math.round(homeValue).toLocaleString() + ' home.'
-      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100 — an additional $' + otherTax.toFixed(2) + '/yr for a $' + Math.round(homeValue).toLocaleString() + ' home.';
+      ? 'Durham residents within city limits also pay a separate <strong>City of Durham</strong> property tax of 43.71¢ per $100 — an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.'
+      : 'Durham County residents also pay a separate <strong>Durham County</strong> property tax of 55.42¢ per $100 — an additional <strong>$' + otherTax.toFixed(2) + '/yr</strong> for a $' + Math.round(homeValue).toLocaleString() + ' home.';
+
+    // Update the static cross-note at the top to show the real amount
+    const crossNoteEl = document.getElementById('crossNote_' + entityId);
+    if (crossNoteEl) crossNoteEl.innerHTML = 'ⓘ ' + combinedNote;
 
     result.innerHTML = `
       <div class="exp-receipt-summary">

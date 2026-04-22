@@ -47,9 +47,9 @@
     }
 
     .connect-main {
-      max-width: 700px;
+      max-width: 960px;
       margin: 3rem auto;
-      padding: 0 1.25rem 4rem;
+      padding: 0 2rem 4rem;
     }
 
     .connect-grid {
@@ -177,9 +177,10 @@
     .connect-newsletter a:hover { background: var(--gold); }
 
     @media (min-width: 540px) {
-      .connect-grid {
-        grid-template-columns: 1fr 1fr;
-      }
+      .connect-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 860px) {
+      .connect-grid { grid-template-columns: 1fr 1fr 1fr; }
     }
   </style>
 </head>
