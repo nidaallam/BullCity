@@ -417,6 +417,16 @@ function renderMeetings(data, container) {
     </div>
     <div class="meetings-group" id="advisory">
       <h2 class="meetings-group-title">Advisory Boards &amp; Commissions</h2>
+      <div style="background:#e0f3f6;border-left:4px solid #207C91;border-radius:8px;padding:1rem 1.25rem;margin-bottom:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:.75rem 2rem;">
+        <div>
+          <p style="font-size:.95rem;font-weight:700;color:#262E4F;margin:0 0 .2rem;">Want to serve on a board or commission?</p>
+          <p style="font-size:.875rem;color:#374151;margin:0;">Durham residents can apply to serve on advisory boards, commissions, and task forces. Your voice matters in shaping local policy!</p>
+        </div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;flex-shrink:0;">
+          <a href="https://www.dconc.gov/government/boards-and-commissions/apply-to-serve" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#262E4F;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply — Durham County →</a>
+          <a href="https://www.durhamnc.gov/311/Boards-Commissions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#207C91;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply — City of Durham →</a>
+        </div>
+      </div>
       ${advisory.map(renderBodyCard).join('')}
     </div>
   `;
