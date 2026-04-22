@@ -584,6 +584,19 @@
     </div><!-- /.inner-content -->
   </main>
 
+  <!-- ── Budget Stats Modal ── -->
+  <div class="cip-modal-overlay" id="cipStatsModal" onclick="if(event.target===this)closeCipStatsModal()">
+    <div class="cip-modal-inner" role="dialog" aria-modal="true" aria-labelledby="cipStatsModalTitle">
+      <div class="cip-modal-header">
+        <h2 id="cipStatsModalTitle">Budget Stats</h2>
+        <button class="cip-modal-close" onclick="closeCipStatsModal()" aria-label="Close">✕</button>
+      </div>
+      <div class="cip-modal-body" id="cipStatsModalBody">
+        <p style="color:#9ca3af;font-size:.9rem;">Loading...</p>
+      </div>
+    </div>
+  </div>
+
   <!-- ── Footer ── -->
   <footer class="site-footer">
     <div class="footer-inner">
