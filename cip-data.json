@@ -1,11 +1,12 @@
 {
   "updated": "2026-04-21",
-  "note": "All figures from official adopted budgets and bond referendum documents.",
+  "note": "All figures from the Durham County FY2022-2031 CIP and City of Durham FY2025-26 Adopted Budget. Durham County issues bonds for DPS, Durham Tech, and Museum of Life and Science but does not manage their construction.",
   "summary": {
     "cityTotal": 537600000,
-    "countyTotal": 160000000,
-    "dpsTotal": 423505000,
-    "totalCIP": 1121105000
+    "countyBondTotal": 550200000,
+    "countyCapitalTotal": 143600000,
+    "dpsManaged": 423505000,
+    "totalCIP": 1654400000
   },
   "projects": [
     {
@@ -22,7 +23,7 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 36.0500,
       "lng": -78.8300,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
       "id": "godurham-transit",
@@ -38,7 +39,7 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9988,
       "lng": -78.9019,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
       "id": "stormwater",
@@ -54,7 +55,7 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9850,
       "lng": -78.9100,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
       "id": "street-repaving",
@@ -70,7 +71,7 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9900,
       "lng": -78.9150,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
       "id": "parks-lead-soil",
@@ -86,7 +87,7 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9792,
       "lng": -78.8678,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
       "id": "sidewalk-access",
@@ -102,11 +103,11 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9930,
       "lng": -78.9000,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
-      "id": "other-capital",
-      "title": "Other Capital Projects",
+      "id": "other-city-capital",
+      "title": "Other City Capital Projects",
       "entity": "city",
       "entityLabel": "City of Durham",
       "category": "Facilities & Government",
@@ -118,39 +119,119 @@
       "sourceLabel": "City of Durham FY2025-26 Adopted Budget",
       "lat": 35.9996,
       "lng": -78.8986,
-      "locationNote": "Program-level estimate — projects occur throughout City of Durham"
+      "locationNote": "Program-level — projects throughout City of Durham"
     },
     {
-      "id": "affordable-housing-bond",
-      "title": "Affordable Housing Bond Program",
-      "entity": "county",
-      "entityLabel": "Durham County",
-      "category": "Housing",
-      "amount": 160000000,
-      "description": "Durham County's landmark $160 million affordable housing bond, approved by voters in November 2022. Funds affordable housing development, down-payment assistance, and preservation of existing affordable units across the county.",
-      "status": "Active",
-      "year": "2022 Bond",
-      "sourceUrl": "https://www.dconc.gov/Departments/County-Manager/Housing-Affordability-Initiative",
-      "sourceLabel": "Durham County Housing Affordability Initiative",
-      "lat": 35.9970,
-      "lng": -78.8990,
-      "locationNote": "Program-level estimate — projects occur throughout Durham County"
-    },
-    {
-      "id": "dps-capital",
-      "title": "Durham Public Schools 2022 Bond Program",
+      "id": "dps-bond-2022",
+      "title": "2022 Bond – Durham Public Schools",
       "entity": "dps",
       "entityLabel": "Durham Public Schools",
       "category": "Education",
       "amount": 423505000,
-      "description": "The $423.5 million voter-approved 2022 bond referendum funds new school construction and major renovations across Durham Public Schools. Projects include a new Murray-Massenburg Elementary, a new Durham School of the Arts campus, and renovations at Club Boulevard, Glenn, and other schools. DPS manages construction; Durham County funded the bond.",
+      "description": "Durham County voters approved a $550.2M bond in November 2022. Of that, $423.5M goes to DPS for new school construction and major renovations — including a new Murray-Massenburg Elementary, a new Durham School of the Arts campus, and renovations at Club Boulevard, Glenn, and other schools. Durham County issued the bond; DPS manages construction.",
       "status": "Active",
       "year": "2022 Bond",
       "sourceUrl": "https://www.dpsnc.net/page/2022-bond-and-building-program-information",
       "sourceLabel": "DPS 2022 Bond and Building Program",
       "lat": 35.9808,
       "lng": -78.9230,
-      "locationNote": "Program-level estimate — projects occur throughout Durham County schools"
+      "locationNote": "Program-level — projects at schools throughout Durham County"
+    },
+    {
+      "id": "durham-tech-bond-2022",
+      "title": "2022 Bond – Durham Technical Community College",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Education",
+      "amount": 112700000,
+      "description": "Part of the November 2022 $550.2M Durham County GO Bond. $112.7M supports two new classroom buildings, repairs and renovations, and land acquisition at Durham Tech. Durham County issued the bond; Durham Tech manages construction.",
+      "status": "Active",
+      "year": "2022 Bond",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 35.9933,
+      "lng": -78.9088,
+      "locationNote": "Durham Technical Community College main campus"
+    },
+    {
+      "id": "museum-bond-2022",
+      "title": "2022 Bond – NC Museum of Life and Science",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Culture & Recreation",
+      "amount": 13900000,
+      "description": "Part of the November 2022 $550.2M Durham County GO Bond. $13.9M supports repairs, renovations, and expansion at the NC Museum of Life and Science. Durham County issued the bond; the Museum manages construction.",
+      "status": "Active",
+      "year": "2022 Bond",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 36.0409,
+      "lng": -78.8983,
+      "locationNote": "NC Museum of Life and Science, 433 Murray Ave"
+    },
+    {
+      "id": "public-safety-complex",
+      "title": "Public Safety and Service Complex",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Public Safety",
+      "amount": 45300000,
+      "description": "A new Public Safety and Service Complex built over most of the CIP's 10-year span using Limited Obligation Bond (LOBS) financing. Part of Durham County's investment in public safety infrastructure.",
+      "status": "Planning",
+      "year": "FY2022-2031",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 35.9985,
+      "lng": -78.9032,
+      "locationNote": "Approximate — final site to be determined"
+    },
+    {
+      "id": "parking-decks-housing",
+      "title": "Downtown Parking Decks with Affordable Housing",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Housing & Facilities",
+      "amount": 56600000,
+      "description": "Two new downtown parking decks incorporating affordable housing units, financed through Limited Obligation Bonds. Supports downtown growth while expanding affordable housing in the urban core.",
+      "status": "Planning",
+      "year": "FY2022-2031",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 35.9996,
+      "lng": -78.9019,
+      "locationNote": "Downtown Durham"
+    },
+    {
+      "id": "snow-hill-pump-station",
+      "title": "Snow Hill Road Pump Station",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Water & Sewer",
+      "amount": 19600000,
+      "description": "A new pump station on Snow Hill Road to support wastewater infrastructure in northeast Durham, financed through Limited Obligation Bonds.",
+      "status": "Active",
+      "year": "FY2022-2031",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 36.0508,
+      "lng": -78.8730,
+      "locationNote": "Snow Hill Road, northeast Durham"
+    },
+    {
+      "id": "youth-home",
+      "title": "Youth Home",
+      "entity": "county",
+      "entityLabel": "Durham County",
+      "category": "Human Services",
+      "amount": 22100000,
+      "description": "A new Durham County Youth Home to replace the existing facility, providing safe, modern housing and services for youth in the county's care. Financed through Limited Obligation Bonds.",
+      "status": "Active",
+      "year": "FY2022-2031",
+      "sourceUrl": "https://www.dconc.gov/Budget-and-Management-Services",
+      "sourceLabel": "Durham County FY2022-2031 CIP",
+      "lat": 36.0154,
+      "lng": -78.8683,
+      "locationNote": "Approximate — northeast Durham"
     }
   ]
 }
