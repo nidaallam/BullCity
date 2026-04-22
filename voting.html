@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://api.weather.gov;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Voting &amp; Elected Officials – Durham Civic Hub</title>
   <meta name="description" content="Voter resources for Durham County and a full list of your elected officials from City Council to Congress." />
@@ -267,6 +267,72 @@
       </section>
 
       <!-- ── Elected Officials ── -->
+      <!-- ── Voter ID ── -->
+      <section class="budget-section">
+        <h2 class="budget-section-title">Voter ID Required in NC</h2>
+        <p style="font-size:.9rem;color:#555;margin-bottom:1rem;line-height:1.6;">North Carolina requires photo ID to vote. Here are the accepted forms. If you don't have one of these, you can still cast a <a href="https://www.ncsbe.gov/voting/voter-id" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;">provisional ballot</a> and follow up within 9 days.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.75rem;margin-bottom:1rem;">
+          <div style="background:#fff;border:1.5px solid var(--border);border-top:4px solid var(--teal);border-radius:8px;padding:1rem 1.1rem;">
+            <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.35rem;">Always accepted</div>
+            <ul style="font-size:.85rem;color:#374151;line-height:1.75;margin:0;padding-left:1.1rem;">
+              <li>NC Driver's License or ID card</li>
+              <li>US Passport or passport card</li>
+              <li>Military ID</li>
+              <li>Tribal enrollment card</li>
+            </ul>
+          </div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-top:4px solid var(--orange);border-radius:8px;padding:1rem 1.1rem;">
+            <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.35rem;">Also accepted</div>
+            <ul style="font-size:.85rem;color:#374151;line-height:1.75;margin:0;padding-left:1.1rem;">
+              <li>Out-of-state driver's license (if recently moved)</li>
+              <li>Student photo ID (NC college/university)</li>
+              <li>Government employee ID</li>
+              <li>Free NC voter photo ID card</li>
+            </ul>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:#888;font-style:italic;">
+          No ID? Get a <strong>free NC voter photo ID card</strong> from the Durham County Board of Elections at no cost.
+          <a href="https://www.ncsbe.gov/voting/voter-id" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600;">Full ID rules at ncsbe.gov →</a>
+        </p>
+      </section>
+
+      <!-- ── How to Vote ── -->
+      <section class="budget-section">
+        <h2 class="budget-section-title">How to Vote</h2>
+        <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;" id="voteHowTabs">
+          <button class="vote-how-tab" onclick="showVoteHow('early',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer;">🗓️ Early Voting</button>
+          <button class="vote-how-tab" onclick="showVoteHow('day',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--navy);cursor:pointer;">🏛️ Election Day</button>
+          <button class="vote-how-tab" onclick="showVoteHow('mail',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--navy);cursor:pointer;">📬 Vote by Mail</button>
+        </div>
+        <div id="voteHowEarly" class="vote-how-panel" style="background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem 1.4rem;">
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .6rem;">Early voting in Durham runs Oct 15–31, 2026 at multiple sites across the county. No excuse needed — just show up with your ID at any early voting location in Durham County.</p>
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .75rem;">Same-day registration is available during early voting if you're not yet registered or need to update your address.</p>
+          <a href="https://vt.ncsbe.gov/EVSite/" target="_blank" rel="noopener" class="voter-tool-btn" style="display:inline-block;">Find early voting sites →</a>
+        </div>
+        <div id="voteHowDay" class="vote-how-panel" style="display:none;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem 1.4rem;">
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .6rem;">On Election Day (November 3, 2026), polls are open 6:30 AM to 7:30 PM. You must vote at your assigned polling place — look it up in advance. Bring your photo ID.</p>
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .75rem;">If you're in line at 7:30 PM, you have the right to vote. Don't leave!</p>
+          <a href="https://vt.ncsbe.gov/PPLkup/" target="_blank" rel="noopener" class="voter-tool-btn" style="display:inline-block;">Find your polling place →</a>
+        </div>
+        <div id="voteHowMail" class="vote-how-panel" style="display:none;background:#fff;border:1.5px solid var(--border);border-radius:10px;padding:1.25rem 1.4rem;">
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .6rem;">Request an absentee ballot online — your ballot will be mailed to you. You need a witness to sign when you return it. Return by mail or drop it off at the Board of Elections by Election Day.</p>
+          <p style="font-size:.9rem;color:#374151;line-height:1.7;margin:0 0 .75rem;">Request your ballot early — the deadline to request is typically a week before the election.</p>
+          <a href="https://votebymail.ncsbe.gov/app/home" target="_blank" rel="noopener" class="voter-tool-btn" style="display:inline-block;">Request absentee ballot →</a>
+        </div>
+      </section>
+      <script>
+        function showVoteHow(id, btn) {
+          ['early','day','mail'].forEach(k => {
+            document.getElementById('voteHow'+k.charAt(0).toUpperCase()+k.slice(1)).style.display = k === id ? 'block' : 'none';
+          });
+          document.querySelectorAll('.vote-how-tab').forEach(t => {
+            t.style.background = '#fff'; t.style.color = 'var(--navy)'; t.style.borderColor = 'var(--border)';
+          });
+          btn.style.background = 'var(--navy)'; btn.style.color = '#fff'; btn.style.borderColor = 'var(--navy)';
+        }
+      </script>
+
       <section class="budget-section officials-section">
         <h2 class="budget-section-title">Your Elected Officials</h2>
         <p class="officials-note">Durham has elected officials at every level of government. Click any card to visit their official page. Info verified as of April 2026.</p>

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://api.weather.gov;" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Connect – Durham Civic Hub</title>
-  <meta name="description" content="Follow Commissioner Nida Allam on social media: Reddit, Twitter/X, Instagram, Facebook, and Bluesky." />
+  <meta name="description" content="Reach Commissioner Nida Allam — email, social media, and answers to common questions about Durham County government." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
@@ -42,30 +42,104 @@
       font-family: 'Libre Franklin', sans-serif;
       font-size: 1rem;
       color: rgba(255,255,255,.8);
-      max-width: 700px;
+      max-width: 640px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
     .connect-main {
-      max-width: 1400px;
-      margin: 3rem auto;
-      padding: 0 2rem 4rem;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
     }
 
-    .connect-grid {
+    /* ── Intro card ── */
+    .connect-intro {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 2px 12px rgba(38,46,79,.09);
+      margin-bottom: 1.5rem;
+    }
+    .connect-intro-photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--teal);
+      flex-shrink: 0;
+    }
+    .connect-intro-photo-fallback {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Margin', serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      border: 3px solid var(--teal);
+    }
+    .connect-intro-text p {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .97rem;
+      color: #374151;
+      line-height: 1.65;
+      margin: 0 0 .75rem;
+    }
+    .connect-intro-text p:last-child { margin-bottom: 0; }
+    .connect-intro-text strong { color: var(--navy); }
+
+    /* ── Respond note ── */
+    .connect-respond-card {
+      background: #f0f9ff;
+      border-left: 4px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin-bottom: 2rem;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .92rem;
+      color: #1e3a5f;
+      line-height: 1.6;
+    }
+
+    /* ── Section label ── */
+    .connect-section-label {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      opacity: .55;
+      margin: 0 0 .75rem;
+    }
+
+    /* ── Social grid ── */
+    .connect-social-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      gap: .85rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 480px) {
+      .connect-social-grid { grid-template-columns: 1fr; }
     }
 
     .social-card {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: .9rem;
       background: #fff;
       border-radius: 10px;
-      padding: 1rem 1.25rem;
+      padding: .9rem 1.1rem;
       text-decoration: none;
       border: 2px solid transparent;
       box-shadow: 0 2px 8px rgba(38,46,79,.08);
@@ -75,57 +149,52 @@
       box-shadow: 0 6px 20px rgba(38,46,79,.14);
       transform: translateY(-2px);
     }
-
     .social-icon {
-      width: 52px;
-      height: 52px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
       flex-shrink: 0;
+    }
+    .social-card-text { flex: 1; }
+    .social-card-handle {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: block;
+    }
+    .social-card-platform {
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .78rem;
+      color: #6B7280;
+      display: block;
+      margin-top: .1rem;
     }
 
     .social-card--twitter  { border-color: #1d9bf0; }
     .social-card--twitter  .social-icon { background: #1d9bf0; }
-    .social-card--twitter:hover  { border-color: #1d9bf0; }
-
     .social-card--instagram { border-color: #e1306c; }
-    .social-card--instagram .social-icon {
-      background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af);
-    }
-    .social-card--instagram:hover { border-color: #e1306c; }
-
+    .social-card--instagram .social-icon { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
     .social-card--facebook { border-color: #1877f2; }
     .social-card--facebook .social-icon { background: #1877f2; }
-    .social-card--facebook:hover { border-color: #1877f2; }
-
     .social-card--reddit   { border-color: #ff4500; }
     .social-card--reddit   .social-icon { background: #ff4500; }
-    .social-card--reddit:hover   { border-color: #ff4500; }
-
     .social-card--bluesky  { border-color: #0085ff; }
     .social-card--bluesky  .social-icon { background: #0085ff; }
-    .social-card--bluesky:hover  { border-color: #0085ff; }
 
-    .social-card-handle {
-      font-family: 'Libre Franklin', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      flex: 1;
-    }
-
-    .connect-newsletter {
-      margin-top: 2.5rem;
+    /* ── Contact card ── */
+    .connect-contact-card {
       background: var(--navy);
       color: #fff;
-      border-radius: 10px;
-      padding: 1.75rem 1.75rem;
+      border-radius: 12px;
+      padding: 1.75rem;
       text-align: center;
+      margin-bottom: 2rem;
     }
-    .connect-newsletter h2 {
+    .connect-contact-card h2 {
       font-family: 'Margin', serif;
       font-size: 1.4rem;
       font-weight: 800;
@@ -133,33 +202,61 @@
       letter-spacing: .03em;
       margin: 0 0 .5rem;
     }
-    .connect-newsletter p {
+    .connect-contact-card p {
       font-family: 'Libre Franklin', sans-serif;
       font-size: .9rem;
-      color: rgba(255,255,255,.8);
+      color: rgba(255,255,255,.82);
       margin: 0 0 1.25rem;
       line-height: 1.6;
     }
-    .connect-newsletter a {
-      display: inline-block;
-      background: var(--peach);
-      color: var(--navy);
-      font-family: 'Libre Franklin', sans-serif;
-      font-weight: 700;
-      font-size: .9rem;
-      padding: .65rem 1.5rem;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: background .18s;
-    }
-    .connect-newsletter a:hover { background: var(--gold); }
 
-    @media (min-width: 540px) {
-      .connect-grid { grid-template-columns: 1fr 1fr; }
+    /* ── FAQ accordion ── */
+    .connect-faq { margin-bottom: 2rem; }
+    .faq-item {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 8px;
+      margin-bottom: .6rem;
+      overflow: hidden;
     }
-    @media (min-width: 860px) {
-      .connect-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 1rem 1.1rem;
+      text-align: left;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--navy);
+      gap: .75rem;
     }
+    .faq-q:hover { background: #f9fafb; }
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .2s;
+      color: var(--teal);
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      padding: 0 1.1rem 1rem;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: .9rem;
+      color: #374151;
+      line-height: 1.65;
+    }
+    .faq-a a { color: var(--teal); font-weight: 600; }
+    .faq-item.open .faq-a { display: block; }
   </style>
 </head>
 <body data-page="connect">
@@ -186,74 +283,107 @@
   <!-- ── Hero ── -->
   <section class="connect-hero">
     <p class="connect-hero-eyebrow">Commissioner Nida Allam</p>
-    <h1>Stay Connected</h1>
-    <p>I'm Vice Chair of the Durham County Board of Commissioners, and I'm here for you. Follow along for updates on county government, community events, and civic news. My door is always open!</p>
+    <h1>Say Hi!</h1>
+    <p>Got a question, a concern, an idea, or you just want to meet up? I'm here for it. Reach out!</p>
   </section>
 
-  <!-- ── Social Cards ── -->
+  <!-- ── Main ── -->
   <main class="connect-main">
-    <div class="connect-grid">
+
+    <!-- Intro card -->
+    <div class="connect-intro">
+      <img
+        src="https://www.dconc.gov/Home/ShowPublishedImage/25820/638303024819100000"
+        alt="Commissioner Nida Allam"
+        class="connect-intro-photo"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+      />
+      <div class="connect-intro-photo-fallback" style="display:none;">NA</div>
+      <div class="connect-intro-text">
+        <p>Hi, neighbor! I'm Nida, Vice Chair of the Durham County Board of Commissioners. I represent all of Durham County and I take that seriously — whether you voted for me or not, you're my constituent and I want to hear from you!</p>
+        <p>I'm at every community event I can get to, and I check my email every day. If there's something going on in your neighborhood, a county service that's letting you down, or just something you think I should know about — please reach out. That's what I'm here for.</p>
+      </div>
+    </div>
+
+    <!-- Respond note -->
+    <div class="connect-respond-card">
+      I read every message personally. Most get a reply within a few days — sometimes faster if it's something I can help with quickly! If it's urgent, put <strong>URGENT</strong> in the subject line and I'll move it up.
+    </div>
+
+    <!-- Social -->
+    <p class="connect-section-label">Find me on social media</p>
+    <div class="connect-social-grid">
 
       <a class="social-card social-card--twitter"
          href="https://x.com/NidaAllam"
          target="_blank" rel="noopener">
         <div class="social-icon">
-          <!-- X / Twitter logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </div>
-        <span class="social-card-handle">@NidaAllam</span>
+        <div class="social-card-text">
+          <span class="social-card-handle">@NidaAllam</span>
+          <span class="social-card-platform">Twitter / X</span>
+        </div>
       </a>
 
       <a class="social-card social-card--instagram"
          href="https://www.instagram.com/nidaallam/"
          target="_blank" rel="noopener">
         <div class="social-icon">
-          <!-- Instagram logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </div>
-        <span class="social-card-handle">@nidaallam</span>
+        <div class="social-card-text">
+          <span class="social-card-handle">@nidaallam</span>
+          <span class="social-card-platform">Instagram</span>
+        </div>
       </a>
 
       <a class="social-card social-card--facebook"
          href="https://www.facebook.com/NidaAllamNC"
          target="_blank" rel="noopener">
         <div class="social-icon">
-          <!-- Facebook logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </div>
-        <span class="social-card-handle">NidaAllamNC</span>
+        <div class="social-card-text">
+          <span class="social-card-handle">NidaAllamNC</span>
+          <span class="social-card-platform">Facebook</span>
+        </div>
       </a>
 
       <a class="social-card social-card--reddit"
          href="https://www.reddit.com/user/NidaAllamNC/"
          target="_blank" rel="noopener">
         <div class="social-icon">
-          <!-- Reddit logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
         </div>
-        <span class="social-card-handle">u/NidaAllamNC</span>
+        <div class="social-card-text">
+          <span class="social-card-handle">u/NidaAllamNC</span>
+          <span class="social-card-platform">Reddit</span>
+        </div>
       </a>
 
       <a class="social-card social-card--bluesky"
          href="https://bsky.app/profile/nidaallam.bsky.social"
          target="_blank" rel="noopener">
         <div class="social-icon">
-          <!-- Bluesky logo -->
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="#fff" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.99.995 1.422 1.06c-.51.058-.805.2-.805.2C.078 1.482 0 1.68 0 1.8c0 .845.39 2.24 1.032 3.26.477.779 1.023 1.433 1.63 1.959.596.518 1.168.865 1.615 1.066-.34.14-.712.394-1.12.706-1.253.955-2.26 2.404-2.26 4.31 0 2.92 2.246 5.22 5.015 5.22 1.55 0 2.748-.553 3.656-1.304.41-.34.77-.712 1.068-1.086.3-.376.568-.774.73-1.117.16.343.428.74.728 1.117.298.374.658.746 1.068 1.086.908.75 2.105 1.304 3.656 1.304 2.77 0 5.015-2.3 5.015-5.22 0-1.906-1.007-3.355-2.26-4.31-.408-.312-.78-.566-1.12-.706.447-.2 1.019-.548 1.615-1.066.607-.526 1.153-1.18 1.63-1.96C23.61 4.04 24 2.645 24 1.8c0-.12-.078-.318-.617-.54 0 0-.295-.142-.805-.2-.568-.065-1.144-.116-3.78 1.945C16.046 4.747 13.087 8.686 12 10.8z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="#fff" aria-hidden="true"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.99.995 1.422 1.06c-.51.058-.805.2-.805.2C.078 1.482 0 1.68 0 1.8c0 .845.39 2.24 1.032 3.26.477.779 1.023 1.433 1.63 1.959.596.518 1.168.865 1.615 1.066-.34.14-.712.394-1.12.706-1.253.955-2.26 2.404-2.26 4.31 0 2.92 2.246 5.22 5.015 5.22 1.55 0 2.748-.553 3.656-1.304.41-.34.77-.712 1.068-1.086.3-.376.568-.774.73-1.117.16.343.428.74.728 1.117.298.374.658.746 1.068 1.086.908.75 2.105 1.304 3.656 1.304 2.77 0 5.015-2.3 5.015-5.22 0-1.906-1.007-3.355-2.26-4.31-.408-.312-.78-.566-1.12-.706.447-.2 1.019-.548 1.615-1.066.607-.526 1.153-1.18 1.63-1.96C23.61 4.04 24 2.645 24 1.8c0-.12-.078-.318-.617-.54 0 0-.295-.142-.805-.2-.568-.065-1.144-.116-3.78 1.945C16.046 4.747 13.087 8.686 12 10.8z"/></svg>
         </div>
-        <span class="social-card-handle">@nidaallam.bsky.social</span>
+        <div class="social-card-text">
+          <span class="social-card-handle">@nidaallam.bsky.social</span>
+          <span class="social-card-platform">Bluesky</span>
+        </div>
       </a>
 
     </div>
 
-    <!-- ── Newsletter / Contact callout ── -->
-    <div class="connect-newsletter">
-      <h2>Contact Commissioner Allam</h2>
-      <p>Have a question, concern, or just something on your mind? I read every message personally and try to respond within a few days. Don't be shy, even if it's a question you think is small! Email <strong style="color:var(--peach)">nallam@dconc.gov</strong> directly.</p>
+    <!-- Contact card -->
+    <div class="connect-contact-card">
+      <h2>Send Me a Message</h2>
+      <p>Email <strong style="color:var(--peach)">nallam@dconc.gov</strong> — I read everything. Don't be shy, even if it's a question you think is small!</p>
       <div style="position:relative;display:inline-block;" id="emailBtnWrap">
         <button onclick="toggleEmailOptions(event)"
           style="display:inline-block;background:var(--peach);color:var(--navy);font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1.5rem;border-radius:6px;border:none;cursor:pointer;transition:background .18s;">
-          Send a Message →
+          Open Email App →
         </button>
         <div id="emailOptions" style="display:none;position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#fff;border:1.5px solid #e5e7eb;border-radius:8px;padding:.4rem;min-width:220px;box-shadow:0 4px 18px rgba(0,0,0,.18);z-index:100;">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nallam@dconc.gov" target="_blank" rel="noopener"
@@ -277,17 +407,72 @@
         </div>
       </div>
     </div>
-    <script>
-      function toggleEmailOptions(e) {
-        e.stopPropagation();
-        const el = document.getElementById('emailOptions');
-        el.style.display = el.style.display === 'none' ? 'block' : 'none';
-      }
-      document.addEventListener('click', function() {
-        const el = document.getElementById('emailOptions');
-        if (el) el.style.display = 'none';
-      });
-    </script>
+
+    <!-- FAQ -->
+    <p class="connect-section-label">Common questions</p>
+    <div class="connect-faq" id="connectFaq">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Who is my county commissioner?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          All five Durham County Commissioners represent the whole county — there are no districts. So I represent you! You can see the full board at <a href="https://www.dconc.gov/Board-of-Commissioners" target="_blank" rel="noopener">dconc.gov/Board-of-Commissioners</a>. If you want to know your City Council district (City of Durham is separate from the County), check the <a href="my-durham.html">My Durham</a> page.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I apply for an advisory board or commission?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          Durham County has dozens of advisory boards and commissions that regular residents can join — from the Planning Commission to the Board of Health. Applications are open year-round at <a href="https://www.dconc.gov/government/advisory-boards" target="_blank" rel="noopener">dconc.gov/government/advisory-boards</a>. It's a great way to have a real impact! If you apply and want me to know, shoot me an email.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I report a pothole, missed trash pickup, or other service issue?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          For most day-to-day service requests in Durham — potholes, trash, code violations, graffiti — call or use <strong>Durham One Call: 919-560-1200</strong>, or use the Durham One app. City services go through the City; County services (like DSS or Public Health) go through the County. Not sure who handles it? Email me and I'll point you in the right direction!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How do I speak at a BOCC meeting?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          Anyone can speak during public comment! Sign up online or call <strong>(919) 560-0025</strong> before 9 AM on meeting day. You get 3 minutes. Head over to the <a href="meetings.html">Meetings page</a> for full details, sign-up links, and a comment helper to get your thoughts organized before you go.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's the difference between Durham County and the City of Durham?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          Great question — it trips people up all the time! Durham County (run by the Board of Commissioners) handles things like social services, public health, elections, the Register of Deeds, and the county jail. The City of Durham (run by City Council) handles city police, city roads, water/sewer, parks, and planning within city limits. Some parts of Durham County are unincorporated — they get county services but not city services. Most residents are served by both!
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Where can I find the official Durham County website?
+          <span class="faq-chevron"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+        </button>
+        <div class="faq-a">
+          The official Durham County government site is <a href="https://www.dconc.gov" target="_blank" rel="noopener">dconc.gov</a>. For the City of Durham, it's <a href="https://www.durhamnc.gov" target="_blank" rel="noopener">durhamnc.gov</a>. Durham Civic Hub (this site!) links to official sources for everything but is my own community resource — not an official government site.
+        </div>
+      </div>
+
+    </div>
 
   </main>
 
@@ -314,6 +499,24 @@
     </div>
   </footer>
 
+  <script>
+    function toggleEmailOptions(e) {
+      e.stopPropagation();
+      const el = document.getElementById('emailOptions');
+      el.style.display = el.style.display === 'none' ? 'block' : 'none';
+    }
+    document.addEventListener('click', function() {
+      const el = document.getElementById('emailOptions');
+      if (el) el.style.display = 'none';
+    });
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
   <script src="app.js"></script>
 </body>
 </html>

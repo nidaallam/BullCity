@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com;" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://translate.google.com https://translate.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com https://translate.googleapis.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://api.fontshare.com; frame-src https://app.powerbigov.us https://app.powerbi.com https://www.youtube.com https://data-dconc.org https://go.boarddocs.com; img-src 'self' data: https:; connect-src 'self' https://translate.googleapis.com https://api.weather.gov;" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meetings &amp; Calendar – Durham Civic Hub</title>
   <meta name="description" content="Upcoming meetings, civic calendar, agendas, live streams, and public comment information for Durham County boards and commissions." />
@@ -190,6 +190,147 @@
       <p class="page-hero-sub">Agendas, minutes, live streams, and public comment info for every Durham County board and commission. Everything you need to show up and get involved!</p>
     </div>
   </div>
+
+  <!-- ── Get Meeting Alerts ── -->
+  <div style="background:var(--teal,#207C91);color:#fff;padding:1.5rem 1.5rem 1.75rem;">
+    <div style="max-width:860px;margin:0 auto;">
+      <h2 style="font-family:'Margin',serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 .4rem;">Get Meeting Alerts</h2>
+      <p style="font-size:.92rem;color:rgba(255,255,255,.9);margin:0 0 1rem;line-height:1.6;">Want a heads-up before the meetings that matter to you? I'll send a quick email the week of every BOCC meeting, plus alerts on anything big coming up like budget hearings or appointments. No spam, just the heads-up. Pick what you care about below!</p>
+      <form action="https://buttondown.com/api/emails/embed-subscribe/nidaallam"
+            method="post" target="popupwindow"
+            onsubmit="window.open('https://buttondown.com/nidaallam','popupwindow')"
+            style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end;">
+        <div style="flex:1;min-width:240px;">
+          <label style="display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem;opacity:.85;">Your email address</label>
+          <input type="email" name="email" required placeholder="neighbor@example.com"
+                 style="width:100%;padding:.6rem .9rem;border-radius:6px;border:none;font-size:.95rem;font-family:'Libre Franklin',sans-serif;color:#111;" />
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center;padding-bottom:.1rem;">
+          <span style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.8;flex-basis:100%;">I care about:</span>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="BOCC" checked style="accent-color:#E97221;"> BOCC</label>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="City Council"> City Council</label>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="DPS Board"> DPS Board</label>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Planning"> Planning Commission</label>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Budget Hearings"> Budget/Public Hearings</label>
+          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Advisory Boards"> Advisory Boards</label>
+        </div>
+        <button type="submit" style="background:var(--orange,#E97221);color:#fff;font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:.92rem;padding:.65rem 1.5rem;border:none;border-radius:6px;cursor:pointer;white-space:nowrap;">Sign me up!</button>
+      </form>
+      <p style="font-size:.75rem;color:rgba(255,255,255,.65);margin:.6rem 0 0;">Powered by Buttondown. Unsubscribe anytime. I'll never share your email.</p>
+    </div>
+  </div>
+
+  <!-- ── Speak at a Meeting ── -->
+  <div id="speakSection" style="background:var(--cream,#FAF6EE);border-bottom:1.5px solid var(--border,#e5e0d8);">
+    <div style="max-width:860px;margin:0 auto;padding:1.25rem 1.5rem;">
+      <button id="speakToggleBtn" onclick="toggleSpeak()"
+              style="width:100%;background:none;border:none;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:0;">
+        <div>
+          <h2 style="font-family:'Margin',serif;font-size:1.2rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--navy);margin:0 0 .15rem;">Want to Speak at a Meeting?</h2>
+          <p style="font-size:.88rem;color:#555;margin:0;line-height:1.4;">Speaking at a meeting is easier than it sounds! Three minutes max. Here's what you need to know.</p>
+        </div>
+        <span id="speakChevron" style="font-size:1.25rem;color:var(--navy);flex-shrink:0;transition:transform .2s;">▾</span>
+      </button>
+      <div id="speakBody" style="display:none;margin-top:1.25rem;">
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.25rem;" id="speakTabs">
+          <button class="speak-tab" data-body="bocc" onclick="selectSpeakBody('bocc',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--navy);background:var(--navy);color:#fff;cursor:pointer;">BOCC</button>
+          <button class="speak-tab" data-body="city-council" onclick="selectSpeakBody('city-council',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--border,#e5e0d8);background:#fff;color:var(--navy);cursor:pointer;">City Council</button>
+          <button class="speak-tab" data-body="dps" onclick="selectSpeakBody('dps',this)" style="font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border-radius:20px;border:1.5px solid var(--border,#e5e0d8);background:#fff;color:var(--navy);cursor:pointer;">DPS Board</button>
+        </div>
+        <div id="speakRulesContainer"><p style="color:#888;font-size:.9rem;">Loading…</p></div>
+        <!-- Draft helper -->
+        <div style="margin-top:1.25rem;background:#fff;border:1.5px solid var(--border,#e5e0d8);border-radius:10px;padding:1.25rem;">
+          <h3 style="font-family:'Libre Franklin',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);margin:0 0 .4rem;">Step 3 — Draft your comment</h3>
+          <p style="font-size:.82rem;color:#666;margin:0 0 .7rem;">Answer these three questions, then copy the result:</p>
+          <div style="display:flex;flex-direction:column;gap:.55rem;">
+            <textarea id="draftQ1" placeholder="What issue do you care about?" rows="2" oninput="buildDraftComment()" style="width:100%;padding:.55rem .75rem;font-size:.88rem;font-family:'Libre Franklin',sans-serif;border:1.5px solid var(--border,#e5e0d8);border-radius:6px;resize:vertical;box-sizing:border-box;"></textarea>
+            <textarea id="draftQ2" placeholder="How does it affect you or someone you know?" rows="2" oninput="buildDraftComment()" style="width:100%;padding:.55rem .75rem;font-size:.88rem;font-family:'Libre Franklin',sans-serif;border:1.5px solid var(--border,#e5e0d8);border-radius:6px;resize:vertical;box-sizing:border-box;"></textarea>
+            <textarea id="draftQ3" placeholder="What do you want the board to do?" rows="2" oninput="buildDraftComment()" style="width:100%;padding:.55rem .75rem;font-size:.88rem;font-family:'Libre Franklin',sans-serif;border:1.5px solid var(--border,#e5e0d8);border-radius:6px;resize:vertical;box-sizing:border-box;"></textarea>
+          </div>
+          <div id="draftOutput" style="display:none;margin-top:.75rem;">
+            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;margin-bottom:.3rem;">Your comment:</div>
+            <div id="draftText" style="background:var(--cream,#FAF6EE);border:1.5px solid var(--border,#e5e0d8);border-radius:6px;padding:.75rem;font-size:.88rem;line-height:1.6;white-space:pre-wrap;"></div>
+            <button onclick="navigator.clipboard.writeText(document.getElementById('draftText').textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy to clipboard'},2000)})" style="margin-top:.5rem;background:var(--teal);color:#fff;font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:700;padding:.4rem .9rem;border:none;border-radius:6px;cursor:pointer;">Copy to clipboard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let _speakData = null;
+    let _speakBodyId = 'bocc';
+    let _speakOpen = false;
+
+    function toggleSpeak() {
+      _speakOpen = !_speakOpen;
+      document.getElementById('speakBody').style.display = _speakOpen ? 'block' : 'none';
+      document.getElementById('speakChevron').style.transform = _speakOpen ? 'rotate(180deg)' : '';
+      if (_speakOpen && !_speakData) loadSpeakRules();
+    }
+
+    async function loadSpeakRules() {
+      try {
+        const res = await fetch('data/speaking-rules.json');
+        _speakData = await res.json();
+        renderSpeakRules(_speakBodyId);
+      } catch {}
+    }
+
+    function selectSpeakBody(id, btn) {
+      _speakBodyId = id;
+      document.querySelectorAll('.speak-tab').forEach(t => {
+        t.style.background = '#fff'; t.style.color = 'var(--navy)'; t.style.borderColor = 'var(--border,#e5e0d8)';
+      });
+      btn.style.background = 'var(--navy)'; btn.style.color = '#fff'; btn.style.borderColor = 'var(--navy)';
+      renderSpeakRules(id);
+    }
+
+    function renderSpeakRules(id) {
+      const el = document.getElementById('speakRulesContainer');
+      if (!el || !_speakData) return;
+      const b = _speakData.bodies[id];
+      if (!b) return;
+      const calData = `BEGIN:VCALENDAR\nVERSION:2.0\nBEGIN:VEVENT\nSUMMARY:${b.name} — Public Comment\nDESCRIPTION:Rules: ${b.rulesUrl}\nLOCATION:${b.location}\nEND:VEVENT\nEND:VCALENDAR`;
+      const calUrl = 'data:text/calendar;charset=utf8,' + encodeURIComponent(calData);
+      el.innerHTML = `
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.65rem;margin-bottom:.9rem;">
+          <div style="background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--teal);border-radius:8px;padding:.75rem .9rem;">
+            <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);margin-bottom:.2rem;">Step 1 — Time limit</div>
+            <div style="font-size:.95rem;font-weight:700;color:var(--navy);">${b.timeLimit}</div>
+          </div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--orange);border-radius:8px;padding:.75rem .9rem;">
+            <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:.2rem;">Step 2 — Sign up by</div>
+            <div style="font-size:.88rem;font-weight:700;color:var(--navy);">${b.signupDeadline}</div>
+          </div>
+          <div style="background:#fff;border:1.5px solid var(--border);border-left:4px solid var(--navy);border-radius:8px;padding:.75rem .9rem;">
+            <div style="font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:.2rem;">Location</div>
+            <div style="font-size:.82rem;font-weight:600;color:var(--navy);">${b.location}</div>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:#555;line-height:1.6;margin-bottom:.85rem;">${b.notes}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.5rem;">
+          <a href="mailto:${b.clerkEmail}?subject=Public%20Comment%20Request" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--navy);color:#fff;font-family:'Libre Franklin',sans-serif;font-size:.8rem;font-weight:700;padding:.42rem .9rem;border-radius:6px;text-decoration:none;">✉️ Email Clerk</a>
+          <a href="${calUrl}" download="meeting.ics" style="display:inline-flex;align-items:center;gap:.35rem;background:var(--teal);color:#fff;font-family:'Libre Franklin',sans-serif;font-size:.8rem;font-weight:700;padding:.42rem .9rem;border-radius:6px;text-decoration:none;">📅 Add to calendar</a>
+          <a href="${b.rulesUrl}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#fff;color:var(--navy);border:1.5px solid var(--border);font-family:'Libre Franklin',sans-serif;font-size:.8rem;font-weight:700;padding:.42rem .9rem;border-radius:6px;text-decoration:none;">📋 Official rules</a>
+        </div>`;
+    }
+
+    function buildDraftComment() {
+      const q1 = document.getElementById('draftQ1').value.trim();
+      const q2 = document.getElementById('draftQ2').value.trim();
+      const q3 = document.getElementById('draftQ3').value.trim();
+      const out = document.getElementById('draftOutput');
+      const txt = document.getElementById('draftText');
+      if (!q1 && !q2 && !q3) { out.style.display = 'none'; return; }
+      let c = '';
+      if (q1) c += q1 + '\n\n';
+      if (q2) c += q2 + '\n\n';
+      if (q3) c += 'I\'m asking the board to ' + q3.replace(/^(please |i want (you|them) to |i\'d like (you|them) to )/i,'') + '.';
+      txt.textContent = c.trim();
+      out.style.display = 'block';
+    }
+  </script>
 
   <!-- ── View Tabs ── -->
   <div class="page-tabs">
