@@ -18,7 +18,7 @@
     .home-hero {
       background: linear-gradient(145deg, var(--navy, #262E4F) 0%, #1a3a4a 100%);
       color: #fff;
-      padding: 3.5rem 1.5rem 2.75rem;
+      padding: 2.25rem 2rem 2rem;
       text-align: center;
     }
     .home-hero-eyebrow {
@@ -32,12 +32,16 @@
     }
     .home-hero h1 {
       font-family: 'Margin', serif;
-      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-size: clamp(1.8rem, 4vw, 3rem);
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .04em;
+      letter-spacing: .02em;
+      white-space: nowrap;
       margin: 0 0 1rem;
       line-height: 1.08;
+    }
+    @media (max-width: 520px) {
+      .home-hero h1 { white-space: normal; font-size: clamp(1.6rem, 7vw, 2.2rem); }
     }
     .home-hero-desc {
       font-family: 'Libre Franklin', sans-serif;
@@ -196,7 +200,7 @@
     .home-section {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 2.25rem 2rem 0;
+      padding: 1.5rem 2rem 0;
     }
     .home-section-title {
       font-family: 'Margin', serif;
