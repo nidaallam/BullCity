@@ -9,7 +9,9 @@
       "source": "Durham County BOCC",
       "date": "2026-04-22",
       "displayDate": "April 22, 2026",
-      "tag": "Budget"
+      "tags": [
+        "Budget"
+      ]
     },
     {
       "title": "Commissioner Allam Backs Affordable Housing Bond for November Ballot",
@@ -18,7 +20,9 @@
       "source": "Durham County BOCC",
       "date": "2026-04-21",
       "displayDate": "April 21, 2026",
-      "tag": "Housing"
+      "tags": [
+        "Housing"
+      ]
     },
     {
       "title": "FY2026-27 Budget Public Input Period Is Open",
@@ -27,7 +31,9 @@
       "source": "Durham County",
       "date": "2026-04-20",
       "displayDate": "April 20, 2026",
-      "tag": "Budget"
+      "tags": [
+        "Budget"
+      ]
     },
     {
       "title": "Durham Public Schools Submits FY2026-27 Budget Request to County",
@@ -36,7 +42,9 @@
       "source": "DPS",
       "date": "2026-04-19",
       "displayDate": "April 19, 2026",
-      "tag": "Schools"
+      "tags": [
+        "Schools"
+      ]
     },
     {
       "title": "FY2026-27 Budget Schedule: Key Dates for Public Participation",
@@ -45,7 +53,9 @@
       "source": "Durham County",
       "date": "2026-04-18",
       "displayDate": "April 18, 2026",
-      "tag": "Budget"
+      "tags": [
+        "Budget"
+      ]
     },
     {
       "title": "Planning Commission Reviews Major Southside Rezoning Proposal",
@@ -54,7 +64,9 @@
       "source": "Durham City-County Planning",
       "date": "2026-04-17",
       "displayDate": "April 17, 2026",
-      "tag": "Housing"
+      "tags": [
+        "Housing"
+      ]
     },
     {
       "title": "BOCC Takes Up Affordable Housing Funding at April Meeting",
@@ -63,16 +75,20 @@
       "source": "Durham County BOCC",
       "date": "2026-04-14",
       "displayDate": "April 14, 2026",
-      "tag": "Housing"
+      "tags": [
+        "Housing"
+      ]
     },
     {
-      "title": "GoTriangle Pursuing Federal Funding for Durham–Chapel Hill BRT",
-      "excerpt": "GoTriangle continues work on the Durham–Chapel Hill Bus Rapid Transit corridor along NC-54. The agency is seeking federal Small Starts funding to advance the project. See gotriangle.org for current project status.",
+      "title": "GoTriangle Pursuing Federal Funding for Durham\u2013Chapel Hill BRT",
+      "excerpt": "GoTriangle continues work on the Durham\u2013Chapel Hill Bus Rapid Transit corridor along NC-54. The agency is seeking federal Small Starts funding to advance the project. See gotriangle.org for current project status.",
       "link": "https://gotriangle.org/",
       "source": "GoTriangle",
       "date": "2026-04-15",
       "displayDate": "April 15, 2026",
-      "tag": "Transit"
+      "tags": [
+        "Transit"
+      ]
     },
     {
       "title": "Durham County Expands Co-Responder Crisis Intervention Program",
@@ -81,7 +97,9 @@
       "source": "Durham County DHHS",
       "date": "2026-04-13",
       "displayDate": "April 13, 2026",
-      "tag": "Health"
+      "tags": [
+        "Health"
+      ]
     },
     {
       "title": "Ellerbe Creek Greenway Extension Breaks Ground",
@@ -90,7 +108,9 @@
       "source": "Durham Parks & Recreation",
       "date": "2026-04-12",
       "displayDate": "April 12, 2026",
-      "tag": "Community"
+      "tags": [
+        "Community"
+      ]
     },
     {
       "title": "Durham County Seeks Applicants for Housing Advisory Board",
@@ -99,7 +119,9 @@
       "source": "Durham County",
       "date": "2026-04-12",
       "displayDate": "April 12, 2026",
-      "tag": "Housing"
+      "tags": [
+        "Housing"
+      ]
     },
     {
       "title": "Free Vaccination Clinic at Durham Human Services on June 9",
@@ -108,7 +130,9 @@
       "source": "Durham County Health",
       "date": "2026-04-12",
       "displayDate": "April 12, 2026",
-      "tag": "Health"
+      "tags": [
+        "Health"
+      ]
     }
   ]
 }
