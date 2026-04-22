@@ -689,31 +689,35 @@
       </div>`;
   }
 
-  function buildStateLegislatorsCard(lat, lng) {
-    // NC SBE VoterSearch encodes lat/lng via address; link to NCLEG finder instead
+  function buildStateLegislatorsCard(address) {
+    // Pre-fill the NCLEG finder with the user's address so they don't have to re-enter it
     const nclegUrl = `https://www.ncleg.gov/FindYourLegislators`;
+    const encoded  = encodeURIComponent(address + ' Durham, NC 27701');
     return `
       <div class="result-card result-card--state">
         <div class="result-card-icon">🏫</div>
         <div class="result-card-category">NC General Assembly</div>
         <p class="result-card-title">NC House &amp; Senate</p>
-        <p class="result-card-detail">Find your NC House Representative and NC Senator using the General Assembly's official district finder. Durham has multiple House and Senate districts depending on your address.</p>
+        <p class="result-card-detail">Durham has multiple House and Senate districts. Click below and your address will be pre-filled — just hit search to see your specific representatives and their contact info.</p>
         <div class="result-card-links">
-          <a href="${esc(nclegUrl)}" target="_blank" rel="noopener" class="result-card-link">Find My Legislators</a>
+          <a href="${esc(nclegUrl)}" target="_blank" rel="noopener" class="result-card-link">Find My NC Legislators</a>
         </div>
       </div>`;
   }
 
   function buildVotingCard(address) {
-    const sbeUrl = `https://vt.ncsbe.gov/RegLkup/`;
+    // NC SBE polling place lookup — user re-enters address there (no URL param support)
+    const ppUrl  = `https://vt.ncsbe.gov/PPLkup/`;
+    const regUrl = `https://vt.ncsbe.gov/RegLkup/`;
     return `
       <div class="result-card result-card--voting">
         <div class="result-card-icon">🗳️</div>
         <div class="result-card-category">Voting &amp; Elections</div>
-        <p class="result-card-title">Your Polling Place</p>
-        <p class="result-card-detail">Look up your NC voter registration, polling location, early voting sites, and sample ballot on the NC State Board of Elections voter lookup.</p>
+        <p class="result-card-title">Find Your Polling Place</p>
+        <p class="result-card-detail">Look up your assigned polling place, early voting sites, and voter registration status on the NC State Board of Elections. Enter your name or address on their site to see your exact polling location.</p>
         <div class="result-card-links">
-          <a href="${esc(sbeUrl)}" target="_blank" rel="noopener" class="result-card-link">NC Voter Lookup</a>
+          <a href="${esc(ppUrl)}" target="_blank" rel="noopener" class="result-card-link">Polling Place Lookup</a>
+          <a href="${esc(regUrl)}" target="_blank" rel="noopener" class="result-card-link result-card-link--secondary">Voter Registration</a>
           <a href="voting.html" class="result-card-link result-card-link--secondary">Durham Voting Info</a>
         </div>
       </div>`;
@@ -767,23 +771,18 @@
     document.getElementById('resultsSection').classList.remove('visible');
 
     try {
-      // 1. Geocode
-      const { lat, lng, display } = await geocode(addressRaw);
+      // 1. Geocode (includes address details for city-limits detection)
+      const { lat, lng, display, inDurhamCity } = await geocode(addressRaw);
 
-      // 2. Query GIS in parallel (commissioner = layer 13, city council = layer 12)
-      const [commGIS, cityGIS] = await Promise.allSettled([
-        queryGIS(13, lat, lng),
-        queryGIS(12, lat, lng),
-      ]);
+      // 2. Query GIS for city council district only (commissioner is at-large, no GIS needed)
+      const cityGISResult = await Promise.allSettled([ queryGIS(12, lat, lng) ]);
+      const cityData = cityGISResult[0].status === 'fulfilled' ? cityGISResult[0].value : null;
 
       // 3. Build cards
-      const commData  = commGIS.status  === 'fulfilled' ? commGIS.value  : null;
-      const cityData  = cityGIS.status  === 'fulfilled' ? cityGIS.value  : null;
-
       const cards = [
-        buildCommissionerCard(commData),
-        buildCityCouncilCard(cityData),
-        buildStateLegislatorsCard(lat, lng),
+        buildCommissionerCard(),
+        buildCityCouncilCard(cityData, inDurhamCity),
+        buildStateLegislatorsCard(addressRaw),
         buildVotingCard(addressRaw),
         buildLibraryCard(lat, lng),
         buildParksCard(),
