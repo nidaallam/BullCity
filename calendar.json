@@ -243,8 +243,10 @@
       "links": [
         { "label": "Details", "url": "https://www.dconc.gov/Public-Health/Clinical-Services" }
       ]
-    },
-    {
+    }
+  ]
+}
+    REMOVE_PLACEHOLDER {
       "id": 22,
       "date": "2026-04-27",
       "title": "Durham Peoples Alliance – General Chapter Meeting",
