@@ -14,34 +14,55 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          node-version: '20'
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
 
-      # ── Fetch scripts (add each as it's built) ──────────────────
+      - name: Install Python dependencies
+        run: pip install -r scripts/requirements.txt
 
-      # - name: Fetch emergency alerts
-      #   run: node scripts/fetch-alerts.js
+      # ── Fetch news from Durham RSS feeds ──────────────────────────
+      - name: Fetch news
+        run: python scripts/fetch_news.py
 
-      # - name: Fetch news RSS
-      #   run: node scripts/fetch-news.js
+      # ── Update meetings, polling places, ward boundaries, legislators, budget
+      - name: Update civic data
+        run: python scripts/update_civic_data.py
 
-      # - name: Fetch elections data
-      #   run: node scripts/fetch-elections.js
+      # ── Check resource links (runs daily, skips if no broken links)
+      - name: Check resource links
+        run: python scripts/check_resources.py
 
-      # - name: Check resource links
-      #   if: github.event.schedule == '0 12 1 * *'   # monthly
-      #   run: node scripts/check-resources.js
-
+      # ── Update meta.json timestamp ────────────────────────────────
       - name: Update meta timestamp
         run: |
-          echo "{\"lastUpdated\":\"$(date +%Y-%m-%d)\",\"sources\":{}}" > data/meta.json
+          python - <<'EOF'
+          import json, datetime
+          from pathlib import Path
 
+          today = datetime.date.today().isoformat()
+          meta_path = Path("data/meta.json")
+          try:
+              meta = json.loads(meta_path.read_text())
+          except Exception:
+              meta = {"lastUpdated": today, "sources": {}}
+
+          meta["lastUpdated"] = today
+          for key in meta.get("sources", {}):
+              meta["sources"][key] = today
+
+          meta_path.write_text(json.dumps(meta, indent=2))
+          print(f"Updated meta.json → {today}")
+          EOF
+
+      # ── Commit all changed data files ─────────────────────────────
       - name: Commit updated data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/
+          git add data/ news.json meetings.json calendar.json budget-data.json
           git diff --staged --quiet || git commit -m "chore: daily data fetch $(date +%Y-%m-%d)"
           git push
