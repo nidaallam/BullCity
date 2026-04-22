@@ -532,7 +532,7 @@ a { color: var(--teal); }
   padding-bottom: .4rem;
 }
 .sidebar-link-list { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
-.sidebar-link-list a { font-size: .875rem; color: var(--teal); text-decoration: none; font-weight: 500; }
+.sidebar-link-list a { font-size: 1rem; color: var(--teal); text-decoration: none; font-weight: 500; }
 .sidebar-link-list a:hover { text-decoration: underline; }
 
 /* ── Meetings Page ── */
@@ -662,7 +662,7 @@ a { color: var(--teal); }
   color: var(--event-color);
   margin-bottom: .2rem;
 }
-.cal-event-title { font-size: .95rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
+.cal-event-title { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: .2rem; }
 .cal-event-time, .cal-event-loc { font-size: .82rem; color: var(--muted); }
 .cal-event-rel  { font-size: .85rem; color: var(--teal); font-weight: 700; }
 .cal-event-link {
@@ -723,7 +723,7 @@ a { color: var(--teal); }
   letter-spacing: .06em;
   margin-bottom: .45rem;
 }
-.budget-section-sub { font-size: .875rem; color: var(--muted); margin-bottom: 1.35rem; }
+.budget-section-sub { font-size: 1rem; color: var(--muted); margin-bottom: 1.35rem; }
 
 /* Revenue Bars */
 .rev-row {
@@ -734,17 +734,17 @@ a { color: var(--teal); }
   padding: .55rem 0;
   border-top: 1px solid var(--border-lt);
 }
-.rev-label  { font-size: .875rem; font-weight: 600; color: var(--navy); }
+.rev-label  { font-size: 1rem; font-weight: 600; color: var(--navy); }
 .rev-bar-wrap { background: var(--border-lt); border-radius: 4px; height: 10px; overflow: hidden; }
 .rev-bar    { height: 100%; background: linear-gradient(90deg, var(--teal), var(--sage)); border-radius: 4px; }
 .rev-pct    { font-size: .82rem; color: var(--muted); text-align: right; }
-.rev-amt    { font-size: .875rem; font-weight: 700; color: var(--navy); text-align: right; }
+.rev-amt    { font-size: 1rem; font-weight: 700; color: var(--navy); text-align: right; }
 
 /* Budget Table */
 .budget-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: .9rem;
+  font-size: 1rem;
   background: var(--surface);
   border-radius: var(--radius);
   overflow: hidden;
@@ -799,7 +799,7 @@ a { color: var(--teal); }
 }
 .timeline-content { display: flex; flex-direction: column; gap: .1rem; }
 .timeline-date  { font-size: .82rem; font-weight: 800; text-transform: uppercase; color: var(--muted); letter-spacing: .05em; }
-.timeline-label { font-size: .9rem; font-weight: 600; color: var(--navy); }
+.timeline-label { font-size: 1rem; font-weight: 600; color: var(--navy); }
 .timeline-step--active .timeline-label { color: var(--orange); }
 
 /* Participate Grid */
@@ -818,9 +818,9 @@ a { color: var(--teal); }
   gap: .45rem;
 }
 .participate-icon { font-size: 1.85rem; }
-.participate-card h3 { font-size: .95rem; font-weight: 700; color: var(--navy); }
-.participate-card p  { font-size: .875rem; color: #374151; line-height: 1.52; flex: 1; }
-.participate-link { font-size: .82rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: .3rem; }
+.participate-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); }
+.participate-card p  { font-size: 1rem; color: #374151; line-height: 1.55; flex: 1; }
+.participate-link { font-size: .9rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: .3rem; }
 .participate-link:hover { text-decoration: underline; }
 .budget-section--cta {
   padding: 2rem;
