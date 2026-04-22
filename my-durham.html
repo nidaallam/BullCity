@@ -341,7 +341,7 @@
     <div class="page-hero-inner">
       <p class="page-hero-eyebrow">Durham County, NC</p>
       <h1 class="page-hero-title">My Durham</h1>
-      <p class="page-hero-sub">Enter your Durham address and instantly find out who represents you, your nearest library, voting info, and more!</p>
+      <p class="page-hero-sub">Enter your Durham address and instantly find out who represents you, your nearest library, voting info, and more.</p>
     </div>
   </div>
 
@@ -367,7 +367,7 @@
             <span id="btnSpinner" class="spinner" style="display:none;" aria-hidden="true"></span>
           </button>
         </form>
-        <p class="lookup-hint">Enter a Durham street address — no need to include city or state!</p>
+        <p class="lookup-hint">Enter a Durham street address, no need to include city or state.</p>
         <div class="lookup-error" id="lookupError" role="alert" aria-live="polite"></div>
       </div>
 
@@ -592,14 +592,14 @@
   /* ── Build result cards ─────────────────────────────────────── */
   function buildCommissionerCard() {
     const rows = COMMISSIONERS.map(c =>
-      `<a href="${esc(c.url)}" target="_blank" rel="noopener" style="display:block;padding:.25rem 0;color:var(--navy,#262E4F);font-size:.85rem;font-weight:600;text-decoration:none;">${esc(c.name)}<span style="font-weight:400;color:#666;"> — ${esc(c.title)}</span></a>`
+      `<a href="${esc(c.url)}" target="_blank" rel="noopener" style="display:block;padding:.25rem 0;color:var(--navy,#262E4F);font-size:.85rem;font-weight:600;text-decoration:none;">${esc(c.name)}<span style="font-weight:400;color:#666;">, ${esc(c.title)}</span></a>`
     ).join('');
     return `
       <div class="result-card result-card--commissioner">
         <div class="result-card-icon">🏛️</div>
         <div class="result-card-category">County Commissioner</div>
         <p class="result-card-title">Your Durham County Representatives</p>
-        <p class="result-card-detail">All 5 commissioners are elected at-large and represent every Durham County resident — no districts!</p>
+        <p class="result-card-detail">All 5 commissioners are elected at-large and represent every Durham County resident, no districts!</p>
         <div style="margin:.5rem 0 .25rem;">${rows}</div>
         <div class="result-card-links">
           <a href="https://www.dconc.gov/Board-of-Commissioners" target="_blank" rel="noopener" class="result-card-link">Board of Commissioners</a>
@@ -614,7 +614,7 @@
           <div class="result-card-icon">🏙️</div>
           <div class="result-card-category">City Council</div>
           <p class="result-card-title">Outside City Limits</p>
-          <div class="outside-city-note">Your address is in unincorporated Durham County, outside Durham city limits. County government serves you directly — you don't have a Durham City Council representative.</div>
+          <div class="outside-city-note">Your address is in unincorporated Durham County, outside Durham city limits. County government serves you directly, so you don't have a Durham City Council representative.</div>
           <div class="result-card-links" style="margin-top:.5rem;">
             <a href="https://www.dconc.gov/Board-of-Commissioners" target="_blank" rel="noopener" class="result-card-link result-card-link--secondary">County Board</a>
           </div>
@@ -623,7 +623,7 @@
 
     const cc = CITY_COUNCIL;
     const memberRow = (m, label) =>
-      `<a href="${esc(m.url)}" target="_blank" rel="noopener" style="display:block;padding:.2rem 0;color:var(--navy,#262E4F);font-size:.82rem;font-weight:600;text-decoration:none;">${esc(m.name)}<span style="font-weight:400;color:#666;"> — ${esc(label)}</span></a>`;
+      `<a href="${esc(m.url)}" target="_blank" rel="noopener" style="display:block;padding:.2rem 0;color:var(--navy,#262E4F);font-size:.82rem;font-weight:600;text-decoration:none;">${esc(m.name)}<span style="font-weight:400;color:#666;">, ${esc(label)}</span></a>`;
 
     const wardMember = wardNum && cc.wards[wardNum];
     let wardHighlight = '';
@@ -655,12 +655,12 @@
 
   function buildStateLegislatorsCard(senateProps, houseProps) {
     const senRow = senateProps
-      ? `<a href="${esc(senateProps.url)}" target="_blank" rel="noopener" style="display:block;padding:.15rem 0;font-size:.85rem;font-weight:700;color:var(--navy,#262E4F);text-decoration:none;">${esc(senateProps.name)}<span style="font-weight:400;color:#666;font-size:.8rem;"> — Senate District ${senateProps.district}</span></a>`
-      : `<span style="font-size:.82rem;color:#888;">District not detected — <a href="https://www.ncleg.gov/FindYourLegislators" target="_blank" rel="noopener" style="color:var(--teal);">look up here</a></span>`;
+      ? `<a href="${esc(senateProps.url)}" target="_blank" rel="noopener" style="display:block;padding:.15rem 0;font-size:.85rem;font-weight:700;color:var(--navy,#262E4F);text-decoration:none;">${esc(senateProps.name)}<span style="font-weight:400;color:#666;font-size:.8rem;">, Senate District ${senateProps.district}</span></a>`
+      : `<span style="font-size:.82rem;color:#888;">District not detected. <a href="https://www.ncleg.gov/FindYourLegislators" target="_blank" rel="noopener" style="color:var(--teal);">Look up here</a></span>`;
 
     const houseRow = houseProps
-      ? `<a href="${esc(houseProps.url)}" target="_blank" rel="noopener" style="display:block;padding:.15rem 0;font-size:.85rem;font-weight:700;color:var(--navy,#262E4F);text-decoration:none;">${esc(houseProps.name)}<span style="font-weight:400;color:#666;font-size:.8rem;"> — House District ${houseProps.district}</span></a>`
-      : `<span style="font-size:.82rem;color:#888;">District not detected — <a href="https://www.ncleg.gov/FindYourLegislators" target="_blank" rel="noopener" style="color:var(--teal);">look up here</a></span>`;
+      ? `<a href="${esc(houseProps.url)}" target="_blank" rel="noopener" style="display:block;padding:.15rem 0;font-size:.85rem;font-weight:700;color:var(--navy,#262E4F);text-decoration:none;">${esc(houseProps.name)}<span style="font-weight:400;color:#666;font-size:.8rem;">, House District ${houseProps.district}</span></a>`
+      : `<span style="font-size:.82rem;color:#888;">District not detected. <a href="https://www.ncleg.gov/FindYourLegislators" target="_blank" rel="noopener" style="color:var(--teal);">Look up here</a></span>`;
 
     return `
       <div class="result-card result-card--state">
@@ -712,7 +712,7 @@
         <p class="result-card-detail">
           <strong>${esc(library.address)}</strong><br>
           About ${miles.toFixed(1)} miles from your address.<br>
-          Free library cards for all Durham County residents!
+          Free library cards for all Durham County residents.
         </p>
         <div class="result-card-links">
           <a href="${esc(library.url)}" target="_blank" rel="noopener" class="result-card-link">Branch Info &amp; Hours</a>
