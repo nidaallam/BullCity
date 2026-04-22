@@ -273,8 +273,9 @@ function entityBadge(source) {
 }
 
 // ── News ──────────────────────────────────────────────────────
+let sortNewestFirst = true;
+
 async function loadNews() {
-  const grid = document.getElementById('storiesGrid');
   const upd  = document.getElementById('newsUpdated');
   try {
     const res = await fetch('news.json');
@@ -293,7 +294,7 @@ async function loadNews() {
 function buildTagFilters() {
   const bar = document.getElementById('tagFilters');
   if (!bar) return;
-  const tags = [...new Set(allStories.flatMap(s => s.tags || []))].sort();
+  const tags = [...new Set(allStories.flatMap(s => s.tags || [s.tag]).filter(Boolean))].sort();
   bar.innerHTML = `<button class="tag-btn active" onclick="filterByTag(null,this)">All</button>` +
     tags.map(t => `<button class="tag-btn" onclick="filterByTag('${t}',this)">${esc(t)}</button>`).join('');
 }
@@ -305,13 +306,21 @@ function filterByTag(tag, btn) {
   renderStories();
 }
 
+function toggleSort() {
+  sortNewestFirst = !sortNewestFirst;
+  const lbl = document.getElementById('sortLabel');
+  if (lbl) lbl.textContent = sortNewestFirst ? 'Newest first' : 'Oldest first';
+  renderStories();
+}
+
 function filterStories() {
-  return allStories.filter(s => {
-    const tagOk   = !activeTag || (s.tags||[]).includes(activeTag);
+  const filtered = allStories.filter(s => {
+    const tagOk   = !activeTag || (s.tags||[s.tag]).filter(Boolean).includes(activeTag);
     const queryOk = !searchQuery ||
-      (s.title + s.excerpt).toLowerCase().includes(searchQuery.toLowerCase());
+      (s.title + ' ' + (s.excerpt||'')).toLowerCase().includes(searchQuery.toLowerCase());
     return tagOk && queryOk;
   });
+  return sortNewestFirst ? filtered : [...filtered].reverse();
 }
 
 function renderStories() {
@@ -330,6 +339,9 @@ function renderStories() {
            <img class="story-img" src="${esc(s.image)}" alt="" loading="lazy" />
          </a>`
       : '';
+    const meaning = s.meaning
+      ? `<p class="story-meaning"><i data-lucide="lightbulb" aria-hidden="true" class="lucide-wrap"></i> ${esc(s.meaning)}</p>`
+      : '';
     return `
     <article class="story-card${i === 0 ? ' story-card--lead' : ''}${s.image ? ' story-card--has-img' : ''}">
       ${img}
@@ -344,6 +356,7 @@ function renderStories() {
           <a href="${esc(s.link)}" target="_blank" rel="noopener">${esc(s.title)}</a>
         </h3>
         ${s.excerpt ? `<p class="story-excerpt">${esc(s.excerpt)}</p>` : ''}
+        ${meaning}
         <a class="story-read-more" href="${esc(s.link)}" target="_blank" rel="noopener">Read more →</a>
       </div>
     </article>

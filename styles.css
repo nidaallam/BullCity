@@ -405,10 +405,44 @@ a { color: var(--teal); }
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 1.35rem;
+  justify-content: space-between;
 }
-.tag-filter-bar { display: flex; gap: .35rem; flex-wrap: wrap; }
+.tag-filter-bar { display: flex; gap: .35rem; flex-wrap: wrap; flex: 1; min-width: 0; }
+.news-controls-right { display: flex; gap: .5rem; align-items: center; flex-shrink: 0; flex-wrap: wrap; }
+.sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .3rem .75rem;
+  border-radius: 20px;
+  font-size: .85rem;
+  font-weight: 700;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--navy);
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+  white-space: nowrap;
+}
+.sort-btn:hover { border-color: var(--teal); color: var(--teal); }
+.rss-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .3rem .75rem;
+  border-radius: 20px;
+  font-size: .85rem;
+  font-weight: 700;
+  border: 1.5px solid #f97316;
+  background: var(--surface);
+  color: #ea6908;
+  text-decoration: none;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+.rss-btn:hover { background: #fff7ed; }
 /* ── Entity badges ── */
 .entity-badge {
   display: inline-block;
@@ -508,6 +542,19 @@ a { color: var(--teal); }
 .story-excerpt { font-size: 1rem; color: #374151; line-height: 1.6; margin-bottom: .65rem; }
 .story-read-more { font-size: .8rem; font-weight: 700; color: var(--teal); text-decoration: none; }
 .story-read-more:hover { text-decoration: underline; }
+.story-meaning {
+  display: flex;
+  align-items: flex-start;
+  gap: .45rem;
+  font-size: .9rem;
+  color: #1e40af;
+  background: #eff6ff;
+  border-radius: 6px;
+  padding: .55rem .75rem;
+  margin-bottom: .65rem;
+  line-height: 1.5;
+}
+.story-meaning .lucide { flex-shrink: 0; margin-top: .15em; color: #3b82f6; }
 
 /* ── Sidebar ── */
 .sidebar { display: flex; flex-direction: column; gap: 1.25rem; }

@@ -363,6 +363,58 @@ def main():
         json.dump(payload, f, indent=2, ensure_ascii=False)
 
     print("  Wrote news.json")
+    write_rss(payload.get("stories", []))
+
+
+def write_rss(stories: list[dict]) -> None:
+    """Generate news.xml (RSS 2.0) from stories list."""
+    import xml.etree.ElementTree as ET
+
+    def cdata(text: str) -> str:
+        return f"<![CDATA[{text}]]>"
+
+    lines = [
+        '<?xml version="1.0" encoding="UTF-8"?>',
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
+        '  <channel>',
+        '    <title>Durham Civic Hub - Local Government News</title>',
+        '    <link>https://civichub.nidaallam.com/news.html</link>',
+        '    <description>Local government news for Durham County, NC: budget, schools, housing, transit, public health.</description>',
+        '    <language>en-us</language>',
+        f'    <lastBuildDate>{date.today().strftime("%a, %d %b %Y 12:00:00 +0000")}</lastBuildDate>',
+        '    <atom:link href="https://civichub.nidaallam.com/news.xml" rel="self" type="application/rss+xml" />',
+    ]
+
+    for s in stories:
+        title   = (s.get("title", "") or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        link    = s.get("link", "")
+        excerpt = (s.get("excerpt", "") or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        source  = (s.get("source", "") or "").replace("&", "&amp;")
+        iso_date = s.get("date", "")
+        pub_date = ""
+        try:
+            d = date.fromisoformat(iso_date)
+            pub_date = d.strftime("%a, %d %b %Y 12:00:00 +0000")
+        except Exception:
+            pass
+
+        lines += [
+            "    <item>",
+            f"      <title>{title}</title>",
+            f"      <link>{link}</link>",
+            f"      <guid isPermaLink=\"true\">{link}</guid>",
+            f"      <description>{excerpt}</description>",
+            f"      <source url=\"{link}\">{source}</source>",
+        ]
+        if pub_date:
+            lines.append(f"      <pubDate>{pub_date}</pubDate>")
+        lines.append("    </item>")
+
+    lines += ["  </channel>", "</rss>"]
+
+    with open("news.xml", "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"  Wrote news.xml ({len(stories)} items)")
 
 
 if __name__ == "__main__":
