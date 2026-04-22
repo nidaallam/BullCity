@@ -24,7 +24,7 @@
       "sourceLabel": "City of Durham Water Management",
       "lat": 36.05,
       "lng": -78.83,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "godurham-transit",
@@ -41,7 +41,7 @@
       "sourceLabel": "Durham Transit Plan",
       "lat": 35.9988,
       "lng": -78.9019,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "stormwater",
@@ -58,7 +58,7 @@
       "sourceLabel": "City of Durham Stormwater Services",
       "lat": 35.985,
       "lng": -78.91,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "street-repaving",
@@ -75,7 +75,7 @@
       "sourceLabel": "City of Durham Streets Division",
       "lat": 35.99,
       "lng": -78.915,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "parks-lead-soil",
@@ -92,7 +92,7 @@
       "sourceLabel": "City of Durham Parks & Recreation",
       "lat": 35.9792,
       "lng": -78.8678,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "sidewalk-access",
@@ -109,7 +109,7 @@
       "sourceLabel": "City of Durham Streets Division",
       "lat": 35.993,
       "lng": -78.9,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "other-city-capital",
@@ -123,10 +123,10 @@
       "year": "FY2025-26",
       "estimatedCompletion": "Ongoing program",
       "sourceUrl": "https://www.durhamnc.gov/456/Finance",
-      "sourceLabel": "City of Durham Finance — FY2025-26 Budget",
+      "sourceLabel": "City of Durham Finance: FY2025-26 Budget",
       "lat": 35.9996,
       "lng": -78.8986,
-      "locationNote": "Program-level — projects throughout City of Durham"
+      "locationNote": "Program-level: projects throughout City of Durham"
     },
     {
       "id": "dps-bond-2022",
@@ -135,7 +135,7 @@
       "entityLabel": "Durham Public Schools",
       "category": "Education",
       "amount": 423505000,
-      "description": "Durham County voters approved a $550.2M bond in November 2022. Of that, $423.5M goes to DPS for new school construction and major renovations — including a new Murray-Massenburg Elementary, a new Durham School of the Arts campus, and renovations at Club Boulevard, Glenn, and other schools. Durham County issued the bond; DPS manages construction.",
+      "description": "Durham County voters approved a $550.2M bond in November 2022. Of that, $423.5M goes to DPS for new school construction and major renovations: including a new Murray-Massenburg Elementary, a new Durham School of the Arts campus, and renovations at Club Boulevard, Glenn, and other schools. Durham County issued the bond; DPS manages construction.",
       "status": "In Progress",
       "year": "2022 Bond",
       "estimatedCompletion": "2028",
@@ -143,7 +143,7 @@
       "sourceLabel": "DPS 2022 Bond & Building Program",
       "lat": 35.9808,
       "lng": -78.923,
-      "locationNote": "Program-level — projects at schools throughout Durham County"
+      "locationNote": "Program-level: projects at schools throughout Durham County"
     },
     {
       "id": "durham-tech-bond-2022",
@@ -194,7 +194,7 @@
       "sourceLabel": "Durham County Capital Improvement Plan",
       "lat": 35.9985,
       "lng": -78.9032,
-      "locationNote": "Approximate — final site to be determined"
+      "locationNote": "Approximate: final site to be determined"
     },
     {
       "id": "parking-decks-housing",
@@ -245,7 +245,7 @@
       "sourceLabel": "Durham County Capital Improvement Plan",
       "lat": 36.0154,
       "lng": -78.8683,
-      "locationNote": "Approximate — northeast Durham"
+      "locationNote": "Approximate: northeast Durham"
     }
   ]
 }

@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────
-   Durham Civic Hub — app.js
+   Durham Civic Hub - app.js
    Handles: news, meetings, calendar, site-wide search
    ───────────────────────────────────────────────────────────── */
 
@@ -163,16 +163,16 @@ function runSiteSearch(q) {
 
   // Search pages (static)
   const pages = [
-    { title: 'Home',                 url: 'index.html',           desc: 'Durham Civic Hub home page — navigator and what\'s happening now.' },
+    { title: 'Home',                 url: 'index.html',           desc: 'Durham Civic Hub home page - navigator and what\'s happening now.' },
     { title: 'News & Updates',       url: 'news.html',            desc: 'Curated local government news from Durham County, the City, and DPS.' },
     { title: 'Meetings & Calendar',  url: 'meetings.html',        desc: 'BOCC, City Council, DPS Board, Planning Commission, agendas, and civic calendar.' },
     { title: 'Budgets',              url: 'budget.html',          desc: 'Durham County, City of Durham, and Durham Public Schools budgets.' },
-    { title: 'Budget Explorer',      url: 'budget-explorer.html', desc: 'Interactive budget explorer — spending by area, funding sources, department breakdowns.' },
+    { title: 'Budget Explorer',      url: 'budget-explorer.html', desc: 'Interactive budget explorer - spending by area, funding sources, department breakdowns.' },
     { title: 'Durham County Budget', url: 'budget-county.html',   desc: 'County budget documents, dashboard, and FY2026-27 process.' },
     { title: 'City of Durham Budget','url': 'budget-city.html',   desc: 'City budget documents, Finance Department, and City Council.' },
     { title: 'DPS Budget',           url: 'budget-schools.html',  desc: 'Durham Public Schools budget, funding sources, and documents.' },
     { title: 'Voting & Elected Officials', url: 'voting.html',    desc: 'Register to vote, find your polling place, and learn about your representatives.' },
-    { title: 'Connect',              url: 'connect.html',         desc: 'Contact and follow Commissioner Nida Allam — social media, events, town halls.' },
+    { title: 'Connect',              url: 'connect.html',         desc: 'Contact and follow Commissioner Nida Allam - social media, events, town halls.' },
   ];
   pages.forEach(p => {
     if (p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q)) {
@@ -437,8 +437,8 @@ function renderMeetings(data, container) {
           <p style="font-size:.875rem;color:#374151;margin:0;">Durham residents can apply to serve on advisory boards, commissions, and task forces. Your voice matters in shaping local policy!</p>
         </div>
         <div style="display:flex;gap:.75rem;flex-wrap:wrap;flex-shrink:0;">
-          <a href="https://durhamcounty.granicus.com/boards" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#262E4F;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply — Durham County →</a>
-          <a href="https://www.durhamnc.gov/238/Boards-Committees-Commissions-Task-Force" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#207C91;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply — City of Durham →</a>
+          <a href="https://durhamcounty.granicus.com/boards" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#262E4F;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply - Durham County →</a>
+          <a href="https://www.durhamnc.gov/238/Boards-Committees-Commissions-Task-Force" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#207C91;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply - City of Durham →</a>
         </div>
       </div>
       ${advisory.map(renderBodyCard).join('')}
@@ -795,7 +795,7 @@ function injectLanguageSelector() {
   function doTranslate(lang) {
     const select = document.querySelector('.goog-te-combo');
     if (!select) {
-      // Widget not ready — retry in 400ms
+      // Widget not ready - retry in 400ms
       setTimeout(() => doTranslate(lang), 400);
       return;
     }

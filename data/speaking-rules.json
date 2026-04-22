@@ -6,12 +6,12 @@
       "name": "Board of County Commissioners",
       "timeLimit": "3 minutes",
       "signupDeadline": "Day of meeting, before 9:00 AM",
-      "format": "In-person at 200 E. Main St., Commissioners Chambers. Virtual option available — email the Clerk before the deadline.",
+      "format": "In-person at 200 E. Main St., Commissioners Chambers. Virtual option available: email the Clerk before the deadline.",
       "clerkEmail": "commissioners@dconc.gov",
       "clerkName": "Clerk to the Board of Commissioners",
       "rulesUrl": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment",
       "agendaUrl": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
-      "location": "200 E. Main St., Durham — Commissioners Chambers",
+      "location": "200 E. Main St., Durham: Commissioners Chambers",
       "notes": "Sign up online or call (919) 560-0025. You can speak on any agenda item or on any issue during the general public comment period at the start of the meeting."
     },
     "city-council": {
@@ -38,7 +38,7 @@
       "rulesUrl": "https://www.dpsnc.net/page/board-of-education",
       "agendaUrl": "https://go.boarddocs.com/nc/dpsnc/Board.nsf/Public",
       "location": "511 Cleveland St., Durham",
-      "notes": "Sign up with the Board Clerk at the front desk before the meeting starts. There's also a written public comment option — email boardclerk@dpsnc.net before noon on meeting day."
+      "notes": "Sign up with the Board Clerk at the front desk before the meeting starts. There's also a written public comment option: email boardclerk@dpsnc.net before noon on meeting day."
     }
   }
 }

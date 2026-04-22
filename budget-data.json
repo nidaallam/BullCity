@@ -37,7 +37,7 @@
           "icon": "🏠",
           "amount": 416000000,
           "pct": 60.3,
-          "note": "Ad valorem tax at 55.42¢ per $100 assessed value — Durham County's primary revenue source",
+          "note": "Ad valorem tax at 55.42¢ per $100 assessed value: Durham County's primary revenue source",
           "color": "#262E4F"
         },
         {
@@ -88,7 +88,7 @@
           "departments": [
             {
               "name": "DPS – Current Expense",
-              "description": "Funds daily school operations — teacher and staff salaries, instructional materials, utilities, and support services for Durham Public Schools.",
+              "description": "Funds daily school operations: teacher and staff salaries, instructional materials, utilities, and support services for Durham Public Schools.",
               "amounts": {
                 "FY2025-26": 219528912,
                 "FY2024-25": 206601332
@@ -210,7 +210,7 @@
             },
             {
               "name": "Mental Health / LME-MCO",
-              "description": "County support for behavioral health services coordinated through the Local Management Entity — Managed Care Organization.",
+              "description": "County support for behavioral health services coordinated through the Local Management Entity: Managed Care Organization.",
               "amounts": {
                 "FY2025-26": null
               }
@@ -285,7 +285,7 @@
           "departments": [
             {
               "name": "DPS-related Debt",
-              "description": "Bond payments for Durham Public Schools construction and renovation projects — including school building bonds approved by voters.",
+              "description": "Bond payments for Durham Public Schools construction and renovation projects: including school building bonds approved by voters.",
               "amounts": {
                 "FY2025-26": 61792616,
                 "FY2024-25": 51719972
@@ -321,7 +321,7 @@
           "id": "capital",
           "name": "Capital Projects",
           "icon": "🏗️",
-          "description": "Capital Finance Plan Fund — major facility construction, renovation, and infrastructure improvements funded by bonds and pay-as-you-go capital.",
+          "description": "Capital Finance Plan Fund: major facility construction, renovation, and infrastructure improvements funded by bonds and pay-as-you-go capital.",
           "amounts": {
             "FY2025-26": 126101344,
             "FY2024-25": 115928164
@@ -371,7 +371,7 @@
           "departments": [
             {
               "name": "Durham County Public Library",
-              "description": "Main library and branch locations across Durham County — book lending, digital resources, programming, and community meeting space.",
+              "description": "Main library and branch locations across Durham County: book lending, digital resources, programming, and community meeting space.",
               "amounts": {
                 "FY2025-26": null
               }
@@ -502,7 +502,7 @@
           "icon": "🏠",
           "amount": 130000000,
           "pct": 55.6,
-          "note": "Ad valorem tax at 43.71¢ per $100 assessed value — the city's largest general fund revenue source",
+          "note": "Ad valorem tax at 43.71¢ per $100 assessed value: the city's largest general fund revenue source",
           "color": "#207C91"
         },
         {
@@ -538,13 +538,13 @@
           "color": "#D97706"
         }
       ],
-      "fundingSourcesNote": "General Fund revenue breakdown (~$234M). Enterprise funds (water/sewer, stormwater) are separately funded by utility rates charged to customers — not by taxes. Capital Improvement Plan funded through bonds, grants, and reserves. Percentages approximate from FY2025-26 adopted budget. Source: durhamnc.gov/456/Finance",
+      "fundingSourcesNote": "General Fund revenue breakdown (~$234M). Enterprise funds (water/sewer, stormwater) are separately funded by utility rates charged to customers: not by taxes. Capital Improvement Plan funded through bonds, grants, and reserves. Percentages approximate from FY2025-26 adopted budget. Source: durhamnc.gov/456/Finance",
       "areas": [
         {
           "id": "capital-improvement",
           "name": "Capital Improvement Plan",
           "icon": "🏗️",
-          "description": "Five-year capital plan for major infrastructure, facilities, and equipment investments. Funded through bonds, grants, and capital reserves — not property taxes.",
+          "description": "Five-year capital plan for major infrastructure, facilities, and equipment investments. Funded through bonds, grants, and capital reserves: not property taxes.",
           "amounts": {
             "FY2025-26": 537600000
           },
@@ -580,7 +580,7 @@
             },
             {
               "name": "Parks – Lead Remediation",
-              "description": "Removal of lead-contaminated soil at city parks to protect children's health — priority project identified in 2024.",
+              "description": "Removal of lead-contaminated soil at city parks to protect children's health: priority project identified in 2024.",
               "amounts": {
                 "FY2025-26": 12000000
               }
@@ -609,7 +609,7 @@
           "amounts": {
             "FY2025-26": 234400000
           },
-          "sourceNote": "Department figures are approximate estimates from the adopted budget — verify exact amounts at durhamnc.gov/456/Finance.",
+          "sourceNote": "Department figures are approximate estimates from the adopted budget: verify exact amounts at durhamnc.gov/456/Finance.",
           "departments": [
             {
               "name": "Durham Police Department",
@@ -687,7 +687,7 @@
           "amounts": {
             "FY2025-26": 244368313
           },
-          "sourceNote": "Source: DPS FY2025-26 Superintendent's Recommended Budget — NC State allotments cover ~34.5% of DPS total funding",
+          "sourceNote": "Source: DPS FY2025-26 Superintendent's Recommended Budget: NC State allotments cover ~34.5% of DPS total funding",
           "departments": [
             {
               "name": "Teacher Salary Allotments",
@@ -729,7 +729,7 @@
           "amounts": {
             "FY2025-26": 225252288
           },
-          "sourceNote": "Source: Durham County FY2025-26 Education.pdf — Current Expense $219,528,912 + Capital Outlay $5,000,000 + ARPA Title I $723,376",
+          "sourceNote": "Source: Durham County FY2025-26 Education.pdf: Current Expense $219,528,912 + Capital Outlay $5,000,000 + ARPA Title I $723,376",
           "departments": [
             {
               "name": "Current Expense",
@@ -762,7 +762,7 @@
           "amounts": {
             "FY2025-26": 161600679
           },
-          "sourceNote": "Source: DPS FY2025-26 Budget — primarily funded through Durham County bond proceeds (2022 bond referendum)",
+          "sourceNote": "Source: DPS FY2025-26 Budget: primarily funded through Durham County bond proceeds (2022 bond referendum)",
           "departments": [
             {
               "name": "New Construction & Additions",
@@ -798,7 +798,7 @@
           "amounts": {
             "FY2025-26": 43015320
           },
-          "sourceNote": "Source: DPS FY2025-26 Budget — federal funds represent ~6.1% of total DPS funding",
+          "sourceNote": "Source: DPS FY2025-26 Budget: federal funds represent ~6.1% of total DPS funding",
           "departments": [
             {
               "name": "Title I (Low-Income Students)",
@@ -840,7 +840,7 @@
           "amounts": {
             "FY2025-26": 19745762
           },
-          "sourceNote": "Source: DPS FY2025-26 Budget — Child Nutrition fund covers school meal programs for ~32,000 students",
+          "sourceNote": "Source: DPS FY2025-26 Budget: Child Nutrition fund covers school meal programs for ~32,000 students",
           "departments": [
             {
               "name": "NSLP Federal Reimbursements",
@@ -870,7 +870,7 @@
           "amounts": {
             "FY2025-26": 31728717
           },
-          "sourceNote": "Source: DPS FY2025-26 Budget — includes ARPA remaining allocations and one-time grant funds",
+          "sourceNote": "Source: DPS FY2025-26 Budget: includes ARPA remaining allocations and one-time grant funds",
           "departments": [
             {
               "name": "Federal Competitive Grants",
@@ -911,7 +911,7 @@
           "departments": [
             {
               "name": "Classroom Instruction",
-              "description": "Teacher salaries, benefits, and classroom supplies — the core of daily school operations.",
+              "description": "Teacher salaries, benefits, and classroom supplies: the core of daily school operations.",
               "amounts": {
                 "FY2025-26": null
               }

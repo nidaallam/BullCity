@@ -191,32 +191,17 @@
     </div>
   </div>
 
-  <!-- ── Get Meeting Alerts ── -->
+  <!-- ── Add to Calendar ── -->
   <div style="background:var(--teal,#207C91);color:#fff;padding:1.5rem 1.5rem 1.75rem;">
-    <div style="max-width:860px;margin:0 auto;">
-      <h2 style="font-family:'Margin',serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 .4rem;">Get Meeting Alerts</h2>
-      <p style="font-size:.92rem;color:rgba(255,255,255,.9);margin:0 0 1rem;line-height:1.6;">Want a heads-up before the meetings that matter to you? I'll send a quick email the week of every BOCC meeting, plus alerts on anything big coming up like budget hearings or appointments. No spam, just the heads-up. Pick what you care about below!</p>
-      <form action="https://buttondown.com/api/emails/embed-subscribe/nidaallam"
-            method="post" target="popupwindow"
-            onsubmit="window.open('https://buttondown.com/nidaallam','popupwindow')"
-            style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:flex-end;">
-        <div style="flex:1;min-width:240px;">
-          <label style="display:block;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.35rem;opacity:.85;">Your email address</label>
-          <input type="email" name="email" required placeholder="neighbor@example.com"
-                 style="width:100%;padding:.6rem .9rem;border-radius:6px;border:none;font-size:.95rem;font-family:'Libre Franklin',sans-serif;color:#111;" />
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:.5rem .75rem;align-items:center;padding-bottom:.1rem;">
-          <span style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.8;flex-basis:100%;">I care about:</span>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="BOCC" checked style="accent-color:#E97221;"> BOCC</label>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="City Council"> City Council</label>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="DPS Board"> DPS Board</label>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Planning"> Planning Commission</label>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Budget Hearings"> Budget/Public Hearings</label>
-          <label style="font-size:.85rem;display:flex;align-items:center;gap:.3rem;cursor:pointer;"><input type="checkbox" name="tag" value="Advisory Boards"> Advisory Boards</label>
-        </div>
-        <button type="submit" style="background:var(--orange,#E97221);color:#fff;font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:.92rem;padding:.65rem 1.5rem;border:none;border-radius:6px;cursor:pointer;white-space:nowrap;">Sign me up!</button>
-      </form>
-      <p style="font-size:.75rem;color:rgba(255,255,255,.65);margin:.6rem 0 0;">Powered by Buttondown. Unsubscribe anytime. I'll never share your email.</p>
+    <div style="max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;">
+      <div style="flex:1;min-width:240px;">
+        <h2 style="font-family:'Margin',serif;font-size:1.25rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin:0 0 .4rem;">Add Meetings to Your Calendar</h2>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.9);margin:0;line-height:1.5;">Download a .ics file and import it into Google Calendar, Apple Calendar, Outlook, or any other calendar app to get upcoming Durham County meetings on your schedule.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.6rem;flex-shrink:0;">
+        <button onclick="downloadMeetingsCal()" style="background:var(--orange,#E97221);color:#fff;font-family:'Libre Franklin',sans-serif;font-weight:700;font-size:.9rem;padding:.65rem 1.4rem;border:none;border-radius:6px;cursor:pointer;white-space:nowrap;">Download .ics File</button>
+        <a href="https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library" target="_blank" rel="noopener" style="text-align:center;color:rgba(255,255,255,.85);font-family:'Libre Franklin',sans-serif;font-size:.82rem;font-weight:600;text-decoration:underline;">Official BOCC agenda page →</a>
+      </div>
     </div>
   </div>
 
@@ -258,6 +243,46 @@
   </div>
 
   <script>
+    async function downloadMeetingsCal() {
+      let events = [];
+      try {
+        const res = await fetch('calendar.json');
+        const cal  = await res.json();
+        const today = new Date().toISOString().slice(0, 10);
+        events = (cal.events || []).filter(e => e.date >= today);
+      } catch (_) {}
+
+      const fmtDt = (dateStr, timeStr) => {
+        const d = new Date(dateStr + 'T00:00:00');
+        const [h, m] = (timeStr || '').match(/(\d+):(\d+)/)?.slice(1) || [9, 0];
+        const ampm = (timeStr || '').toLowerCase().includes('pm');
+        d.setHours(Number(h) + (ampm && Number(h) < 12 ? 12 : 0), Number(m));
+        return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+      };
+
+      const vevents = events.map(e => {
+        const start = fmtDt(e.date, e.time);
+        const link  = (e.links || [])[0]?.url || 'https://www.dconc.gov';
+        return [
+          'BEGIN:VEVENT',
+          `SUMMARY:${e.title.replace(/,/g, '\\,')}`,
+          `DTSTART:${start}`,
+          `DTEND:${start}`,
+          `LOCATION:${(e.location || 'Durham, NC').replace(/,/g, '\\,')}`,
+          `URL:${link}`,
+          'END:VEVENT',
+        ].join('\r\n');
+      }).join('\r\n');
+
+      const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Durham Civic Hub//Durham Meetings//EN', vevents, 'END:VCALENDAR'].join('\r\n');
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'durham-meetings.ics';
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
+
     let _speakData = null;
     let _speakBodyId = 'bocc';
     let _speakOpen = false;
