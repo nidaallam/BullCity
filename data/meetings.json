@@ -12,26 +12,6 @@
       "group": "elected",
       "meetings": [
         {
-          "date": "2026-04-28",
-          "type": "Budget Work Session",
-          "status": "upcoming",
-          "links": [
-            {
-              "label": "Agenda",
-              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
-              "primary": true
-            },
-            {
-              "label": "Live Stream",
-              "url": "https://www.youtube.com/@DurhamCountyNC"
-            },
-            {
-              "label": "Public Comment",
-              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
-            }
-          ]
-        },
-        {
           "date": "2026-04-14",
           "type": "Joint City-County Meeting",
           "status": "past",

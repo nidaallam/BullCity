@@ -842,7 +842,7 @@ function injectLanguageSelector() {
       return;
     }
     select.value = lang;
-    select.dispatchEvent(new Event('change'));
+    select.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
   dropdown.querySelectorAll('.nav-lang-option').forEach(a => {
@@ -901,7 +901,7 @@ function injectLanguageSelector() {
       'justify-content:center;gap:.5rem;flex-wrap:wrap;';
     const resetHref = 'javascript:void(0)';
     banner.innerHTML =
-      '<span>This page is auto-translated. For the most accurate help, please call the organization directly.</span>' +
+      '<span>This page is auto-translated. I apologize in advance for any mistakes.</span>' +
       '<button id="translate-reset-btn" style="background:none;border:none;color:#FAD4BD;font-family:\'Libre Franklin\',sans-serif;font-size:.82rem;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;white-space:nowrap;">Back to English</button>';
     document.body.insertBefore(banner, document.body.firstChild);
     document.getElementById('translate-reset-btn')?.addEventListener('click', () => {
