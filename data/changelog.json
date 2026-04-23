@@ -4,6 +4,16 @@
     {
       "timestamp": "2026-04-22T00:00:00-04:00",
       "type": "fact-correction",
+      "file": "data/resources.json",
+      "field": "Lincoln Community Health Center phone number",
+      "old_value": "(919) 956-4540",
+      "new_value": "(919) 956-4000",
+      "reason": "Wrong number. Correct number verified at lincolnchc.org.",
+      "source": "https://lincolnchc.org/"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
       "file": "my-durham.html",
       "field": "Sheriff's Office link",
       "old_value": "https://www.dconc.gov/county-departments/departments-l-z/sheriff",

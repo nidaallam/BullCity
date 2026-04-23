@@ -164,7 +164,7 @@ function runSiteSearch(q) {
   // Search pages (static)
   const pages = [
     { title: 'Home',                 url: 'index.html',           desc: 'Durham Civic Hub home page - navigator and what\'s happening now.' },
-    { title: 'News & Updates',       url: 'news.html',            desc: 'Curated local government news from Durham County, the City, and DPS.' },
+    { title: 'News & Updates',       url: 'news.html',            desc: 'Local government news from Durham County, the City, and DPS.' },
     { title: 'Meetings & Calendar',  url: 'meetings.html',        desc: 'BOCC, City Council, DPS Board, Planning Commission, agendas, and civic calendar.' },
     { title: 'Budgets',              url: 'budget.html',          desc: 'Durham County, City of Durham, and Durham Public Schools budgets.' },
     { title: 'Budget Explorer',      url: 'budget-explorer.html', desc: 'Interactive budget explorer - spending by area, funding sources, department breakdowns.' },

@@ -407,8 +407,8 @@
           "name": "Lincoln Community Health Center",
           "desc": "Federally Qualified Health Center serving Durham since 1971. Primary care, dental, behavioral health, and pediatrics on a sliding-fee scale. 1301 Fayetteville St, Durham.",
           "type": "nonprofit",
-          "phone": "(919) 956-4540",
-          "phoneHref": "tel:9199564540",
+          "phone": "(919) 956-4000",
+          "phoneHref": "tel:9199564000",
           "url": "https://lincolnchc.org/",
           "btnLabel": "Get Care"
         },
