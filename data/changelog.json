@@ -3,6 +3,26 @@
   "runs": [
     {
       "timestamp": "2026-04-23T00:00:00-04:00",
+      "type": "removal",
+      "file": "data/calendar.json",
+      "field": "9 unverified entries removed",
+      "old_value": "id=10 State of the City Apr 21; id=11 Housing Authority Board Apr 22; id=12 Civilian Police Review Board Apr 22; id=17 Composting Class Apr 25; id=25 Mental Health Advisory Board May 5; id=33 Beechwood Cemetery Dedication May 20; id=37 City Council Budget Work Session May 27; id=39 City Council Budget Work Session May 28; id=44 Health Dept Vaccination Clinic Jun 9",
+      "new_value": "All removed. Each linked only to a general calendar page (durhamnc.gov/calendar.aspx, dconc.gov homepage) with no specific event URL — cannot be verified against official sources.",
+      "reason": "Per Commissioner Allam directive: only use official meetings from official sources. Do not add AI-generated entries.",
+      "source": "Commissioner Allam (2026-04-23)"
+    },
+    {
+      "timestamp": "2026-04-23T00:00:00-04:00",
+      "type": "fact-correction",
+      "file": "data/calendar.json",
+      "field": "City Council work session day and time (id=1, id=15); Planning Commission and Joint Meeting day (id=6, id=7); BOCC Budget Work Session day (id=32)",
+      "old_value": "id=1 and id=15: 'Monday · 9:00 AM'; id=6 and id=7: 'Monday'; id=32: 'Monday · 9:00 AM'",
+      "new_value": "id=1 and id=15: 'Thursday · 1:00 PM' (work sessions are Thursdays at 1 PM per city calendar); id=6 and id=7: 'Tuesday' (Apr 14 is a Tuesday); id=32: 'Tuesday · 9:00 AM' (May 19 is a Tuesday)",
+      "reason": "Day-of-week labels were wrong. City calendar confirmed Apr 23 work session is Thursday 1 PM. Apr 14 and May 19 day labels corrected by counting from known dates.",
+      "source": "https://www.durhamnc.gov/calendar.aspx + https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Meeting-Schedule"
+    },
+    {
+      "timestamp": "2026-04-23T00:00:00-04:00",
       "type": "addition",
       "file": "data/calendar.json",
       "field": "Missing BOCC meetings (Jun 1 Work Session, Jun 22 Regular Session)",
