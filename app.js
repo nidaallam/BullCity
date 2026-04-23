@@ -410,7 +410,9 @@ function renderBodyCard(body) {
   // Show all upcoming/cancelled meetings, but only the single most recent past meeting.
   // Unverified past meetings (no links) are hidden entirely.
   const all = body.meetings || [];
-  const upcoming = all.filter(m => m.status === 'upcoming' || m.status === 'cancelled');
+  const upcoming = all
+    .filter(m => m.status === 'upcoming' || m.status === 'cancelled')
+    .sort((a, b) => a.date.localeCompare(b.date));
   const past = all
     .filter(m => m.status === 'past' && (m.links || []).length > 0)
     .sort((a, b) => b.date.localeCompare(a.date));

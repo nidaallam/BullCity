@@ -1322,7 +1322,7 @@
       if (cityOps && (cityOps.departments || []).some(d => d.amounts?.[yr])) {
         receiptItems = (cityOps.departments || [])
           .filter(d => d.amounts?.[yr])
-          .map(d => ({ name: d.name, icon: '<i data-lucide="bar-chart-2" aria-hidden="true" class="lucide-wrap"></i>', amount: d.amounts[yr] }));
+          .map(d => ({ name: d.name, icon: d.icon || 'bar-chart-2', amount: d.amounts[yr] }));
       } else if (cityOps) {
         receiptItems = [{ name: cityOps.name, icon: cityOps.icon || 'building-2', amount: cityOps.amounts?.[yr] }];
       }
