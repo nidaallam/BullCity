@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Durham Civic Hub News</title>
+    <link>https://civichub.nidaallam.com/news.html</link>
+    <description>Local government news for Durham County: budget, schools, housing, transit, and public health.</description>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://civichub.nidaallam.com/news.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>County Manager to Present FY2026-27 Budget on May 11</title>
+      <link>https://www.dconc.gov/Budget-and-Management-Services</link>
+      <description>County Manager Claudia Hager will present the recommended FY2026-27 budget to the Board of Commissioners on May 11. A public hearing is scheduled for May 26 at 7 PM at 200 E. Main St. The Board is expected to adopt the budget at its June 8 meeting.</description>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Budget</category>
+    </item>
+    <item>
+      <title>Budget Public Hearing: Have Your Say on May 26</title>
+      <link>https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment</link>
+      <description>Durham County will hold a public hearing on the FY2026-27 budget on May 26 at 7 PM in the Commissioners Chambers at 200 E. Main St. Neighbors can sign up to speak in person or submit written comments to the Board.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Budget</category><category>Community</category>
+    </item>
+    <item>
+      <title>DPS Board Submits FY2026-27 County Funding Request</title>
+      <link>https://www.dpsnc.net/page/board-of-education</link>
+      <description>The Durham Public Schools Board of Education has submitted its FY2026-27 county appropriation request to the Durham County Board of Commissioners. The full recommended budget document is posted on the DPS Board of Education page.</description>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Schools</category><category>Budget</category>
+    </item>
+    <item>
+      <title>Applications Open for County Advisory Boards and Commissions</title>
+      <link>https://durhamcounty.granicus.com/boards</link>
+      <description>Durham County is accepting applications for vacancies on advisory boards and commissions, including the Planning Commission, Library Advisory Board, and others. Any Durham County neighbor can apply. Appointments are made by the Board of Commissioners.</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Community</category>
+    </item>
+    <item>
+      <title>GoDurham Fixed-Route Buses Continue Fare-Free Service</title>
+      <link>https://godurhamtransit.org/</link>
+      <description>GoDurham fixed-route bus service remains fare-free for all riders. The Bull City Connector downtown circulator also runs free of charge Monday through Saturday. Trip planning tools and schedules are available at godurhamtransit.org.</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Transit</category>
+    </item>
+    <item>
+      <title>Voter Registration Open for November 2026 General Election</title>
+      <link>https://www.ncsbe.gov/registering</link>
+      <description>North Carolina voter registration is open year-round for the November 3, 2026 general election. Durham County neighbors can register online, by mail, or in person at the Durham County Board of Elections. Same-day registration is available during early voting.</description>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Community</category>
+    </item>
+    <item>
+      <title>BOCC Budget Work Sessions Begin in April</title>
+      <link>https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library</link>
+      <description>The Durham County Board of Commissioners is holding a series of budget work sessions throughout April and May to review departmental requests ahead of the County Manager's recommended budget presentation on May 11. Agendas and video recordings are posted on the BOCC agenda library page.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      <category>Budget</category>
+    </item>
+    <item>
+      <title>Durham County Library: Free Cards, Free Programs, All Branches</title>
+      <link>https://library.durhamcounty.gov/</link>
+      <description>Durham County Library offers free library cards to all Durham County neighbors with proof of address. All branches provide books, e-books, computers, Wi-Fi, and free community programs. No fines for overdue materials at any branch.</description>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <category>Community</category>
+    </item>
+  </channel>
+</rss>

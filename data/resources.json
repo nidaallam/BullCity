@@ -1,5 +1,6 @@
 {
   "lastUpdated": "2026-04-22",
+  "_excludedOrgs": ["Durham Rescue Mission — do not re-add. Removed 2026-04-22 per Commissioner Allam's direction. If the resources list is ever rebuilt from scratch or re-scraped, this organization must remain excluded."],
   "categories": [
     {
       "id": "housing",
@@ -79,14 +80,6 @@
           "url": "https://www.dconc.gov/Public-Information/Community-Food-Resources",
           "btnLabel": "Find Food Near You"
         },
-        {
-          "icon": "utensils",
-          "name": "Durham Rescue Mission",
-          "desc": "Provides hot meals and groceries to neighbors experiencing food insecurity in Durham.",
-          "type": "nonprofit",
-          "url": "https://www.durhamrescuemission.org/",
-          "btnLabel": "Learn More"
-        }
       ]
     },
     {
@@ -350,14 +343,6 @@
           "phone": "(919) 682-0538",
           "phoneHref": "tel:9196820538",
           "url": "https://umdurham.org/",
-          "btnLabel": "Get Help"
-        },
-        {
-          "icon": "bed",
-          "name": "Durham Rescue Mission",
-          "desc": "Emergency shelter for adult men, hot meals, and recovery programs. 1201 E. Main St, Durham. Also operates Operation RESCUE warm shelter during cold weather.",
-          "type": "nonprofit",
-          "url": "https://www.durhamrescuemission.org/",
           "btnLabel": "Get Help"
         },
         {

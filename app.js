@@ -407,6 +407,16 @@ function entityBadgeForBody(body) {
 }
 
 function renderBodyCard(body) {
+  // Show all upcoming/cancelled meetings, but only the single most recent past meeting.
+  // Unverified past meetings (no links) are hidden entirely.
+  const all = body.meetings || [];
+  const upcoming = all.filter(m => m.status === 'upcoming' || m.status === 'cancelled');
+  const past = all
+    .filter(m => m.status === 'past' && (m.links || []).length > 0)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const mostRecentPast = past.length > 0 ? [past[0]] : [];
+  const displayMeetings = [...upcoming, ...mostRecentPast];
+
   return `
     <section class="meetings-section" id="${esc(body.id)}">
       <div class="meeting-body-header">
@@ -421,7 +431,9 @@ function renderBodyCard(body) {
         <span><i data-lucide="map-pin" aria-hidden="true" class="lucide-wrap"></i> ${esc(body.location)}</span>
       </div>
       <div>
-        ${(body.meetings || []).map(m => renderMeetingRow(m)).join('')}
+        ${displayMeetings.length
+          ? displayMeetings.map(m => renderMeetingRow(m)).join('')
+          : '<p style="font-size:.85rem;color:var(--muted);padding:.5rem 0;">No upcoming meetings scheduled yet. Check back soon.</p>'}
       </div>
       <a class="archive-link" href="${esc(body.archiveUrl)}" target="_blank" rel="noopener">Agendas & Minutes →</a>
     </section>
@@ -456,7 +468,7 @@ function renderMeetings(data, container) {
           <p style="font-size:.875rem;color:#374151;margin:0;">Durham neighbors can apply to serve on advisory boards, commissions, and task forces. Your voice matters in shaping local policy!</p>
         </div>
         <div style="display:flex;gap:.75rem;flex-wrap:wrap;flex-shrink:0;">
-          <a href="https://durhamcounty.granicus.com/boards" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#262E4F;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply - Durham County →</a>
+          <a href="https://www.dconc.gov/clerk-to-the-board/boards-and-commissions" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#262E4F;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply - Durham County →</a>
           <a href="https://www.durhamnc.gov/238/Boards-Committees-Commissions-Task-Force" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.35rem;background:#207C91;color:#fff;font-size:.875rem;font-weight:700;padding:.5rem 1rem;border-radius:6px;text-decoration:none;">Apply - City of Durham →</a>
         </div>
       </div>
@@ -876,6 +888,52 @@ function injectLanguageSelector() {
     '.VIpgJd-ZVi9od-ORHb-OEVmcd{display:none!important;}' +
     'body{top:0!important;}';
   document.head.appendChild(gtStyle);
+
+  // ── Auto-translation disclaimer ───────────────────────────────
+  function showTranslationDisclaimer() {
+    if (document.getElementById('translate-disclaimer')) return;
+    const banner = document.createElement('div');
+    banner.id = 'translate-disclaimer';
+    banner.setAttribute('role', 'status');
+    banner.style.cssText =
+      'background:var(--navy,#1A2B5F);color:#fff;font-family:\'Libre Franklin\',sans-serif;' +
+      'font-size:.82rem;padding:.55rem 1rem;text-align:center;display:flex;align-items:center;' +
+      'justify-content:center;gap:.5rem;flex-wrap:wrap;';
+    const resetHref = 'javascript:void(0)';
+    banner.innerHTML =
+      '<span>This page is auto-translated. For the most accurate help, please call the organization directly.</span>' +
+      '<button id="translate-reset-btn" style="background:none;border:none;color:#FAD4BD;font-family:\'Libre Franklin\',sans-serif;font-size:.82rem;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;white-space:nowrap;">Back to English</button>';
+    document.body.insertBefore(banner, document.body.firstChild);
+    document.getElementById('translate-reset-btn')?.addEventListener('click', () => {
+      doTranslate('');
+    });
+  }
+
+  function removeTranslationDisclaimer() {
+    document.getElementById('translate-disclaimer')?.remove();
+  }
+
+  // Show on load if previously translated (cookie persists across pages)
+  const _gtCookieMatch = document.cookie.match(/(?:^|;)\s*googtrans=\/en\/([a-z-]+)/);
+  if (_gtCookieMatch && _gtCookieMatch[1] !== 'en') {
+    showTranslationDisclaimer();
+    // Re-apply translation after widget loads
+    setTimeout(() => {
+      const sel = document.querySelector('.goog-te-combo');
+      if (sel && !sel.value) { sel.value = _gtCookieMatch[1]; sel.dispatchEvent(new Event('change')); }
+    }, 1000);
+  }
+
+  // Update doTranslate to manage the disclaimer
+  const _doTranslateOrig = doTranslate;
+  doTranslate = function(lang) {
+    _doTranslateOrig(lang);
+    if (lang) {
+      setTimeout(showTranslationDisclaimer, 800);
+    } else {
+      removeTranslationDisclaimer();
+    }
+  };
 }
 
 // ── Officials (voting page) ───────────────────────────────────

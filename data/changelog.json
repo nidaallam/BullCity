@@ -4,6 +4,56 @@
     {
       "timestamp": "2026-04-22T00:00:00-04:00",
       "type": "fact-correction",
+      "file": "my-durham.html + app.js",
+      "field": "Durham Police Department link",
+      "old_value": "https://www.durhamnc.gov/238/Police-Department",
+      "new_value": "https://www.durhamnc.gov/police",
+      "reason": "238/Police-Department redirects to City Boards page, not DPD. /police verified as real DPD page (title: 'Police Department | Durham, NC').",
+      "source": "https://www.durhamnc.gov/police"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
+      "file": "app.js + index.html + news.html",
+      "field": "Durham County boards application link",
+      "old_value": "https://durhamcounty.granicus.com/boards",
+      "new_value": "https://www.dconc.gov/clerk-to-the-board/boards-and-commissions",
+      "reason": "granicus.com/boards is internal media CMS, not public boards application. clerk-to-the-board/boards-and-commissions confirmed as correct application page.",
+      "source": "https://www.dconc.gov/clerk-to-the-board/boards-and-commissions"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
+      "file": "voting.html",
+      "field": "Get Free Voter ID link and label",
+      "old_value": "https://www.dcovotes.dconc.gov/ / 'Get Free Voter ID'",
+      "new_value": "https://www.dcovotes.dconc.gov/home/showpublisheddocument/39234/638611282367070000 / 'Get your free NC voter ID (Durham County Board of Elections)'",
+      "reason": "Updated to specific voter ID document page per Commissioner Allam's direction. Note: URL returns 403 to automated requests (bot protection) but resolves for real browsers.",
+      "source": "https://www.dcovotes.dconc.gov/home/showpublisheddocument/39234/638611282367070000"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "removal",
+      "file": "resources.html + data/resources.json",
+      "field": "Durham Rescue Mission (Food section + Shelter section)",
+      "old_value": "Durham Rescue Mission listed in Food & Nutrition and Shelter & Unhoused Support sections",
+      "new_value": "Removed from both sections. _excludedOrgs note added to resources.json.",
+      "reason": "Removed per Commissioner Allam's direction. Do not re-add.",
+      "source": "Commissioner Allam (2026-04-22)"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
+      "file": "connect.html",
+      "field": "Commissioner Allam headshot URL",
+      "old_value": "https://www.dconc.gov/Home/ShowPublishedImage/25820/638303024819100000",
+      "new_value": "https://www.dconc.gov/Images/DCo-Nida-Allam-LR-6487.jpg",
+      "reason": "Updated to consistent headshot URL used on voting page and home page.",
+      "source": "https://www.dconc.gov/Images/DCo-Nida-Allam-LR-6487.jpg"
+    },
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
       "file": "data/resources.json",
       "field": "Lincoln Community Health Center phone number",
       "old_value": "(919) 956-4540",
