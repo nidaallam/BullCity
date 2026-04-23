@@ -12,6 +12,62 @@
       "group": "elected",
       "meetings": [
         {
+          "date": "2026-05-26",
+          "type": "Budget Public Hearing",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Sign Up to Speak",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            }
+          ]
+        },
+        {
+          "date": "2026-05-11",
+          "type": "Regular Meeting (Budget Presentation)",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ]
+        },
+        {
+          "date": "2026-04-27",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ]
+        },
+        {
           "date": "2026-04-14",
           "type": "Joint City-County Meeting",
           "status": "past",
