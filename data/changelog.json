@@ -1,4 +1,15 @@
 {
-  "lastRun": null,
-  "runs": []
+  "lastRun": "2026-04-22",
+  "runs": [
+    {
+      "timestamp": "2026-04-22T00:00:00-04:00",
+      "type": "fact-correction",
+      "file": "data/news.json",
+      "field": "excerpt",
+      "old_value": "Durham County Manager David Sparks will present...",
+      "new_value": "County Manager Claudia Hager will present...",
+      "reason": "David Sparks is a fabricated name. Claudia Hager verified at https://www.dconc.gov/County-Manager-Office/County-Manager",
+      "source": "https://www.dconc.gov/County-Manager-Office/County-Manager"
+    }
+  ]
 }
