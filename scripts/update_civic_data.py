@@ -179,6 +179,78 @@ def _scrape_agendacenter(category_id, limit=6):
             break
     return results
 
+def _scrape_bocc_official_schedule():
+    """Scrape upcoming BOCC meetings from the official dconc.gov schedule page.
+    Returns list of {date, type} for future meetings.
+    The page uses a 3-column table: date | type abbreviation | time
+    Abbreviations: RS = Regular Session, WS = Work Session, BWS = Budget Work Session
+    """
+    url = "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Meeting-Schedule"
+    try:
+        html = fetch(url)
+    except Exception as e:
+        print(f"  BOCC schedule fetch failed: {e}")
+        return []
+
+    # Abbreviation → canonical type
+    abbrev_map = {
+        "rs":  "Regular Meeting",
+        "ws":  "Work Session",
+        "bws": "Budget Work Session",
+        "br":  "Budget Retreat",
+    }
+
+    month_map = {
+        'january':1,'february':2,'march':3,'april':4,'may':5,'june':6,
+        'july':7,'august':8,'september':9,'october':10,'november':11,'december':12
+    }
+
+    today_str = date.today().isoformat()
+    year = date.today().year
+    results = []
+
+    # Each row: <td>Month Day[*]</td><td>TYPE</td><td>HH:MM am/pm</td>
+    row_re = re.compile(
+        r'<tr[^>]*>\s*<td[^>]*>\s*'
+        r'(January|February|March|April|May|June|July|August|September|October|November|December)'
+        r'\s+(\d{1,2})[^<]*</td>\s*<td[^>]*>(.*?)</td>\s*<td[^>]*>(.*?)</td>',
+        re.IGNORECASE | re.DOTALL
+    )
+
+    def _parse_time(raw):
+        """Convert '9:00 am' / '1:00 pm' → '9:00 AM' / '1:00 PM'."""
+        t = clean_text(raw).strip().upper()
+        return t if t else None
+
+    for m in row_re.finditer(html):
+        month_name = m.group(1).lower()
+        day = int(m.group(2))
+        raw_type = clean_text(m.group(3))
+        raw_time = m.group(4)
+        mn = month_map.get(month_name, 0)
+        if not mn:
+            continue
+        try:
+            d = date(year, mn, day)
+        except ValueError:
+            continue
+        date_str = d.isoformat()
+        if date_str <= today_str:
+            continue
+        if 'cancel' in raw_type.lower():
+            continue
+
+        # Try abbreviation lookup first, fall back to _normalize_bocc_type
+        mtype = abbrev_map.get(raw_type.lower().rstrip('*'), None)
+        if mtype is None:
+            mtype = _normalize_bocc_type(raw_type)
+
+        time_from_page = _parse_time(raw_time)
+        results.append({"date": date_str, "type": mtype, "time": time_from_page})
+
+    return results
+
+
 def _scrape_bocc_granicus(limit=8):
     """Return list of {date, type, clip_id} for BOCC past meetings."""
     html = fetch("https://durhamcounty.granicus.com/ViewPublisher.php?view_id=2")
@@ -279,16 +351,63 @@ def update_meetings():
         print("  meetings.json already current")
     return data
 
+_BOCC_STD_LINKS = [
+    {"label": "Agenda", "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library", "primary": True},
+    {"label": "Live Stream", "url": "https://www.youtube.com/@DurhamCountyNC"},
+    {"label": "Public Comment", "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"},
+]
+_BOCC_BUDGET_LINKS = [
+    {"label": "Live Stream", "url": "https://www.youtube.com/@DurhamCountyNC", "primary": True},
+    {"label": "Budget Docs", "url": "https://www.dconc.gov/Budget-and-Management-Services"},
+]
+_BOCC_HEARING_LINKS = [
+    {"label": "Sign Up to Speak", "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment", "primary": True},
+    {"label": "Live Stream", "url": "https://www.youtube.com/@DurhamCountyNC"},
+]
+
+def _bocc_links_for_type(mtype):
+    if "Hearing" in mtype:
+        return _BOCC_HEARING_LINKS
+    if "Budget" in mtype:
+        return _BOCC_BUDGET_LINKS
+    return _BOCC_STD_LINKS
+
 def _update_bocc(body, today_str):
-    print("  Scraping BOCC from Granicus...")
+    print("  Scraping BOCC from official schedule + Granicus...")
+
+    # ── Upcoming: pull from official dconc.gov schedule page ──────────────────
+    official = _scrape_bocc_official_schedule()
+
+    # Preserve any manually curated upcoming entries not on the official schedule
+    # (e.g. entries with custom links like budget presentation)
+    existing_by_date = {m["date"]: m for m in body.get("meetings", []) if m["date"] > today_str}
+
+    upcoming = []
+    official_dates = set()
+    for m in official:
+        official_dates.add(m["date"])
+        existing = existing_by_date.get(m["date"])
+        # Always trust the official schedule type + time; keep existing links if type unchanged
+        entry = {
+            "date": m["date"],
+            "type": m["type"],
+            "status": "upcoming",
+            "links": (existing["links"] if existing and existing.get("type") == m["type"]
+                      else _bocc_links_for_type(m["type"])),
+        }
+        if m.get("time"):
+            entry["official_time"] = m["time"]   # store for update_calendar
+        upcoming.append(entry)
+
+    # Keep any manually curated entries not found on the official schedule page
+    for d, entry in existing_by_date.items():
+        if d not in official_dates:
+            upcoming.append(entry)
+
+    upcoming.sort(key=lambda m: m["date"])
+
+    # ── Past: pull from Granicus for video links ───────────────────────────────
     scraped = _scrape_bocc_granicus()
-    if not scraped:
-        print("  No BOCC data, skipping")
-        return False
-
-    # Preserve upcoming entries (not yet recorded)
-    existing_upcoming = [m for m in body.get("meetings", []) if m["date"] > today_str]
-
     past = []
     for m in scraped:
         if m["date"] > today_str:
@@ -299,25 +418,18 @@ def _update_bocc(body, today_str):
             "type": _normalize_bocc_type(m["type"]),
             "status": "past",
             "links": [
-                {
-                    "label": "Agenda Packet",
-                    "url": f"https://durhamcounty.granicus.com/AgendaViewer.php?view_id=2&clip_id={cid}",
-                    "primary": True
-                },
-                {
-                    "label": "Video Recording",
-                    "url": f"https://durhamcounty.granicus.com/MediaPlayer.php?view_id=2&clip_id={cid}"
-                }
+                {"label": "Agenda Packet", "url": f"https://durhamcounty.granicus.com/AgendaViewer.php?view_id=2&clip_id={cid}", "primary": True},
+                {"label": "Video Recording", "url": f"https://durhamcounty.granicus.com/MediaPlayer.php?view_id=2&clip_id={cid}"},
             ]
         })
         if len(past) >= 6:
             break
 
-    new_meetings = existing_upcoming + past
+    new_meetings = upcoming + past
     if new_meetings == body.get("meetings"):
         return False
     body["meetings"] = new_meetings
-    print(f"  BOCC: {len(existing_upcoming)} upcoming + {len(past)} past")
+    print(f"  BOCC: {len(upcoming)} upcoming + {len(past)} past")
     return True
 
 def _update_city_council(body, today_str):
@@ -444,7 +556,8 @@ def update_calendar(meetings=None):
             if bid == "commissioners":
                 title = f"Board of Commissioners \u2013 {mtype}"
                 location = _BOCC_LOCATION
-                raw_time = _BOCC_TIMES.get(mtype, "7:00 PM")
+                # Use time scraped from official schedule page if available
+                raw_time = m.get("official_time") or _BOCC_TIMES.get(mtype, "7:00 PM")
                 time_str = raw_time if raw_time == "TBD" else _day_label(date_str, raw_time)
             elif bid == "city-council":
                 title = f"Durham City Council \u2013 {mtype}"

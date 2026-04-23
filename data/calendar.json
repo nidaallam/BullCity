@@ -222,7 +222,30 @@
       ]
     },
     {
-      "id": 14,
+      "date": "2026-05-04",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 14
+    },
+    {
+      "id": 15,
       "date": "2026-05-07",
       "title": "Hayti Dialogues: In Conversation with Brit Bennett",
       "time": "Thursday \u00b7 6:30 PM",
@@ -236,7 +259,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 16,
       "date": "2026-05-11",
       "title": "Board of Commissioners \u2013 Regular Meeting (County Manager Budget Presentation)",
       "time": "Monday \u00b7 7:00 PM",
@@ -255,7 +278,7 @@
     },
     {
       "date": "2026-05-11",
-      "title": "Board of Commissioners \u2013 Regular Meeting (Budget Presentation)",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
       "time": "Monday \u00b7 7:00 PM",
       "location": "200 E. Main St., Durham, Room 2A",
       "category": "government",
@@ -274,10 +297,10 @@
           "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
         }
       ],
-      "id": 16
+      "id": 17
     },
     {
-      "id": 17,
+      "id": 18,
       "date": "2026-05-16",
       "title": "Durham Peoples Alliance \u2013 Education Team Meeting",
       "time": "Saturday \u00b7 1:00 PM",
@@ -291,7 +314,7 @@
       ]
     },
     {
-      "id": 18,
+      "id": 19,
       "date": "2026-05-19",
       "title": "BOCC Budget Work Session (FY2026-27)",
       "time": "Tuesday \u00b7 9:00 AM",
@@ -305,7 +328,26 @@
       ]
     },
     {
-      "id": 19,
+      "date": "2026-05-19",
+      "title": "Board of Commissioners \u2013 Budget Work Session",
+      "time": "Tuesday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC",
+          "primary": true
+        },
+        {
+          "label": "Budget Docs",
+          "url": "https://www.dconc.gov/Budget-and-Management-Services"
+        }
+      ],
+      "id": 20
+    },
+    {
+      "id": 21,
       "date": "2026-05-21",
       "title": "BOCC Budget Work Session (FY2026-27)",
       "time": "Thursday \u00b7 1:00 PM",
@@ -319,7 +361,26 @@
       ]
     },
     {
-      "id": 20,
+      "date": "2026-05-21",
+      "title": "Board of Commissioners \u2013 Budget Work Session",
+      "time": "Thursday \u00b7 1:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC",
+          "primary": true
+        },
+        {
+          "label": "Budget Docs",
+          "url": "https://www.dconc.gov/Budget-and-Management-Services"
+        }
+      ],
+      "id": 22
+    },
+    {
+      "id": 23,
       "date": "2026-05-23",
       "title": "Durham Earth Day Community Festival",
       "time": "Saturday \u00b7 10:00 AM \u2013 4:00 PM",
@@ -333,7 +394,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": 24,
       "date": "2026-05-26",
       "title": "Board of Commissioners \u2013 Regular Meeting / Budget Public Hearing",
       "time": "Tuesday \u00b7 7:00 PM",
@@ -367,10 +428,10 @@
           "url": "https://www.youtube.com/@DurhamCountyNC"
         }
       ],
-      "id": 22
+      "id": 25
     },
     {
-      "id": 23,
+      "id": 26,
       "date": "2026-05-28",
       "title": "BOCC Budget Work Session (FY2026-27)",
       "time": "Thursday \u00b7 9:00 AM",
@@ -384,7 +445,49 @@
       ]
     },
     {
-      "id": 24,
+      "date": "2026-05-28",
+      "title": "Board of Commissioners \u2013 Budget Work Session",
+      "time": "Thursday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC",
+          "primary": true
+        },
+        {
+          "label": "Budget Docs",
+          "url": "https://www.dconc.gov/Budget-and-Management-Services"
+        }
+      ],
+      "id": 27
+    },
+    {
+      "date": "2026-06-01",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 28
+    },
+    {
+      "id": 29,
       "date": "2026-06-02",
       "title": "BOCC Budget Work Session (FY2026-27)",
       "time": "Tuesday \u00b7 9:00 AM",
@@ -398,7 +501,26 @@
       ]
     },
     {
-      "id": 25,
+      "date": "2026-06-02",
+      "title": "Board of Commissioners \u2013 Budget Work Session",
+      "time": "Tuesday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC",
+          "primary": true
+        },
+        {
+          "label": "Budget Docs",
+          "url": "https://www.dconc.gov/Budget-and-Management-Services"
+        }
+      ],
+      "id": 30
+    },
+    {
+      "id": 31,
       "date": "2026-06-04",
       "title": "BOCC Budget Work Session (FY2026-27)",
       "time": "Thursday \u00b7 1:00 PM",
@@ -412,7 +534,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 32,
       "date": "2026-06-04",
       "title": "Hayti Heritage Center: YahZarah",
       "time": "Thursday \u00b7 7:00 PM",
@@ -426,7 +548,26 @@
       ]
     },
     {
-      "id": 27,
+      "date": "2026-06-04",
+      "title": "Board of Commissioners \u2013 Budget Work Session",
+      "time": "Thursday \u00b7 1:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC",
+          "primary": true
+        },
+        {
+          "label": "Budget Docs",
+          "url": "https://www.dconc.gov/Budget-and-Management-Services"
+        }
+      ],
+      "id": 33
+    },
+    {
+      "id": 34,
       "date": "2026-06-08",
       "title": "Board of Commissioners \u2013 FY2026-27 Budget Adoption Vote",
       "time": "Monday \u00b7 7:00 PM",
@@ -448,7 +589,30 @@
       ]
     },
     {
-      "id": 28,
+      "date": "2026-06-08",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 35
+    },
+    {
+      "id": 36,
       "date": "2026-06-19",
       "title": "Hayti Heritage Center: Mon\u00e9t Noelle Marshall",
       "time": "Friday \u00b7 7:00 PM",
@@ -462,7 +626,30 @@
       ]
     },
     {
-      "id": 29,
+      "date": "2026-06-22",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 37
+    },
+    {
+      "id": 38,
       "date": "2026-07-04",
       "title": "Stagville and the Roots of Durham \u2013 Durham Peoples Alliance",
       "time": "Saturday \u00b7 10:00 AM",
@@ -474,6 +661,351 @@
           "url": "https://www.durhampa.org/calendar"
         }
       ]
+    },
+    {
+      "date": "2026-07-13",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 39
+    },
+    {
+      "date": "2026-08-03",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 40
+    },
+    {
+      "date": "2026-08-10",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 41
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 42
+    },
+    {
+      "date": "2026-09-08",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Tuesday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 43
+    },
+    {
+      "date": "2026-09-14",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 44
+    },
+    {
+      "date": "2026-09-28",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 45
+    },
+    {
+      "date": "2026-10-05",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 46
+    },
+    {
+      "date": "2026-10-12",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 47
+    },
+    {
+      "date": "2026-10-26",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 48
+    },
+    {
+      "date": "2026-11-02",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 49
+    },
+    {
+      "date": "2026-11-09",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 50
+    },
+    {
+      "date": "2026-11-23",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 51
+    },
+    {
+      "date": "2026-12-07",
+      "title": "Board of Commissioners \u2013 Work Session",
+      "time": "Monday \u00b7 9:00 AM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 52
+    },
+    {
+      "date": "2026-12-14",
+      "title": "Board of Commissioners \u2013 Regular Meeting",
+      "time": "Monday \u00b7 7:00 PM",
+      "location": "200 E. Main St., Durham, Room 2A",
+      "category": "government",
+      "links": [
+        {
+          "label": "Agenda",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+          "primary": true
+        },
+        {
+          "label": "Live Stream",
+          "url": "https://www.youtube.com/@DurhamCountyNC"
+        },
+        {
+          "label": "Public Comment",
+          "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+        }
+      ],
+      "id": 53
     }
   ]
 }

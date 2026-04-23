@@ -12,42 +12,6 @@
       "group": "elected",
       "meetings": [
         {
-          "date": "2026-05-26",
-          "type": "Budget Public Hearing",
-          "status": "upcoming",
-          "links": [
-            {
-              "label": "Sign Up to Speak",
-              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment",
-              "primary": true
-            },
-            {
-              "label": "Live Stream",
-              "url": "https://www.youtube.com/@DurhamCountyNC"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-11",
-          "type": "Regular Meeting (Budget Presentation)",
-          "status": "upcoming",
-          "links": [
-            {
-              "label": "Agenda",
-              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
-              "primary": true
-            },
-            {
-              "label": "Live Stream",
-              "url": "https://www.youtube.com/@DurhamCountyNC"
-            },
-            {
-              "label": "Public Comment",
-              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
-            }
-          ]
-        },
-        {
           "date": "2026-04-27",
           "type": "Regular Meeting",
           "status": "upcoming",
@@ -65,7 +29,530 @@
               "label": "Public Comment",
               "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
             }
-          ]
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-05-04",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-05-11",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-05-19",
+          "type": "Budget Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC",
+              "primary": true
+            },
+            {
+              "label": "Budget Docs",
+              "url": "https://www.dconc.gov/Budget-and-Management-Services"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-05-21",
+          "type": "Budget Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC",
+              "primary": true
+            },
+            {
+              "label": "Budget Docs",
+              "url": "https://www.dconc.gov/Budget-and-Management-Services"
+            }
+          ],
+          "official_time": "1:00 PM"
+        },
+        {
+          "date": "2026-05-26",
+          "type": "Budget Public Hearing",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Sign Up to Speak",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-05-28",
+          "type": "Budget Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC",
+              "primary": true
+            },
+            {
+              "label": "Budget Docs",
+              "url": "https://www.dconc.gov/Budget-and-Management-Services"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-06-01",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-06-02",
+          "type": "Budget Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC",
+              "primary": true
+            },
+            {
+              "label": "Budget Docs",
+              "url": "https://www.dconc.gov/Budget-and-Management-Services"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-06-04",
+          "type": "Budget Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC",
+              "primary": true
+            },
+            {
+              "label": "Budget Docs",
+              "url": "https://www.dconc.gov/Budget-and-Management-Services"
+            }
+          ],
+          "official_time": "1:00 PM"
+        },
+        {
+          "date": "2026-06-08",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-06-22",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-07-13",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-08-03",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-08-10",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-08-24",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-09-08",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-09-14",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-09-28",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-10-05",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-10-12",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-10-26",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-11-02",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-11-09",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-11-23",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
+        },
+        {
+          "date": "2026-12-07",
+          "type": "Work Session",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "9:00 AM"
+        },
+        {
+          "date": "2026-12-14",
+          "type": "Regular Meeting",
+          "status": "upcoming",
+          "links": [
+            {
+              "label": "Agenda",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
+              "primary": true
+            },
+            {
+              "label": "Live Stream",
+              "url": "https://www.youtube.com/@DurhamCountyNC"
+            },
+            {
+              "label": "Public Comment",
+              "url": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment"
+            }
+          ],
+          "official_time": "7:00 PM"
         },
         {
           "date": "2026-04-13",
