@@ -1,7 +1,27 @@
 {
-  "updated": "2026-04-28",
+  "updated": "2026-04-29",
   "count": 25,
   "stories": [
+    {
+      "title": "Police, EMS respond to Durham gas station",
+      "excerpt": "Officers and medics were seen at a Han-Dee Hugo's along Miami Boulevard around 12 p.m.",
+      "link": "https://www.wral.com/news/local/police-ems-durham-gas-station-april-2026/",
+      "source": "WRAL News",
+      "date": "2026-04-29",
+      "displayDate": "April 29, 2026",
+      "tag": "Public Safety",
+      "image": "https://images.wral.com/15bed512-0d46-4272-9937-b4ca318b1c5d?w=1200&h=630"
+    },
+    {
+      "title": "Charge: Durham man dragged Cary police officers who reached into his car",
+      "excerpt": "Damian Charles Awkward faces a total of seven charges, including two counts of assaulting a government official with a deadly weapon, felony possession of cocaine, misdemeanor resisting a public officer and misdemeanor possession of marijuana.",
+      "link": "https://www.wral.com/news/local/cary-police-drag-charge-april-2026/",
+      "source": "WRAL News",
+      "date": "2026-04-29",
+      "displayDate": "April 29, 2026",
+      "tag": "Public Safety",
+      "image": "https://images.wral.com/20aacd01-3ba6-4423-a692-f0fd35bbe4d2?w=1200&h=630"
+    },
     {
       "title": "NC man charged with felony child abuse, warrants describe malnutrition, developmental delays",
       "excerpt": "The Durham County Sheriff's Office has charged a man with four counts of felony child abuse.",
@@ -29,7 +49,18 @@
       "source": "NC Newsline",
       "date": "2026-04-28",
       "displayDate": "April 28, 2026",
-      "tag": "Schools"
+      "tag": "Schools",
+      "image": "https://ncnewsline.com/wp-content/uploads/2026/04/IMG_5082-2048x1536.jpeg"
+    },
+    {
+      "title": "Gun control advocates in NC work to preserve the permit law for concealed weapons",
+      "excerpt": "A bill allowing people to carry concealed handguns without permits is dangerous, Durham County Sheriff Clarence Birkhead said Tuesday, as it would increase gun violence and make the jobs of law enforcement officers harder.  Birkhead spoke at a news conference with gun control advocates. They…",
+      "link": "https://ncnewsline.com/2026/04/28/gun-control-advocates-in-nc-work-to-preserve-the-permit-law-for-concealed-weapons/",
+      "source": "NC Newsline",
+      "date": "2026-04-28",
+      "displayDate": "April 28, 2026",
+      "tag": "Public Safety",
+      "image": "https://ncnewsline.com/wp-content/uploads/2026/04/IMG_5096-2048x1536.jpeg"
     },
     {
       "title": "Record Numbers of Durham High Schoolers are Missing School",
@@ -171,7 +202,8 @@
       "source": "NC Newsline",
       "date": "2026-04-17",
       "displayDate": "April 17, 2026",
-      "tag": "Schools"
+      "tag": "Schools",
+      "image": "https://ncnewsline.com/wp-content/uploads/2026/04/GettyImages-2271101884-2048x1365.jpg"
     },
     {
       "title": "Young cancer survivor breaks ground on family housing for children in treatment at Duke Hospital",
@@ -180,7 +212,8 @@
       "source": "NC Newsline",
       "date": "2026-04-16",
       "displayDate": "April 16, 2026",
-      "tag": "Housing"
+      "tag": "Housing",
+      "image": "https://ncnewsline.com/wp-content/uploads/2026/04/IMG_5408-1-2048x1536.jpeg"
     },
     {
       "title": "DPS Board Submits FY2026-27 County Funding Request",
@@ -224,39 +257,6 @@
         "Budget"
       ],
       "excerpt": "The Durham County Board of Commissioners is holding a series of budget work sessions throughout April and May to review departmental requests ahead of the County Manager's recommended budget presentation on May 11. Agendas and video recordings are posted on the BOCC agenda library page."
-    },
-    {
-      "title": "GoDurham Fixed-Route Buses Continue Fare-Free Service",
-      "link": "https://godurhamtransit.org/",
-      "source": "GoDurham Transit",
-      "date": "2026-04-01",
-      "displayDate": "Apr 1, 2026",
-      "tags": [
-        "Transit"
-      ],
-      "excerpt": "GoDurham fixed-route bus service remains fare-free for all riders. The Bull City Connector downtown circulator also runs free of charge Monday through Saturday. Trip planning tools and schedules are available at godurhamtransit.org."
-    },
-    {
-      "title": "Voter Registration Open for November 2026 General Election",
-      "link": "https://www.ncsbe.gov/registering",
-      "source": "NC State Board of Elections",
-      "date": "2026-04-01",
-      "displayDate": "Apr 1, 2026",
-      "tags": [
-        "Community"
-      ],
-      "excerpt": "North Carolina voter registration is open year-round for the November 3, 2026 general election. Durham County neighbors can register online, by mail, or in person at the Durham County Board of Elections. Same-day registration is available during early voting."
-    },
-    {
-      "title": "Durham County Library: Free Cards, Free Programs, All Branches",
-      "link": "https://library.durhamcounty.gov/",
-      "source": "Durham County Library",
-      "date": "2026-03-15",
-      "displayDate": "Mar 15, 2026",
-      "tags": [
-        "Community"
-      ],
-      "excerpt": "Durham County Library offers free library cards to all Durham County neighbors with proof of address. All branches provide books, e-books, computers, Wi-Fi, and free community programs. No fines for overdue materials at any branch."
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-28",
+  "updated": "2026-04-29",
   "note": "Edit this file to add or update meetings. Status values: upcoming, minutes, cancelled.",
   "bodies": [
     {
@@ -1646,7 +1646,7 @@
         {
           "date": "2026-04-28",
           "type": "Regular Meeting",
-          "status": "upcoming",
+          "status": "minutes",
           "links": [
             {
               "label": "View Most Recent Agendas and Minutes",
