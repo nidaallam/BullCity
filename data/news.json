@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-29",
+  "updated": "2026-04-30",
   "count": 25,
   "stories": [
     {
@@ -21,6 +21,16 @@
       "displayDate": "April 29, 2026",
       "tag": "Public Safety",
       "image": "https://images.wral.com/20aacd01-3ba6-4423-a692-f0fd35bbe4d2?w=1200&h=630"
+    },
+    {
+      "title": "Durham Could Impose a Two-Year Data Center Moratorium",
+      "excerpt": "The City Council is expected to hold a public hearing on the proposal Monday night.",
+      "link": "https://indyweek.com/news/durham-could-impose-a-two-year-data-center-moratorium/",
+      "source": "Indy Week",
+      "date": "2026-04-29",
+      "displayDate": "April 29, 2026",
+      "tag": "County",
+      "image": "https://indyweek.com/wp-content/uploads/2026/04/2026-04-29-durham-data-center-moratorium-illo-npm.jpg"
     },
     {
       "title": "NC man charged with felony child abuse, warrants describe malnutrition, developmental delays",
@@ -246,17 +256,6 @@
       "date": "2026-04-09",
       "displayDate": "April 9, 2026",
       "tag": "Housing"
-    },
-    {
-      "title": "BOCC Budget Work Sessions Begin in April",
-      "link": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/BOCC-Agendas-and-Video-Library",
-      "source": "Durham County",
-      "date": "2026-04-07",
-      "displayDate": "Apr 7, 2026",
-      "tags": [
-        "Budget"
-      ],
-      "excerpt": "The Durham County Board of Commissioners is holding a series of budget work sessions throughout April and May to review departmental requests ahead of the County Manager's recommended budget presentation on May 11. Agendas and video recordings are posted on the BOCC agenda library page."
     }
   ]
 }
