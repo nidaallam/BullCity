@@ -1,7 +1,47 @@
 {
-  "updated": "2026-05-03",
+  "updated": "2026-05-04",
   "count": 25,
   "stories": [
+    {
+      "title": "Person stabbed at Amazon facility near RTP, employees return to building",
+      "excerpt": "A person was stabbed Monday at an Amazon facility near RTP. According to Durham police, the scene has cleared and all employees have returned to the building.",
+      "link": "https://www.wral.com/news/local/assault-reported-durham-amazon-facility-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-04",
+      "displayDate": "May 4, 2026",
+      "tag": "Public Safety",
+      "image": "https://images.wral.com/asset/news/local/2026/05/04/22354781/NOON_Amazon_Stabbing-DMID1-6avmd2jx8-1280x720.jpg?w=1200&h=630&height=630"
+    },
+    {
+      "title": "Person killed in fiery crash on I-85 ramp to I-885 in Durham",
+      "excerpt": "A deadly crash shut down an Interstate 885 southbound ramp off I-85 in Durham early Monday morning.",
+      "link": "https://www.wral.com/news/local/person-killed-fiery-crash-along-i-85-durham-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-04",
+      "displayDate": "May 4, 2026",
+      "tag": "County",
+      "image": "https://images.wral.com/asset/news/local/2026/05/04/22354703/screenshot_22_-DMID1-6avj6ov8j-1280x720.jpg?w=1200&h=630&height=630"
+    },
+    {
+      "title": "Police: Woman stabbed, sent to Durham hospital",
+      "excerpt": "According to the Durham Police Department, officers were called to a reported stabbing around 2:38 p.m. on Liberty Street. At the scene, they found a woman who had been stabbed.",
+      "link": "https://www.wral.com/news/local/woman-stabbed-liberty-street-durham-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-04",
+      "displayDate": "May 4, 2026",
+      "tag": "Health",
+      "image": "https://images.wral.com/01d2e3b8-d49a-4ec9-8356-ec1ee2745b5e?w=1200&h=630"
+    },
+    {
+      "title": "Stabbing reported at Amazon facility in Durham, employees allowed back inside, police say",
+      "excerpt": "Police in Durham are investigating a stabbing at the Amazon facility on National Way.",
+      "link": "https://abc11.com/post/amazon-nc-assault-reported-facility-durham-building-evacuated/19035358/",
+      "source": "ABC11 / WTVD",
+      "date": "2026-05-04",
+      "displayDate": "May 4, 2026",
+      "tag": "Public Safety",
+      "image": "https://cdn.abcotvs.com/dip/images/19035343_AmazonFacility.jpg?w=1600"
+    },
     {
       "title": "North Carolina burn ban lifted for 81 counties, including Wake and Durham",
       "excerpt": "A statewide burn ban was lifted for dozens of counties on Sunday, according to the North Carolina Forest Service.",
@@ -212,48 +252,6 @@
         "Budget"
       ],
       "excerpt": "County Manager Claudia Hager will present the recommended FY2026-27 budget to the Board of Commissioners on May 11. A public hearing is scheduled for May 26 at 7 PM at 200 E. Main St. The Board is expected to adopt the budget at its June 8 meeting."
-    },
-    {
-      "title": "Triangle Counties Come Out Against Proposed Cap on Local Property Taxes",
-      "excerpt": "Durham, Orange, and Wake counties warn that a potential constitutional amendment limiting property tax increases would jeopardize critical services.",
-      "link": "https://indyweek.com/news/triangle-counties-come-out-against-proposed-cap-on-local-property-taxes/",
-      "source": "Indy Week",
-      "date": "2026-04-22",
-      "displayDate": "April 22, 2026",
-      "tag": "County",
-      "image": "https://indyweek.com/wp-content/uploads/2026/04/2026-04-21-property-taxes-npm.jpg"
-    },
-    {
-      "title": "Feds Fine Durham-Based Energy Efficiency Company $722 Million",
-      "excerpt": "American Efficient says it incentivizes energy savings. One FERC commissioner claims “their entire business is a scam.”",
-      "link": "https://indyweek.com/news/business/american-efficient-ferc-durham-fine/",
-      "source": "Indy Week",
-      "date": "2026-04-22",
-      "displayDate": "April 22, 2026",
-      "tag": "Transit",
-      "image": "https://i0.wp.com/indyweek.com/wp-content/uploads/2026/04/AP25111623944517-scaled-1.jpg?fit=2560%2C1920&ssl=1"
-    },
-    {
-      "title": "Earth Month Profile: Marc Maximov, Bike Durham",
-      "excerpt": "Longtime cyclist and Bike Durham board member Marc Maximov shares his roadmap for embracing life without a car.",
-      "link": "https://indyweek.com/news/earth-month-profile-marc-maximov-bike-durham/",
-      "source": "Indy Week",
-      "date": "2026-04-22",
-      "displayDate": "April 22, 2026",
-      "tag": "County",
-      "image": "https://indyweek.com/wp-content/uploads/2026/04/earthday-profiles-markm-mauve.jpg"
-    },
-    {
-      "title": "Budget Public Hearing: Have Your Say on May 26",
-      "link": "https://www.dconc.gov/Board-of-Commissioners/Meetings-and-Announcements/Rules-for-Citizens-and-Public-Comment",
-      "source": "Durham County",
-      "date": "2026-04-20",
-      "displayDate": "Apr 20, 2026",
-      "tags": [
-        "Budget",
-        "Community"
-      ],
-      "excerpt": "Durham County will hold a public hearing on the FY2026-27 budget on May 26 at 7 PM in the Commissioners Chambers at 200 E. Main St. Neighbors can sign up to speak in person or submit written comments to the Board."
     }
   ]
 }
