@@ -1244,12 +1244,87 @@ async function fetchWeatherAlerts() {
   } catch (_) {}
 }
 
+// ── Feedback widget ───────────────────────────────────────────
+function injectFeedbackWidget() {
+  const FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdL2mJNFVTuGrXr-nCKaLx98BdkYObzoAsqbloLqKrS1KQN0g/viewform?embedded=true';
+
+  const widget = document.createElement('div');
+  widget.id = 'fb-widget';
+  widget.innerHTML = `
+    <div id="fb-tooltip">
+      <span>Got feedback? We'd love to hear it!</span>
+      <button id="fb-tooltip-close" aria-label="Dismiss">✕</button>
+    </div>
+    <button id="fb-btn" aria-label="Open feedback form" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+      </svg>
+      Feedback
+    </button>
+    <div id="fb-panel" role="dialog" aria-modal="true" aria-label="Feedback form" hidden>
+      <div class="fb-panel-header">
+        <span>💬 Civic Hub Feedback</span>
+        <button id="fb-close" aria-label="Close feedback form">✕</button>
+      </div>
+      <div class="fb-panel-body">
+        <iframe src="${FORM_URL}" title="Civic Hub Feedback Form" frameborder="0" marginheight="0" marginwidth="0" loading="lazy">Loading…</iframe>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(widget);
+
+  const btn          = document.getElementById('fb-btn');
+  const panel        = document.getElementById('fb-panel');
+  const closeBtn     = document.getElementById('fb-close');
+  const tooltip      = document.getElementById('fb-tooltip');
+  const tooltipClose = document.getElementById('fb-tooltip-close');
+
+  function openPanel() {
+    panel.hidden = false;
+    btn.setAttribute('aria-expanded', 'true');
+    tooltip.classList.remove('fb-tooltip--visible');
+    btn.classList.add('fb-btn--active');
+  }
+  function closePanel() {
+    panel.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+    btn.classList.remove('fb-btn--active');
+  }
+  function dismissTooltip() {
+    tooltip.classList.remove('fb-tooltip--visible');
+    sessionStorage.setItem('fb-tooltip-seen', '1');
+  }
+
+  btn.addEventListener('click', () => panel.hidden ? openPanel() : closePanel());
+  closeBtn.addEventListener('click', closePanel);
+  tooltipClose.addEventListener('click', e => { e.stopPropagation(); dismissTooltip(); });
+  tooltip.addEventListener('click', openPanel);
+
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!panel.hidden && !widget.contains(e.target)) closePanel();
+  });
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !panel.hidden) closePanel();
+  });
+
+  // Show tooltip once per session after a short delay
+  if (!sessionStorage.getItem('fb-tooltip-seen')) {
+    setTimeout(() => {
+      tooltip.classList.add('fb-tooltip--visible');
+      setTimeout(dismissTooltip, 6000);
+    }, 2000);
+  }
+}
+
 // ── Init ──────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   // Inject search UI, nav dropdowns, and language selector on every page
   injectSearchUI();
   buildNavDropdowns();
   injectLanguageSelector();
+  injectFeedbackWidget();
   fetchWeatherAlerts();
 
   // Load Lucide icons (replaces emoji with consistent SVG icons)
