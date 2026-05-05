@@ -832,13 +832,13 @@ function injectLanguageSelector() {
   ];
 
   // ── Detect if we're already on a Google Translate proxy page ──
+  const CANONICAL = 'https://civichub.nidaallam.com';
   const isTranslated = location.hostname.endsWith('.translate.goog');
-  // Extract the real origin so "Back to English" navigates home
-  function realOrigin() {
-    // translate.goog hostnames look like: civichub-nidaallam-com.translate.goog
-    return isTranslated
-      ? 'https://' + location.hostname.replace(/\.translate\.goog$/, '').replace(/-/g, '.').replace(/\.com\./, '.com/')
-      : location.origin;
+
+  // Always returns the real canonical URL for the current page.
+  // On the translate.goog proxy, location.pathname is the same as the real page.
+  function pageUrl() {
+    return CANONICAL + location.pathname + (location.search || '');
   }
 
   const wrapper = document.createElement('div');
@@ -870,24 +870,17 @@ function injectLanguageSelector() {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  // ── Translation via Google Translate proxy (no widget needed) ──
-  // Sends the user to translate.google.com which serves the whole
-  // site translated — reliable, no JS dependency, works with CSP.
+  // ── Translation via Google Translate proxy ────────────────────
+  // Opens translate.google.com which serves the page translated.
+  // Always uses the hardcoded canonical domain — no fragile regex.
   function doTranslate(lang) {
     if (!lang) {
-      // Navigate back to the real (English) page
-      const path = isTranslated
-        ? location.pathname + location.search
-        : location.href;
-      location.href = isTranslated ? realOrigin() + path : location.href;
+      // "Back to English" — go to the real canonical page
+      location.href = pageUrl();
       return;
     }
-    const url = encodeURIComponent(
-      isTranslated
-        ? realOrigin() + location.pathname + location.search
-        : location.href
-    );
-    location.href = `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${url}`;
+    location.href =
+      `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${encodeURIComponent(pageUrl())}`;
   }
 
   dropdown.querySelectorAll('.nav-lang-option').forEach(a => {
