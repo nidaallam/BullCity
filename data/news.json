@@ -1,7 +1,17 @@
 {
-  "updated": "2026-05-04",
+  "updated": "2026-05-05",
   "count": 25,
   "stories": [
+    {
+      "title": "City of Durham Passes 60-Day Data Center Moratorium",
+      "excerpt": "City and county officials indicated they would explore a longer ban.",
+      "link": "https://indyweek.com/news/durham-passes-data-center-ban/",
+      "source": "Indy Week",
+      "date": "2026-05-05",
+      "displayDate": "May 5, 2026",
+      "tag": "County",
+      "image": "https://i0.wp.com/indyweek.com/wp-content/uploads/2025/06/20250422_AE_INDY_Durham_003-scaled.jpg?fit=2560%2C1707&ssl=1"
+    },
     {
       "title": "Person stabbed at Amazon facility near RTP, employees return to building",
       "excerpt": "A person was stabbed Monday at an Amazon facility near RTP. According to Durham police, the scene has cleared and all employees have returned to the building.",
@@ -41,6 +51,16 @@
       "displayDate": "May 4, 2026",
       "tag": "Public Safety",
       "image": "https://cdn.abcotvs.com/dip/images/19035343_AmazonFacility.jpg?w=1600"
+    },
+    {
+      "title": "Durham City Council passes 60-day moratorium on data center development",
+      "excerpt": "Durham City Council members said the 60 days will give them more time to come up with a plan going forward.",
+      "link": "https://www.wral.com/news/local/durham-city-council-data-center-meeting-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-04",
+      "displayDate": "May 4, 2026",
+      "tag": "Development",
+      "image": "https://images.wral.com/asset/news/local/2026/05/04/22354943/screenshot_783_-DMID1-6avs0i7pn-972x547.jpg?w=1200&h=630&height=630"
     },
     {
       "title": "North Carolina burn ban lifted for 81 counties, including Wake and Durham",
@@ -231,27 +251,6 @@
       "displayDate": "April 23, 2026",
       "tag": "Development",
       "image": "https://i0.wp.com/indyweek.com/wp-content/uploads/2026/04/MMNT_20260320_132144526-scaled.jpg?fit=2560%2C1920&ssl=1"
-    },
-    {
-      "title": "Housing, Eviction Diversion, Small Businesses: How Durham Has Allocated Pandemic Relief Money",
-      "excerpt": "The City of Durham has allocated more than $70 million in American Rescue Plan Act money.",
-      "link": "https://indyweek.com/news/housing-eviction-diversion-small-businesses-how-durham-has-allocated-pandemic-relief-money/",
-      "source": "Indy Week",
-      "date": "2026-04-23",
-      "displayDate": "April 23, 2026",
-      "tag": "Housing",
-      "image": "https://indyweek.com/wp-content/uploads/2025/04/2025-04-18-durham-reorg-city-hall-cityofdurham.webp"
-    },
-    {
-      "title": "County Manager to Present FY2026-27 Budget on May 11",
-      "link": "https://www.dconc.gov/Budget-and-Management-Services",
-      "source": "Durham County",
-      "date": "2026-04-22",
-      "displayDate": "Apr 22, 2026",
-      "tags": [
-        "Budget"
-      ],
-      "excerpt": "County Manager Claudia Hager will present the recommended FY2026-27 budget to the Board of Commissioners on May 11. A public hearing is scheduled for May 26 at 7 PM at 200 E. Main St. The Board is expected to adopt the budget at its June 8 meeting."
     }
   ]
 }
