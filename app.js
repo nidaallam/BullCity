@@ -831,6 +831,16 @@ function injectLanguageSelector() {
     { code: 'am',    label: 'አማርኛ' },
   ];
 
+  // ── Detect if we're already on a Google Translate proxy page ──
+  const isTranslated = location.hostname.endsWith('.translate.goog');
+  // Extract the real origin so "Back to English" navigates home
+  function realOrigin() {
+    // translate.goog hostnames look like: civichub-nidaallam-com.translate.goog
+    return isTranslated
+      ? 'https://' + location.hostname.replace(/\.translate\.goog$/, '').replace(/-/g, '.').replace(/\.com\./, '.com/')
+      : location.origin;
+  }
+
   const wrapper = document.createElement('div');
   wrapper.className = 'nav-lang-wrap';
 
@@ -860,26 +870,24 @@ function injectLanguageSelector() {
     btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
+  // ── Translation via Google Translate proxy (no widget needed) ──
+  // Sends the user to translate.google.com which serves the whole
+  // site translated — reliable, no JS dependency, works with CSP.
   function doTranslate(lang) {
-    const select = document.querySelector('.goog-te-combo');
-    if (!select) {
-      // Widget not ready - retry in 400ms
-      setTimeout(() => doTranslate(lang), 400);
-      return;
-    }
     if (!lang) {
-      select.value = '';
-      select.dispatchEvent(new Event('change'));
-      // After reset, remove the translate bar by reloading cleanly
-      const exp = 'Thu, 01 Jan 1970 00:00:00 UTC';
-      document.cookie = `googtrans=; expires=${exp}; path=/`;
-      document.cookie = `googtrans=; expires=${exp}; path=/; domain=.${location.hostname}`;
-      document.cookie = `googtrans=; expires=${exp}; domain=${location.hostname}`;
-      location.reload();
+      // Navigate back to the real (English) page
+      const path = isTranslated
+        ? location.pathname + location.search
+        : location.href;
+      location.href = isTranslated ? realOrigin() + path : location.href;
       return;
     }
-    select.value = lang;
-    select.dispatchEvent(new Event('change', { bubbles: true }));
+    const url = encodeURIComponent(
+      isTranslated
+        ? realOrigin() + location.pathname + location.search
+        : location.href
+    );
+    location.href = `https://translate.google.com/translate?sl=auto&tl=${lang}&u=${url}`;
   }
 
   dropdown.querySelectorAll('.nav-lang-option').forEach(a => {
@@ -896,39 +904,8 @@ function injectLanguageSelector() {
     btn.setAttribute('aria-expanded', 'false');
   });
 
-  // ── Google Translate widget (hidden, client-side) ─────────────
-  const gtDiv = document.createElement('div');
-  gtDiv.id = 'google_translate_element';
-  gtDiv.style.cssText = 'position:absolute;left:-9999px;top:0;overflow:hidden;width:1px;height:1px;';
-  document.body.appendChild(gtDiv);
-
-  window.googleTranslateElementInit = function () {
-    try {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en',
-        includedLanguages: 'es,ar,vi,zh-CN,fr,pt,hi,tl,ko,am',
-        autoDisplay: false,
-      }, 'google_translate_element');
-    } catch (e) {}
-  };
-
-  const gtScript = document.createElement('script');
-  gtScript.src   = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-  gtScript.async = true;
-  document.head.appendChild(gtScript);
-
-  // Suppress Google's toolbar/banner
-  const gtStyle = document.createElement('style');
-  gtStyle.textContent =
-    '.goog-te-banner-frame.skiptranslate{display:none!important;}' +
-    '.goog-te-gadget{display:none!important;}' +
-    '.VIpgJd-ZVi9od-ORHb-OEVmcd{display:none!important;}' +
-    'body{top:0!important;}';
-  document.head.appendChild(gtStyle);
-
-  // ── Auto-translation disclaimer ───────────────────────────────
-  function showTranslationDisclaimer() {
-    if (document.getElementById('translate-disclaimer')) return;
+  // ── Show disclaimer banner when on translated proxy ────────────
+  if (isTranslated) {
     const banner = document.createElement('div');
     banner.id = 'translate-disclaimer';
     banner.setAttribute('role', 'status');
@@ -936,41 +913,12 @@ function injectLanguageSelector() {
       'background:var(--navy,#1A2B5F);color:#fff;font-family:\'Libre Franklin\',sans-serif;' +
       'font-size:.82rem;padding:.55rem 1rem;text-align:center;display:flex;align-items:center;' +
       'justify-content:center;gap:.5rem;flex-wrap:wrap;';
-    const resetHref = 'javascript:void(0)';
     banner.innerHTML =
-      '<span>This page is auto-translated. I apologize in advance for any mistakes.</span>' +
+      '<span>This page is auto-translated. I apologize in advance for any mistakes!</span>' +
       '<button id="translate-reset-btn" style="background:none;border:none;color:#FAD4BD;font-family:\'Libre Franklin\',sans-serif;font-size:.82rem;font-weight:700;text-decoration:underline;cursor:pointer;padding:0;white-space:nowrap;">Back to English</button>';
     document.body.insertBefore(banner, document.body.firstChild);
-    document.getElementById('translate-reset-btn')?.addEventListener('click', () => {
-      doTranslate('');
-    });
+    document.getElementById('translate-reset-btn')?.addEventListener('click', () => doTranslate(''));
   }
-
-  function removeTranslationDisclaimer() {
-    document.getElementById('translate-disclaimer')?.remove();
-  }
-
-  // Show on load if previously translated (cookie persists across pages)
-  const _gtCookieMatch = document.cookie.match(/(?:^|;)\s*googtrans=\/en\/([a-z-]+)/);
-  if (_gtCookieMatch && _gtCookieMatch[1] !== 'en') {
-    showTranslationDisclaimer();
-    // Re-apply translation after widget loads
-    setTimeout(() => {
-      const sel = document.querySelector('.goog-te-combo');
-      if (sel && !sel.value) { sel.value = _gtCookieMatch[1]; sel.dispatchEvent(new Event('change')); }
-    }, 1000);
-  }
-
-  // Update doTranslate to manage the disclaimer
-  const _doTranslateOrig = doTranslate;
-  doTranslate = function(lang) {
-    _doTranslateOrig(lang);
-    if (lang) {
-      setTimeout(showTranslationDisclaimer, 800);
-    } else {
-      removeTranslationDisclaimer();
-    }
-  };
 }
 
 // ── Officials (voting page) ───────────────────────────────────
