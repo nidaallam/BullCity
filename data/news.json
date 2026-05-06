@@ -1,7 +1,27 @@
 {
-  "updated": "2026-05-05",
+  "updated": "2026-05-06",
   "count": 25,
   "stories": [
+    {
+      "title": "Breeze Airways adds five new non-stop routes to Raleigh-Durham Airport",
+      "excerpt": "Breeze Airways will launch five new non-stop routes from RDU this week.",
+      "link": "https://www.wral.com/news/local/breeze-airways-rdu-new-routes-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-06",
+      "displayDate": "May 6, 2026",
+      "tag": "County",
+      "image": "https://images.wral.com/13dc9e9a-7c08-497d-838a-1dbfeaec4625?w=1200&h=630"
+    },
+    {
+      "title": "Man seriously injured in Durham drive-by shooting",
+      "excerpt": "A man was shot by someone in a passing car on Morehead Avenue in Durham.",
+      "link": "https://abc11.com/post/morehead-avenue-durham-nc-shooting-man-injured-drive/19047330/",
+      "source": "ABC11 / WTVD",
+      "date": "2026-05-06",
+      "displayDate": "May 6, 2026",
+      "tag": "County",
+      "image": "https://cdn.abcotvs.com/dip/images/19048029_050526-wtvd-durham-drive-by-clean-img.jpg?w=1600"
+    },
     {
       "title": "City of Durham Passes 60-Day Data Center Moratorium",
       "excerpt": "City and county officials indicated they would explore a longer ban.",
@@ -11,6 +31,36 @@
       "displayDate": "May 5, 2026",
       "tag": "County",
       "image": "https://i0.wp.com/indyweek.com/wp-content/uploads/2025/06/20250422_AE_INDY_Durham_003-scaled.jpg?fit=2560%2C1707&ssl=1"
+    },
+    {
+      "title": "Man hospitalized in drive-by shooting at Durham cemetery",
+      "excerpt": "According to the Durham Police Department, officers were called to reports of shots fired around 4:49 p.m. on Morehead Avenue. When they arrived, they found a man with a gunshot wound.",
+      "link": "https://www.wral.com/news/local/durham-cemetary-drive-by-shooting-morehead-avenue-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-05",
+      "displayDate": "May 5, 2026",
+      "tag": "Health",
+      "image": "https://images.wral.com/430c4897-63ba-4e74-a827-77b8cfcfd941?w=1200&h=630"
+    },
+    {
+      "title": "Durham County Sheriff's Office welcomes new K-9 deputy",
+      "excerpt": "K-9 Deputy Lucky is now on assignment after 11 weeks of training with his handler.",
+      "link": "https://www.wral.com/news/local/new-durham-county-k9-deputy-lucky-may-2026/",
+      "source": "WRAL News",
+      "date": "2026-05-05",
+      "displayDate": "May 5, 2026",
+      "tag": "Public Safety",
+      "image": "https://images.wral.com/cd9b8f60-e674-40cc-a0b9-1e77e06d5e68?w=1200&h=630"
+    },
+    {
+      "title": "Neighborhood Newsletters: Filling a Gap Left by Local Newspapers’ Decline",
+      "excerpt": "In Durham, volunteer-run neighborhood print publications help residents get to know their community better.",
+      "link": "https://indyweek.com/news/culture/neighborhood-newsletters-filling-a-gap-left-by-local-newspapers-decline/",
+      "source": "Indy Week",
+      "date": "2026-05-05",
+      "displayDate": "May 5, 2026",
+      "tag": "County",
+      "image": "https://indyweek.com/wp-content/uploads/2026/05/IMG_1615.jpg"
     },
     {
       "title": "Person stabbed at Amazon facility near RTP, employees return to building",
@@ -201,56 +251,6 @@
       "displayDate": "April 27, 2026",
       "tag": "County",
       "image": "https://images.wral.com/asset/news/local/2024/03/08/21319566/3246884-monica-DMID1-627c3x449-1280x720.jpg?w=1200&h=630&height=630"
-    },
-    {
-      "title": "Fake federal court warrant nearly costs Durham resident $30K, sheriff warns",
-      "excerpt": "Durham sheriff warns scammers are impersonating federal courts with fake arrest warrants that look real.",
-      "link": "https://abc11.com/post/durham-county-sheriff-alerts-public-convincing-federal-court-phone-scam/18972011/",
-      "source": "ABC11 / WTVD",
-      "date": "2026-04-26",
-      "displayDate": "April 26, 2026",
-      "tag": "Public Safety",
-      "image": "https://cdn.abcotvs.com/dip/images/18972063_durham-scam-img.jpg?w=1600"
-    },
-    {
-      "title": "Durham schools prioritizing wellness to curb chronic absenteeism",
-      "excerpt": "Attendance in Durham Public Schools has not rebounded since the pandemic, with new district data showing that at least 37% of students are frequently missing class.",
-      "link": "https://abc11.com/post/durham-schools-prioritizing-wellness-curb-chronic-absenteeism/18960521/",
-      "source": "ABC11 / WTVD",
-      "date": "2026-04-24",
-      "displayDate": "April 24, 2026",
-      "tag": "Schools",
-      "image": "https://cdn.abcotvs.com/dip/images/18960955_042426-wtvd-dps-bus-img.jpg?w=1600"
-    },
-    {
-      "title": "Large outdoor party ends with 5 shot, 1 dead. Who is to blame?",
-      "excerpt": "Social media posts describing a Zebulon party where five people were shot suggested it was for North Carolina Central University students to celebrate the end of the semester.",
-      "link": "https://www.wral.com/news/local/nc-central-accountability-zebulon-shooting-april-2026/",
-      "source": "WRAL News",
-      "date": "2026-04-23",
-      "displayDate": "April 23, 2026",
-      "tag": "County",
-      "image": "https://images.wral.com/asset/news/local/2026/04/23/22351119/3294831-wake_shooting1-DMID1-6arb9vjqp-1920x1080.jpg?w=1200&h=630&height=630"
-    },
-    {
-      "title": "A Durham Death Doula’s Guide for Better Living and Dying",
-      "excerpt": "In a culture that will do anything to avoid talking about mortality, how should we think about death ? In a new book, Jane K. Callahan offers an  honest, empowering framework for preparing for the end.",
-      "link": "https://indyweek.com/news/culture/a-death-doulas-guide-to-a-meaningful-end-jane-callahan/",
-      "source": "Indy Week",
-      "date": "2026-04-23",
-      "displayDate": "April 23, 2026",
-      "tag": "County",
-      "image": "https://indyweek.com/wp-content/uploads/2026/04/2026-04-17-page-death-doula-jane-callahan-composite-with-book.jpg"
-    },
-    {
-      "title": "More Than 50 Years After Zoning Paved the Way for Development of Black Meadow Ridge, Half the Site Is Being Preserved",
-      "excerpt": "The Eno River Association helped spare 27 acres near West Point on the Eno from development. But the question remains: Why wasn’t Black Meadow Ridge protected to begin with?",
-      "link": "https://indyweek.com/news/black-meadow-ridge-history-eno-village/",
-      "source": "Indy Week",
-      "date": "2026-04-23",
-      "displayDate": "April 23, 2026",
-      "tag": "Development",
-      "image": "https://i0.wp.com/indyweek.com/wp-content/uploads/2026/04/MMNT_20260320_132144526-scaled.jpg?fit=2560%2C1920&ssl=1"
     }
   ]
 }
